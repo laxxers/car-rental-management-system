@@ -50,12 +50,12 @@
 			}
 			
 			echo form_label('Username', 'username');
-			echo form_input(['name' => 'username', 'class' => 'form-control', 'value' => set_value('username'), 'placeholder' => 'Username', 'required' => 'required', 'autofocus' => 'autofocus']);
+			echo form_input(array('name' => 'username', 'class' => 'form-control', 'value' => set_value('username'), 'placeholder' => 'Username', 'required' => 'required', 'autofocus' => 'autofocus'));
 			echo '<br>';
 			echo form_label('Password', 'password');
-			echo form_password(['name' => 'password', 'class' => 'form-control', 'value' => set_value('password'), 'placeholder' => 'Password', 'required' => 'required']);
+			echo form_password(array('name' => 'password', 'class' => 'form-control', 'value' => set_value('password'), 'placeholder' => 'Password', 'required' => 'required'));
 			echo '<br>';
-			echo form_submit(['name' => 'submit', 'class' => 'btn btn-default', 'value' => 'Login']);
+			echo form_submit(array('name' => 'submit', 'class' => 'btn btn-default', 'value' => 'Login'));
 			echo '&nbsp or ';   
 			echo anchor('home/signup', 'create an account');
 			echo form_close();
