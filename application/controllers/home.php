@@ -19,14 +19,14 @@ class Home extends CI_Controller {
         	$query = $this->model_user->validate();
 
         	if($query) {
-        		redirect(base_url());
+        		redirect('home/profile');
         	} else {
         		$msg = "Username/Password combination is invalid. <br>";
         		$this->index($msg);
         	}
         }
 	}
-	
+		
 	function signup()
 	{
 		$data['main_content'] = 'signup_form';
@@ -36,12 +36,12 @@ class Home extends CI_Controller {
 	function create_member()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('first_name', 'Name', 'trim|required');
-		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
+		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required|alpha_dash');
+		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|alpha_dash');
 		$this->form_validation->set_rules('gender', 'Gender', 'trim|required');
 		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]|strong_pass[3]');
 		$this->form_validation->set_rules('password2', 'Password Confirmation', 'trim|required|matches[password]');
 		
 		
@@ -55,9 +55,8 @@ class Home extends CI_Controller {
 			
 			if($query = $this->model_user->create_member())
 			{
-				echo "Signed";
-				// $data['main_content'] = 'signup_successful';
-				// $this->load->view('includes/template', $data);
+				echo "Signup Successfully";
+				echo anchor('home/login', 'Login');
 			}
 			else
 			{
@@ -65,6 +64,11 @@ class Home extends CI_Controller {
 			}
 		}
 		
+	}
+	
+	function profile()
+	{
+		$this->load->view('view_profile');
 	}
 
 	public function logout() {
