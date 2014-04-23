@@ -6,7 +6,7 @@
   #  http://www.example.com/mypage/test1
   # then use
   # RewriteBase /mypage/test1/
-  RewriteBase /
+  RewriteBase /Share
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

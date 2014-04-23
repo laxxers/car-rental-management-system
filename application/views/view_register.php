@@ -16,7 +16,7 @@
 		<fieldset>
 		<legend>Personal Information</legend>
 			<?php
-			echo form_open('/register/create_user', ['id' => 'personal_info', 'class' => 'form-signin', 'role' => 'form']);
+			echo form_open('/register/create_user', array('id' => 'personal_info', 'class' => 'form-signin', 'role' => 'form'));
 			echo form_label('First Name', 'first_name');
 			echo form_input(array('name' => 'first_name', 'class' => 'form-control', 'value' => set_value('first_name'), 'placeholder' => 'First Name', 'required' => 'required', 'autofocus' => 'autofocus'));
 			echo '<br>';
@@ -43,7 +43,7 @@
 		<fieldset>
 			<legend>Login Info</legend>
 			<?php
-			echo form_open('/register/create_user', ['id' => 'login_info', 'class' => 'form-signin', 'role' => 'form']);
+			echo form_open('/register/create_user', array('id' => 'login_info', 'class' => 'form-signin', 'role' => 'form'));
 			echo form_input(array('name' => 'accounttype', 'class' => 'hidden', 'value' => 'user'));
 			//echo 'Account Type:';
 			//$options = array(

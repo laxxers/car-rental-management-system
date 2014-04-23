@@ -2,7 +2,7 @@
 		<div class="row">
 		<div class="col-md-4 col-md-offset-4">
 		<?php 
-			echo form_open('/login/session', ['id' => 'login', 'class' => 'form-signin well', 'role' => 'form']);
+			echo form_open('/login/session', array('id' => 'login', 'class' => 'form-signin well', 'role' => 'form'));
 			if($msg != NULL) {
 				echo '<div class="alert alert-danger alert-dismissable">
 		  			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
