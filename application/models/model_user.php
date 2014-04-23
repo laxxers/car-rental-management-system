@@ -48,4 +48,20 @@ class Model_user extends CI_Model {
 		}
 		
 	}
+	
+	function edit_info()
+	{
+		$id = $this->session->userdata('id');
+	
+		$new_first_name = $this->input->post('first_name');
+		$new_last_name = $this->input->post('last_name');
+		$new_email_address = $this->input->post('email_address');
+		
+		$sql_update =  $this->db->query("UPDATE users 
+										SET first_name = '$new_first_name',
+										last_name = '$new_last_name' ,
+										email_address = '$new_email_address'
+										WHERE id = $id ");
+		return $sql_update;
+	}
 }

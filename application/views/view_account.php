@@ -2,11 +2,7 @@
 	$status = $this->session->userdata('loggedIn');
 	$id = $this->session->userdata('id');
 	$username = $this->session->userdata('username');
-	
-	//echo '<pre>';
-	//print_r($this->session->all_userdata());
-	//echo '</pre>';
-
+		
 	if($status) {
 		$sql = mysql_query("SELECT * FROM users WHERE id='$id' LIMIT 1");
 		$count = mysql_num_rows($sql);
@@ -30,32 +26,36 @@
 	<head>
 		<title>Welcome Back</title>
 	</head>
-
-	<body>		
 	
-	<?php
-		// show all users
-		// $query = $this->db->query("SELECT * FROM users");
-		// echo $this->table->generate($query);
-	?>
-	<table >
-		<th>Profile</th>
+	<style type="text/css">
+	body {margin: 0px}
+	</style>
+	
+	<body>	
+
+	<table style="background-color: #CCC" width="100%" border="0" cellpadding="12">
 		<tr>
 			<td>
-				<img src="<?php echo base_url();?>/pic/<?php echo "$id"; ?>/pic1.jpg" alt ="Upload Picture" width="150"/>
+				<h1>!!!</h1>
 			</td>
-		</tr>
+			
+			<td>
+				<?php echo anchor('home/profile', $username); ?> &bull;
+				<?php echo anchor('home/view_account', 'Account'); ?> &bull;
+				<?php echo anchor('home/logout', 'Logout'); ?>
+			</td>
+		</tr>	
+	</table >
+	
+	<table width="768" cellpadding="3" cellspacing="3" style="line-height:1.5em;">
 		<tr>
 			<td >
-				First Name:   <?php echo $first_name ?> 	<br>
-				Last Name:    <?php echo $last_name ?>  	<br>
-				Gender:       <?php echo $gender ?>   		<br>
-				Email Address:<?php echo $email_address ?>  <br>
-				Signup Date:  <?php echo $signupdate ?>  	<br>
-				Acccount Type:<?php echo $accounttype ?> 	<br>
+				<?php echo anchor('home/view_edit_info', 'Edit Information '); ?><br />
+				<?php echo anchor('home/view_edit_pic', 'Edit Picture '); ?><br />
+				<?php echo anchor('home/view_add_details', 'Add Rent Details '); ?><br />
 			</td>
 		</tr>
-	</table>	
-		
+	</table>
+	
 	</body>
 </html>

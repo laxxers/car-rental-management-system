@@ -40,8 +40,11 @@
 				    		<li class='dropdown'>
 				    			<a href='#'' class='dropdown-toggle' data-toggle='dropdown'>". $username ." <b class='caret'></b></a>
 				    			<ul class='dropdown-menu'>
-	               				<li><a href='" . base_url() . "home/profile'>Profile</a></li>
-	                			<li><a href='#'>Settings</a></li>
+	               				<li><a href='" . base_url() . "'>Home</a></li>
+	               				<li><a href='" . base_url() . "Profile/view_profile'>Profile</a></li>
+	                			<li><a href='" . base_url() . "Profile/add_details'>Add Details</a></li>
+	                			<li><a href='" . base_url() . "Profile/do_upload'>Add Picture</a></li>
+	                			<li><a href='" . base_url() . "Profile/edit_info'>Settings</a></li>
 	                			<li class='divider'></li>
 	                			<li><a href='" . base_url() . "home/logout'>Logout</a></li>
 	              				</ul>

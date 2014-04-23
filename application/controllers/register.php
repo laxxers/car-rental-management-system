@@ -33,7 +33,7 @@ class Register extends CI_Controller {
 			{
 				//Implement later: Auto logged in after sign up!
 				$this->load->view('header');
-				$this->load->view('view_home');	
+				echo "<h1>&nbsp &nbsp &nbsp &nbsp &nbsp Sign Up Successfully</h1>";
 				$this->load->view('footer');
 			}
 			else

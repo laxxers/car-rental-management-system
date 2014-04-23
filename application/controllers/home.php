@@ -7,14 +7,6 @@ class Home extends CI_Controller {
 		$this->load->view('view_home', $data);
 		$this->load->view('footer');
 	}
-	
-
-	
-	
-	function profile()
-	{
-		$this->load->view('view_profile');
-	}
 
 	public function logout() {
 		$this->session->sess_destroy();
