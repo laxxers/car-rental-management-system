@@ -17,7 +17,7 @@
 			echo '<br>';
 			echo form_submit(array('name' => 'submit', 'class' => 'btn btn-default', 'value' => 'Login'));
 			echo '&nbsp or ';   
-			echo anchor('home/signup', 'create an account');
+			echo anchor('/register', 'create an account');
 			echo form_close();
 
 		?>

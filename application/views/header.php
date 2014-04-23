@@ -31,15 +31,28 @@
 			    </div>  
 
 			    <div class="collapse navbar-collapse">
-			    	<?php
+			    	<ul class="nav navbar-nav navbar-right">
+			    		<?php 
 			    		$session = $this->session->userdata("loggedIn");
 			    		$username = $this->session->userdata("username");
 			    		if($session) {
-			    			echo "<p class='navbar-text navbar-right'>Signed in as <a href='/home/profile' class='navbar-link'>" . $username . "</a></p>";
+			    			echo "
+				    		<li class='dropdown'>
+				    			<a href='#'' class='dropdown-toggle' data-toggle='dropdown'>". $username ." <b class='caret'></b></a>
+				    			<ul class='dropdown-menu'>
+	               				<li><a href='" . base_url() . "home/profile'>Profile</a></li>
+	                			<li><a href='#'>Settings</a></li>
+	                			<li class='divider'></li>
+	                			<li><a href='" . base_url() . "home/logout'>Logout</a></li>
+	              				</ul>
+				    		</li>";
+
 			    		} else {
-			    			echo "<a href='/login' class='btn btn-primary btn-success navbar-btn navbar-right'>Sign in</a>";
+			    			echo "<a href=' " . base_url() . "login' class='btn btn-primary btn-success navbar-btn navbar-right'>Sign in</a>";
 			    		}
-			    	?>
+			    		?>
+			    	</ul>
+			    	
 			    </div><!--/.nav-collapse -->
 
 			</div>

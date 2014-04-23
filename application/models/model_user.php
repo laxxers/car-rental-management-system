@@ -21,7 +21,7 @@ class Model_user extends CI_Model {
 		return false;
 	}
 	
-	function create_member()
+	function create_user()
 	{
 		$username = $this->input->post('username');
 		$sql_username_check = mysql_query("SELECT id FROM users WHERE username= '$username' LIMIT 1");
