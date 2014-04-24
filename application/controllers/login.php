@@ -23,7 +23,7 @@ class Login extends CI_Controller {
 		        $query = $this->model_user->validate();
 
 		    	if($query) {
-		        	redirect('/');
+		        	redirect(base_url() . "profile");
 		    	} else {
 		        	$msg = "Invalid combination. <br>";
 		        	$this->index($msg);

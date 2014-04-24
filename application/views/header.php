@@ -35,35 +35,38 @@
 						
 						<li><a href="<?php echo base_url();?>"><i class="glyphicon glyphicon-home"></i> Home</a></li>
 						
-						<li><a href='<?php echo base_url();?>Profile/view_profile'><i class="glyphicon glyphicon-user"></i> Profile</a></li>
+						<?php 
+							$session = $this->session->userdata("loggedIn");
+			    			if($session) {
+			    				echo "<li><a href='" . base_url() . "profile'><i class='glyphicon glyphicon-user'></i> Dashboard</a></li>"; 
+			    			}
+						?>
 						
-						<li><a href="#"><i class="glyphicon glyphicon-book"></i> Rent-A-Car Booking</a></li>
-					
-						<li><a href="#"><i class="glyphicon glyphicon-picture"></i> Vehicles Gallery</a></li>
+											
+						<li><a href="#"><i class="glyphicon glyphicon-picture"></i> Gallery</a></li>
 					
 					</ul>
 			    	<ul class="nav navbar-nav navbar-right">
 			    		<?php 
-			    		$session = $this->session->userdata("loggedIn");
-			    		$username = $this->session->userdata("username");
-			    		if($session) {
-			    			echo "
-				    		<li class='dropdown'>
-				    			<a href='#'' class='dropdown-toggle' data-toggle='dropdown'>". $username ." <b class='caret'></b></a>
-				    			<ul class='dropdown-menu'>
-	               				<li><a href='" . base_url() . "'>Home</a></li>
-	               				<li><a href='" . base_url() . "profile/view_profile'>Profile</a></li>
-	                			<li><a href='" . base_url() . "profile/add_details'>Add Details</a></li>
-	                			<li><a href='" . base_url() . "profile/do_upload'>Add Picture</a></li>
-	                			<li><a href='" . base_url() . "profile/edit_info'>Settings</a></li>
-	                			<li class='divider'></li>
-	                			<li><a href='" . base_url() . "home/logout'>Logout</a></li>
-	              				</ul>
-				    		</li>";
+			    			$username = $this->session->userdata("username");
+				    		if($session) {
+				    			echo "
+					    		<li class='dropdown'>
+					    			<a href='#'' class='dropdown-toggle' data-toggle='dropdown'>". $username ." <b class='caret'></b></a>
+					    			<ul class='dropdown-menu'>
+		               				<li><a href='" . base_url() . "'>Home</a></li>
+		               				<li><a href='" . base_url() . "profile'>Profile</a></li>
+		                			<li><a href='" . base_url() . "profile/add_details'>Add Details</a></li>
+		                			<li><a href='" . base_url() . "profile/do_upload'>Add Picture</a></li>
+		                			<li><a href='" . base_url() . "profile/edit_info'>Settings</a></li>
+		                			<li class='divider'></li>
+		                			<li><a href='" . base_url() . "home/logout'>Logout</a></li>
+		              				</ul>
+					    		</li>";
 
-			    		} else {
-			    			echo "<a href=' " . base_url() . "login' class='btn btn-primary btn-success navbar-btn navbar-right'>Sign in</a>";
-			    		}
+				    		} else {
+				    			echo "<a href=' " . base_url() . "login' class='btn btn-primary btn-success navbar-btn navbar-right'>Sign in</a>";
+				    		}
 			    		?>
 			    	</ul>
 			    	

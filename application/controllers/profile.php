@@ -1,7 +1,7 @@
 <?php
 
 class Profile extends CI_Controller {
-	function view_profile()
+	function index()
 	{
 		$this->load->view('header');
 		$this->load->view('view_profile');
@@ -54,7 +54,8 @@ class Profile extends CI_Controller {
 		if($this->form_validation->run() == FALSE)
 		{	
 			$this->load->view('header');
-			$this->load->view('edit_info');
+			$this->load->view('view_settings');
+			//$this->load->view('edit_info');
 			$this->load->view('footer');
 		}
 		else
@@ -70,7 +71,8 @@ class Profile extends CI_Controller {
 			else
 			{
 				$this->load->view('header');
-				$this->load->view('edit_info');
+				$this->load->view('view_settings');
+				//$this->load->view('edit_info');
 				$this->load->view('footer');
 			}
 		}

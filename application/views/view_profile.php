@@ -55,5 +55,7 @@
 		  		<li><a href="#">Profile</a></li>
 		  		<li><a href="#">Messages</a></li>
 			</ul>
+
+			Rent-A-Car-Booking-Form
 		</div>
 	</div>
