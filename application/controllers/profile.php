@@ -79,9 +79,33 @@ class Profile extends CI_Controller {
 	
 	function add_details()
 	{
-		$this->load->view('header');
-		$this->load->view('add_details');
-		$this->load->view('footer');
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('ic_no', 'Identification Card Number', 'trim|required|ic_no');
+		$this->form_validation->set_rules('li_no', 'Driving License Number', 'trim|required|li_no');
+		
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('header');
+			$this->load->view('add_details');	
+			$this->load->view('footer');	
+		}
+		else
+		{			
+			$this->load->model('model_user');
+			
+			if($query = $this->model_user->add_details())
+			{
+				$this->load->view('header');
+				echo "<h1>&nbsp &nbsp &nbsp &nbsp &nbsp IC and License Submitted Successfully</h1>";
+				$this->load->view('footer');
+			}
+			else
+			{
+				$this->load->view('header');
+				$this->load->view('add_details');	
+				$this->load->view('footer');		
+			}
+		}
 	}
 }
 

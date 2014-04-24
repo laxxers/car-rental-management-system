@@ -46,7 +46,6 @@ class Model_user extends CI_Model {
 			$insert = $this->db->insert('users', $new_member_insert_data);
 			return $insert;
 		}
-		
 	}
 	
 	function edit_info()
@@ -63,5 +62,23 @@ class Model_user extends CI_Model {
 										email_address = '$new_email_address'
 										WHERE id = $id ");
 		return $sql_update;
+	}
+	
+	function add_details()
+	{
+		$id = $this->session->userdata('id');
+		
+		$ic_no = $this->input->post('ic_no');
+		$li_no = $this->input->post('li_no');
+		
+		
+		$sql_add =  $this->db->query("UPDATE users 
+									  SET ic_no = '$ic_no',
+									      li_no = '$li_no'
+									  WHERE id = $id ");
+		
+		
+		return $sql_add;
+		
 	}
 }

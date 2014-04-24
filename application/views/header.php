@@ -33,9 +33,9 @@
 				<div class=" nav-collapse">
 					<ul class="nav navbar-nav">
 						
-						<li><a href="#"><i class="glyphicon glyphicon-home"></i>Home</a></li>
+						<li><a href="<?php echo base_url();?>"><i class="glyphicon glyphicon-home"></i>Home</a></li>
 						
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i>Profile</a></li>
+						<li><a href='<?php echo base_url();?>Profile/view_profile'><i class="glyphicon glyphicon-user"></i>Profile</a></li>
 						
 						<li><a href="#"><i class="glyphicon glyphicon-book"></i>Rent-A-Car Booking</a></li>
 					
