@@ -27,9 +27,23 @@
 			            <span class="icon-bar"></span>
 			            <span class="icon-bar"></span>
 			        </button>
-			        <a class="navbar-brand" href="/">Project name</a>
+			        <!-- <a class="navbar-brand" href="">Project name</a> -->
 			    </div>  
-
+				
+				<div class=" nav-collapse">
+					<ul class="nav navbar-nav">
+						
+						<li><a href="#"><i class="glyphicon glyphicon-home"></i>Home</a></li>
+						
+						<li><a href="#"><i class="glyphicon glyphicon-user"></i>Profile</a></li>
+						
+						<li><a href="#"><i class="glyphicon glyphicon-book"></i>Rent-A-Car Booking</a></li>
+					
+						<li><a href="#"><i class="glyphicon glyphicon-picture"></i>Vehicles Gallery</a></li>
+					
+					</ul>
+				</div>
+				
 			    <div class="collapse navbar-collapse">
 			    	<ul class="nav navbar-nav navbar-right">
 			    		<?php 
