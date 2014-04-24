@@ -21,6 +21,8 @@
 			$gender = $row["gender"];
 			$email_address = $row["email_address"];
 			$signupdate = strftime("%d %b %Y", strtotime($row['signupdate']));
+			$ic_no = $row["ic_no"];
+			$li_no = $row["li_no"];
 			$accounttype = $row["accounttype"];
 		}
 	} 
@@ -52,6 +54,11 @@
 				Gender:       <?php echo $gender ?>   		<br>
 				Email Address:<?php echo $email_address ?>  <br>
 				Signup Date:  <?php echo $signupdate ?>  	<br>
+				IC.No		  <?php echo $ic_no ?><br>
+				License.No:   <?php echo $li_no ?><br>
+				
+				<br>
+				<br>
 				Acccount Type:<?php echo $accounttype ?> 	<br>
 			</td>
 		</tr>

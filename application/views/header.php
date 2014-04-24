@@ -31,6 +31,16 @@
 			    </div>  
 				
 				<div class=" nav-collapse">
+<<<<<<< HEAD
+=======
+					<ul class="nav navbar-nav">
+						
+						<li><a href="<?php echo base_url();?>"><i class="glyphicon glyphicon-home"></i>Home</a></li>
+						
+						<li><a href='<?php echo base_url();?>Profile/view_profile'><i class="glyphicon glyphicon-user"></i>Profile</a></li>
+						
+						<li><a href="#"><i class="glyphicon glyphicon-book"></i>Rent-A-Car Booking</a></li>
+>>>>>>> b4010189d6a8bce479dea94ff7d551b3aef7b4b6
 					
 				</div>
 				
