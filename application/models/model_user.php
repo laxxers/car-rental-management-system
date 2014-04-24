@@ -39,7 +39,8 @@ class Model_user extends CI_Model {
 				'email_address' => $this->input->post('email_address'),			
 				'username' => $this->input->post('username'),
 				'password' => md5($this->input->post('password')),						
-				'accounttype' => $this->input->post('accounttype'),							
+				'accounttype' => $this->input->post('accounttype'),	
+				'verified' => $this->input->post('verified'),						
 				'signupdate' => date("Y-m-d H:i:s")					
 			);
 			

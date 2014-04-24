@@ -16,7 +16,7 @@ class Profile extends CI_Controller {
 		$config['file_name'] = 'pic1.jpg';
 		$config['upload_path'] = $pathToUpload;
 		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '100';
+		$config['max_size']	= '10000';
 		$config['overwrite'] = True;
 		
 		if ( ! file_exists($pathToUpload) )

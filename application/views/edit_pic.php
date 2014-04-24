@@ -12,7 +12,7 @@
 <br />
 <input type="file" name="userfile" size="20" />
 <br />
-<input type="submit" value="upload" />
+<?php echo form_submit(array('name' => 'submit', 'class' => 'btn btn-default', 'value' => 'Upload')); ?>
 
 </form>
 

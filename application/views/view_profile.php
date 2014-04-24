@@ -25,6 +25,7 @@
 			$ic_no = $row["ic_no"];
 			$li_no = $row["li_no"];
 			$accounttype = $row["accounttype"];
+			$verified = $row["verified"];
 		}
 	} 
 ?>
@@ -39,12 +40,20 @@
 				<ul class="list-group">
 			  		<li class="list-group-item"><span class="glyphicon glyphicon-envelope"></span><?php echo " " . $email_address ?>  <br></li>
 			  		<li class="list-group-item"><span class="glyphicon glyphicon-time"></span><?php echo " Joined on  " . $signupdate ?></li>
-			 		<li class="list-group-item">Morbi leo risus</li>
-			 		<li class="list-group-item">Porta ac consectetur ac</li>
-			  		<li class="list-group-item">Vestibulum at eros</li>
+			 		<?php 
+			 			if($verified) {
+			 				echo "<li class='list-group-item' style='color: green;'><span class='glyphicon glyphicon-ok'></span><strong> Verified</strong></li>";
+			 			} else {
+			 				echo "<li class='list-group-item' style='color: red;'><span class='glyphicon glyphicon-remove'></span><a href='" . base_url() . "profile/add_details' style='text-decoration: none; color: red;'><strong> Not verified</strong></a></li>";
+			 			}
+			 		?>
 				</ul>
 		</div>
-		<div class="col-xs-12 col-md-9 well">
-			Later.....
+		<div class="col-xs-12 col-md-9">
+			<ul class="nav nav-tabs">
+		 		<li class="active"><a href="#">Home</a></li>
+		  		<li><a href="#">Profile</a></li>
+		  		<li><a href="#">Messages</a></li>
+			</ul>
 		</div>
 	</div>

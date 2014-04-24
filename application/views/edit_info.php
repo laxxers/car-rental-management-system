@@ -34,13 +34,15 @@
 
 <h1>Edit Information</h1>
 <?php
-echo form_open('profile/edit_info');
-echo 'First Name:';
-echo form_input(array('name' => 'first_name','value' => $first_name));
-echo '<br> Last Name:';
-echo form_input(array('name' => 'last_name','value' => $last_name));
-echo '<br> Email Address:';
-echo form_input(array('name' => 'email_address','value' => $email_address));
-echo '<br>';
-echo form_submit('submit', 'Submit Changes');
+	echo form_open('profile/edit_info', array('id' => 'edit_info', 'class' => 'form-signin', 'role' => 'form'));
+	echo form_label('First Name', 'first_name');
+	echo form_input(array('name' => 'first_name', 'class' => 'form-control', 'value' => $first_name, 'required' => 'required', 'autofocus' => 'autofocus'));
+	echo '<br>';
+	echo form_label('Last Name', 'last_name');
+	echo form_input(array('name' => 'last_name', 'class' => 'form-control', 'value' => $last_name, 'required' => 'required'));
+	echo '<br>';
+	echo form_label('Email Address', 'email_address');
+	echo form_input(array('name' => 'email_address', 'class' => 'form-control', 'value' => $email_address, 'required' => 'required'));
+	echo '<br>';
+	echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Submit Changes'));
 ?>

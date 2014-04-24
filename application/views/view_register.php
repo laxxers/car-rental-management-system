@@ -45,6 +45,7 @@
 			<?php
 			echo form_open('/register/create_user', array('id' => 'login_info', 'class' => 'form-signin', 'role' => 'form'));
 			echo form_input(array('name' => 'accounttype', 'class' => 'hidden', 'value' => 'user'));
+			echo form_input(array('name' => 'verified', 'class' => 'hidden', 'value' => '0'));
 			//echo 'Account Type:';
 			//$options = array(
 			//	'admin'  => 'Admin',
