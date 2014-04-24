@@ -42,7 +42,7 @@
 		<th>Profile</th>
 		<tr>
 			<td>
-				<img src="<?php echo base_url();?>/pic/<?php echo "$id"; ?>/pic1.jpg" alt ="Upload Picture" width="150"/>
+				<img src="<?php echo base_url();?>pic/<?php echo "$id"; ?>/pic1.jpg" class="img-circle" alt ="Upload Picture" width="140"/>
 			</td>
 		</tr>
 		<tr>
