@@ -29,32 +29,19 @@
 			        </button>
 			        <!-- <a class="navbar-brand" href="">Project name</a> -->
 			    </div>  
-				
-				<div class=" nav-collapse">
-<<<<<<< HEAD
-=======
-					<ul class="nav navbar-nav">
-						
-						<li><a href="<?php echo base_url();?>"><i class="glyphicon glyphicon-home"></i>Home</a></li>
-						
-						<li><a href='<?php echo base_url();?>Profile/view_profile'><i class="glyphicon glyphicon-user"></i>Profile</a></li>
-						
-						<li><a href="#"><i class="glyphicon glyphicon-book"></i>Rent-A-Car Booking</a></li>
->>>>>>> b4010189d6a8bce479dea94ff7d551b3aef7b4b6
-					
-				</div>
-				
+								
 			    <div class="collapse navbar-collapse">
-			    	<ul class="nav navbar-nav">						
-						<li><a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+			    	<ul class="nav navbar-nav">
 						
-						<li><a href="#"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
+						<li><a href="<?php echo base_url();?>"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+						
+						<li><a href='<?php echo base_url();?>Profile/view_profile'><i class="glyphicon glyphicon-user"></i> Profile</a></li>
 						
 						<li><a href="#"><i class="glyphicon glyphicon-book"></i> Rent-A-Car Booking</a></li>
 					
-						<li><a href="#"><i class="glyphicon glyphicon-picture"></i> Vehicles Gallery</a></li>					
-					</ul>
+						<li><a href="#"><i class="glyphicon glyphicon-picture"></i> Vehicles Gallery</a></li>
 					
+					</ul>
 			    	<ul class="nav navbar-nav navbar-right">
 			    		<?php 
 			    		$session = $this->session->userdata("loggedIn");
@@ -65,10 +52,10 @@
 				    			<a href='#'' class='dropdown-toggle' data-toggle='dropdown'>". $username ." <b class='caret'></b></a>
 				    			<ul class='dropdown-menu'>
 	               				<li><a href='" . base_url() . "'>Home</a></li>
-	               				<li><a href='" . base_url() . "Profile/view_profile'>Profile</a></li>
-	                			<li><a href='" . base_url() . "Profile/add_details'>Add Details</a></li>
-	                			<li><a href='" . base_url() . "Profile/do_upload'>Add Picture</a></li>
-	                			<li><a href='" . base_url() . "Profile/edit_info'>Settings</a></li>
+	               				<li><a href='" . base_url() . "profile/view_profile'>Profile</a></li>
+	                			<li><a href='" . base_url() . "profile/add_details'>Add Details</a></li>
+	                			<li><a href='" . base_url() . "profile/do_upload'>Add Picture</a></li>
+	                			<li><a href='" . base_url() . "profile/edit_info'>Settings</a></li>
 	                			<li class='divider'></li>
 	                			<li><a href='" . base_url() . "home/logout'>Logout</a></li>
 	              				</ul>
