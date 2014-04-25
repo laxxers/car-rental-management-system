@@ -16,7 +16,7 @@
 		<?php
 			if($msg != NULL) {
 				echo "
-					<div class='alert alert-success alert-dismissable'>
+					<div class='alert alert-success alert-warning'>
 						<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 						<strong>" . $msg . "</strong>
 					</div>";
@@ -30,11 +30,12 @@
 					</div>";
 			}
 
-			$id = $this->session->userdata('id');
 			if(isset($error)) {
-				echo '<div class="alert alert-danger alert-dismissable">
+				echo '
+					<div class="alert alert-danger alert-dismissable">
 		  				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		  				<strong>' . $error . '</strong></div>';
+		  				<strong>' . $error . '</strong>
+		  			</div>';
 			} 
 		?>
 		
@@ -79,6 +80,7 @@
 					echo form_input(array('name' => 'email_address', 'class' => 'form-control', 'value' => $email_address, 'required' => 'required'));
 					echo '<br>';
 					echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Submit Changes'));
+					echo '</form>';
 				?>
 		  	</div>
 
@@ -86,19 +88,19 @@
 		  		<h3>Profile</h3>
 				<p class="help-block">This information appears on your public profile.</p>
 				<hr>
-		  		<?php  
-
-			 	?>
-
+		  		
 				<?php 
+					$id = $this->session->userdata('id');
 					echo "<img src='" . base_url() . "pic/" . $id ."/pic1.jpg' class='img-thumbnail' alt ='Profile Picture' width='250'/>";
+					echo '<br>';
 					echo form_open_multipart('profile/do_upload');
+					echo '<br>';
+					echo form_upload(array('name' => 'userfile', 'size' => '20'));
+					echo '<br>';
+					echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Upload'));
 				?>
 				<br />
-				<br />
-				<input type="file" name="userfile" size="20" />
-				<br />
-				<?php echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Upload')); ?>
+		
 
 				</form>
 		  	</div>
@@ -128,7 +130,7 @@
 					echo '<br>';
 					
 					echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Verify'));
-				
+					echo '</form>';
 				?>
 
 		  	</div>

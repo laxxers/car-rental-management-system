@@ -36,16 +36,14 @@ class Profile extends CI_Controller {
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload())
 		{
-			$error = array('error' => $this->upload->display_errors());
+			//$error = array('error' => $this->upload->display_errors());
 			
-			$this->settings($error);
+			$this->settings($this->upload->display_errors());
 		}
 		else
 		{
 			$data = array('upload_data' => $this->upload->data());
-			$this->load->view('header');
-			echo "<h1>&nbsp &nbsp &nbsp &nbsp &nbsp Upload Successfully</h1>";
-			$this->load->view('footer');
+			$this->settings("Successfully uploaded!");
 		}
 	}
 	
