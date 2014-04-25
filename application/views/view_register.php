@@ -1,18 +1,24 @@
 	<div class="row">
-	<div class="col-md-5">
+	<div class="col-xs-12 col-md-5">
 		<h1>Create an Account</h1>
+			<?php 
+				if(validation_errors() != false) {
+					echo "
+						<div class='alert alert-danger alert-dismissable'>
+			  				<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+			  				<strong>" . validation_errors() . "</strong>
+						</div>";
+				}
 
-		<?php 
-			if(validation_errors() != false) {
-				echo "
-					<div class='alert alert-danger alert-dismissable'>
-		  				<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-		  				<strong>" . validation_errors() . "</strong>
-					</div>";
-			}
-		?>
-		
-
+				if($msg != NULL) {
+					echo "
+						<div class='alert alert-danger alert-dismissable'>
+			  				<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+			  				<strong>" . $msg . "</strong>
+						</div>";
+				}
+			?>
+	
 		<fieldset>
 		<legend>Personal Information</legend>
 			<?php

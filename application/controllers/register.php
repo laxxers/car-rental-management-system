@@ -1,11 +1,12 @@
 <?php
 
 class Register extends CI_Controller {
-	public function index()
+	public function index($msg = NULL)
 	{
 		//$data['main_content'] = 'register';
+		$data['msg'] = $msg;
 		$this->load->view('header');
-		$this->load->view('view_register');
+		$this->load->view('view_register', $data);
 		$this->load->view('footer');
 	}
 
@@ -22,8 +23,9 @@ class Register extends CI_Controller {
 		
 		if($this->form_validation->run() == FALSE)
 		{
+			$data['msg'] = NULL;
 			$this->load->view('header');
-			$this->load->view('view_register');	
+			$this->load->view('view_register', $data);	
 			$this->load->view('footer');	
 		}
 		else
@@ -32,16 +34,12 @@ class Register extends CI_Controller {
 			
 			if($query = $this->model_user->create_user())
 			{
-				//Implement later: Auto logged in after sign up!
-				$this->load->view('header');
-				echo "<h1>&nbsp &nbsp &nbsp &nbsp &nbsp Sign Up Successfully</h1>";
-				$this->load->view('footer');
+				redirect(base_url() . 'login');
 			}
 			else
 			{
-				$this->load->view('header');
-				$this->load->view('view_register');	
-				$this->load->view('footer');		
+				$msg = "Username already in use, please choose another.";
+				$this->index($msg);
 			}
 		}
 		

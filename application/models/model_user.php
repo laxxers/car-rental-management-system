@@ -28,12 +28,7 @@ class Model_user extends CI_Model {
 		$username_check = mysql_num_rows($sql_username_check);
 		
 		if ($username_check > 0 ){ 
-			echo "
-				<div class='alert alert-danger alert-dismissable'>
-					<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-					<strong> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
-					User Name Existed In System (Please try another)</strong>
-				</div>";
+			return false;
 		}
 		else 
 		{
@@ -50,6 +45,7 @@ class Model_user extends CI_Model {
 				'signupdate' => date("Y-m-d H:i:s")					
 			);
 			
+
 			$insert = $this->db->insert('users', $new_member_insert_data);
 			return $insert;
 		}
