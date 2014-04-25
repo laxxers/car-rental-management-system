@@ -3,9 +3,9 @@
 	$id = $this->session->userdata('id');
 	$username = $this->session->userdata('username');
 	
-	//echo '<pre>';
-	//print_r($this->session->all_userdata());
-	//echo '</pre>';
+	// echo '<pre>';
+	// print_r($this->session->all_userdata());
+	// echo '</pre>';
 
 	if($status) {
 		$sql = mysql_query("SELECT * FROM users WHERE id='$id' LIMIT 1");

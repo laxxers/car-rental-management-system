@@ -2,4 +2,5 @@
 
 
 <!-- put here first, edit later -->
-<a href='./admin'> Admin Panel </a>
+<!-- <a href='<?php //echo base_url();?>admin'> Admin Panel </a> -->
+
