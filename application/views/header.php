@@ -54,13 +54,11 @@
 					    		<li class='dropdown'>
 					    			<a href='#'' class='dropdown-toggle' data-toggle='dropdown'>". $username ." <b class='caret'></b></a>
 					    			<ul class='dropdown-menu'>
-		               				<li><a href='" . base_url() . "'>Home</a></li>
-		               				<li><a href='" . base_url() . "profile'>Profile</a></li>
-		                			<li><a href='" . base_url() . "profile/add_details'>Add Details</a></li>
-		                			<li><a href='" . base_url() . "profile/do_upload'>Add Picture</a></li>
-		                			<li><a href='" . base_url() . "profile/edit_info'>Settings</a></li>
+		               				<li><a href='" . base_url() . "'><span class='glyphicon glyphicon-home'></span> Home</a></li>
+		               				<li><a href='" . base_url() . "profile'><span class='glyphicon glyphicon-user'></span> Dashboard</a></li>
+		                			<li><a href='" . base_url() . "profile/settings'><span class='glyphicon glyphicon-cog'></span> Settings</a></li>
 		                			<li class='divider'></li>
-		                			<li><a href='" . base_url() . "home/logout'>Logout</a></li>
+		                			<li><a href='" . base_url() . "home/logout'><span class='glyphicon glyphicon-off'></span> Logout</a></li>
 		              				</ul>
 					    		</li>";
 

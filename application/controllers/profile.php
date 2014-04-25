@@ -8,6 +8,13 @@ class Profile extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
+	function settings($msg = NULL) {
+		$data['msg'] = $msg;
+		$this->load->view('header');
+		$this->load->view('view_settings', $data);
+		$this->load->view('footer');
+	}
+
 	function do_upload()
 	{
 		$id = $this->session->userdata('id');
@@ -16,7 +23,7 @@ class Profile extends CI_Controller {
 		$config['file_name'] = 'pic1.jpg';
 		$config['upload_path'] = $pathToUpload;
 		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '10000';
+		$config['max_size']	= '100';
 		$config['overwrite'] = True;
 		
 		if ( ! file_exists($pathToUpload) )
@@ -31,9 +38,7 @@ class Profile extends CI_Controller {
 		{
 			$error = array('error' => $this->upload->display_errors());
 			
-			$this->load->view('header');
-			$this->load->view('edit_pic', $error);
-			$this->load->view('footer');
+			$this->settings($error);
 		}
 		else
 		{
@@ -44,7 +49,7 @@ class Profile extends CI_Controller {
 		}
 	}
 	
-	function edit_info()
+	function edit()
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required|alpha');
@@ -53,20 +58,15 @@ class Profile extends CI_Controller {
 		
 		if($this->form_validation->run() == FALSE)
 		{	
-			$this->load->view('header');
-			$this->load->view('view_settings');
-			//$this->load->view('edit_info');
-			$this->load->view('footer');
+			$this->settings(NULL);
 		}
 		else
 		{			
 			$this->load->model('model_user');
 			
-			if($query = $this->model_user->edit_info())
+			if($query = $this->model_user->edit_user())
 			{
-				$this->load->view('header');
-				echo "<h1>&nbsp &nbsp &nbsp &nbsp &nbsp Edit Successfully</h1>";
-				$this->load->view('footer');		
+				$this->settings("Successfully updated!");		
 			}
 			else
 			{
@@ -79,7 +79,7 @@ class Profile extends CI_Controller {
 		
 	}
 	
-	function add_details()
+	function verify()
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('ic_no', 'Identification Card Number', 'trim|required|ic_no');
@@ -87,19 +87,15 @@ class Profile extends CI_Controller {
 		
 		if($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('header');
-			$this->load->view('add_details');	
-			$this->load->view('footer');	
+			$this->settings(NULL);	
 		}
 		else
 		{			
 			$this->load->model('model_user');
 			
-			if($query = $this->model_user->add_details())
+			if($query = $this->model_user->verify_user())
 			{
-				$this->load->view('header');
-				echo "<h1>&nbsp &nbsp &nbsp &nbsp &nbsp IC and License Submitted Successfully</h1>";
-				$this->load->view('footer');
+				$this->settings("Successfully submitted! Please allow some time for the admin to review.");
 			}
 			else
 			{

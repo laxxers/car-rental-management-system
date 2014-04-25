@@ -5,11 +5,41 @@
 	<div class="col-xs-12 col-md-3">
 		<ul class="nav nav-pills nav-stacked" id="settingsPills">
 		  	<li class="active"><a href="#account" data-toggle="tab">Account</a></li>
+		  	<li><a href="#profile" data-toggle="tab">Profile</a></li>
 		  	<li><a href="#verification" data-toggle="tab">Verification</a></li>
 		</ul>
 	</div>
+	
+	<div class="col-xs-12 col-md-9">
 
-	<div class="col-xs-12 col-md-9 well">
+		<!-- All the messages/errors, including success, validation, upload -->
+		<?php
+			if($msg != NULL) {
+				echo "
+					<div class='alert alert-success alert-dismissable'>
+						<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+						<strong>" . $msg . "</strong>
+					</div>";
+				}
+
+			if(validation_errors() != false) {
+				echo "
+					<div class='alert alert-danger alert-dismissable'>
+						<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+						<strong>" . validation_errors() . "</strong>
+					</div>";
+			}
+
+			$id = $this->session->userdata('id');
+			if(isset($error)) {
+				echo '<div class="alert alert-danger alert-dismissable">
+		  				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		  				<strong>' . $error . '</strong></div>';
+			} 
+		?>
+		
+	</div>
+	<div class="col-xs-12 col-md-9">
 		<div class="tab-content">
 		  	<div class="tab-pane active" id="account">
 		  		<?php 
@@ -38,15 +68,7 @@
 				<p class="help-block">Change your basic account settings.</p>
 				<hr>
 				<?php
-
-					if(validation_errors() != false) {
-						echo "
-							<div class='alert alert-danger alert-dismissable'>
-								<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-								<strong>" . validation_errors() . "</strong>
-							</div>";
-					}
-					echo form_open('profile/edit_info', array('id' => 'edit_info', 'class' => 'form-signin', 'role' => 'form'));
+					echo form_open('profile/edit', array('id' => 'edit', 'class' => 'form-signin', 'role' => 'form'));
 					echo form_label('First Name', 'first_name');
 					echo form_input(array('name' => 'first_name', 'class' => 'form-control', 'value' => $first_name, 'required' => 'required', 'autofocus' => 'autofocus'));
 					echo '<br>';
@@ -59,19 +81,35 @@
 					echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Submit Changes'));
 				?>
 		  	</div>
+
+		  	<div class="tab-pane" id="profile">
+		  		<h3>Profile</h3>
+				<p class="help-block">This information appears on your public profile.</p>
+				<hr>
+		  		<?php  
+
+			 	?>
+
+				<?php 
+					echo "<img src='" . base_url() . "pic/" . $id ."/pic1.jpg' class='img-thumbnail' alt ='Profile Picture' width='250'/>";
+					echo form_open_multipart('profile/do_upload');
+				?>
+				<br />
+				<br />
+				<input type="file" name="userfile" size="20" />
+				<br />
+				<?php echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Upload')); ?>
+
+				</form>
+		  	</div>
+
 		  	<div class="tab-pane" id="verification">
 				<h3>Verification</h3>
 				<p class="help-block">Update your details to verify your account.</p>
 				<hr>
 				<?php
-					if(validation_errors() != false) {
-						echo "
-							<div class='alert alert-danger alert-dismissable'>
-					  			<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-					  			<strong>" . validation_errors() . "</strong>
-							</div>";
-					}
-					echo form_open('profile/add_details');
+
+					echo form_open('profile/verify', array('id' => 'verify', 'class' => 'form-signin', 'role' => 'form'));
 					
 					echo form_label('Identification Card Number:', 'ic_no');
 					echo form_input(array('name' => 'ic_no',
@@ -86,8 +124,7 @@
 									'class' => 'form-control',
 									'value' => set_value('li_no'),
 									'placeholder' => 'Licence Number',
-									'required' => 'required',
-									'autofocus' => 'autofocus'));
+									'required' => 'required'));
 					echo '<br>';
 					
 					echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Verify'));

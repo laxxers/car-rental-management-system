@@ -49,7 +49,7 @@ class Model_user extends CI_Model {
 		}
 	}
 	
-	function edit_info()
+	function edit_user()
 	{
 		$id = $this->session->userdata('id');
 	
@@ -65,7 +65,7 @@ class Model_user extends CI_Model {
 		return $sql_update;
 	}
 	
-	function add_details()
+	function verify_user()
 	{
 		$id = $this->session->userdata('id');
 		
