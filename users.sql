@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2014 at 12:28 PM
--- Server version: 5.6.12-log
--- PHP Version: 5.4.12
+-- Generation Time: Apr 25, 2014 at 09:40 AM
+-- Server version: 5.5.24-log
+-- PHP Version: 5.3.13
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -33,21 +33,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `gender` varchar(25) NOT NULL,
   `username` varchar(25) NOT NULL,
   `password` varchar(32) NOT NULL,
+  `password2` varchar(32) NOT NULL,
   `email_address` varchar(50) NOT NULL,
   `signupdate` datetime NOT NULL,
   `accounttype` varchar(25) NOT NULL,
   `verified` enum('0','1') NOT NULL DEFAULT '0',
-  `ic_no` varchar(25) DEFAULT NULL,
-  `li_no` varchar(25) DEFAULT NULL,
+  `ic_no` varchar(25) NOT NULL,
+  `li_no` varchar(25) NOT NULL,
   UNIQUE KEY `username` (`username`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 --
 -- Dumping data for table `users`
 --
-
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

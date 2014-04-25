@@ -62,6 +62,9 @@
 							$email_address = $row["email_address"];
 							$signupdate = strftime("%d %b %Y", strtotime($row['signupdate']));
 							$accounttype = $row["accounttype"];
+							$verified = $row["verified"];
+							$ic_no = $row["ic_no"];
+							$li_no = $row["li_no"];
 						}
 					} 
 				?>
@@ -80,7 +83,7 @@
 					echo form_input(array('name' => 'email_address', 'class' => 'form-control', 'value' => $email_address, 'required' => 'required'));
 					echo '<br>';
 					echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Submit Changes'));
-					echo '</form>';
+					echo form_close();
 				?>
 		  	</div>
 
@@ -95,9 +98,10 @@
 					echo '<br>';
 					echo form_open_multipart('profile/do_upload');
 					echo '<br>';
-					echo form_upload(array('name' => 'userfile', 'size' => '20'));
+					echo form_input(array('name' => 'userfile', 'type' => 'file')); 
 					echo '<br>';
 					echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Upload'));
+					echo form_close();
 				?>
 				<br />
 		
@@ -110,7 +114,6 @@
 				<p class="help-block">Update your details to verify your account.</p>
 				<hr>
 				<?php
-
 					echo form_open('profile/verify', array('id' => 'verify', 'class' => 'form-signin', 'role' => 'form'));
 					
 					echo form_label('Identification Card Number:', 'ic_no');
@@ -130,7 +133,8 @@
 					echo '<br>';
 					
 					echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Verify'));
-					echo '</form>';
+					echo form_close();
+					
 				?>
 
 		  	</div>

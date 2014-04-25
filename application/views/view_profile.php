@@ -41,10 +41,10 @@
 			  		<li class="list-group-item"><span class="glyphicon glyphicon-envelope"></span><?php echo " " . $email_address ?>  <br></li>
 			  		<li class="list-group-item"><span class="glyphicon glyphicon-time"></span><?php echo " Joined on  " . $signupdate ?></li>
 			 		<?php 
-			 			if($verified) {
+			 			if($verified == '1' && $ic_no != null &&  $li_no != null ) {
 			 				echo "<li class='list-group-item' style='color: green;'><span class='glyphicon glyphicon-ok'></span><strong> Verified</strong></li>";
 			 			} else {
-			 				echo "<li class='list-group-item' style='color: red;'><span class='glyphicon glyphicon-remove'></span><a href='" . base_url() . "profile/add_details' style='text-decoration: none; color: red;'><strong> Not verified</strong></a></li>";
+			 				echo "<li class='list-group-item' style='color: red;'><span class='glyphicon glyphicon-remove'></span><a href='" . base_url() . "profile/settings' style='text-decoration: none; color: red;'><strong> Not verified</strong></a></li>";
 			 			}
 			 		?>
 				</ul>

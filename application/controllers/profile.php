@@ -35,9 +35,7 @@ class Profile extends CI_Controller {
 
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload())
-		{
-			//$error = array('error' => $this->upload->display_errors());
-			
+		{			
 			$this->settings($this->upload->display_errors());
 		}
 		else
@@ -70,7 +68,6 @@ class Profile extends CI_Controller {
 			{
 				$this->load->view('header');
 				$this->load->view('view_settings');
-				//$this->load->view('edit_info');
 				$this->load->view('footer');
 			}
 		}
@@ -98,7 +95,7 @@ class Profile extends CI_Controller {
 			else
 			{
 				$this->load->view('header');
-				$this->load->view('add_details');	
+				$this->load->view('view_settings');	
 				$this->load->view('footer');		
 			}
 		}

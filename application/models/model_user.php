@@ -28,7 +28,12 @@ class Model_user extends CI_Model {
 		$username_check = mysql_num_rows($sql_username_check);
 		
 		if ($username_check > 0 ){ 
-			echo "<u>ERROR:</u><br />Your User Name is already in use inside our system. Please try another.";
+			echo "
+				<div class='alert alert-danger alert-dismissable'>
+					<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+					<strong> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+					User Name Existed In System (Please try another)</strong>
+				</div>";
 		}
 		else 
 		{
@@ -39,6 +44,7 @@ class Model_user extends CI_Model {
 				'email_address' => $this->input->post('email_address'),			
 				'username' => $this->input->post('username'),
 				'password' => md5($this->input->post('password')),						
+				'password2' => md5($this->input->post('password2')),						
 				'accounttype' => $this->input->post('accounttype'),	
 				'verified' => $this->input->post('verified'),						
 				'signupdate' => date("Y-m-d H:i:s")					
@@ -72,10 +78,10 @@ class Model_user extends CI_Model {
 		$ic_no = $this->input->post('ic_no');
 		$li_no = $this->input->post('li_no');
 		
-		
 		$sql_add =  $this->db->query("UPDATE users 
 									  SET ic_no = '$ic_no',
-									      li_no = '$li_no'
+									      li_no = '$li_no',
+										  verified = '1'
 									  WHERE id = $id ");
 		
 		
