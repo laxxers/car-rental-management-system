@@ -42,24 +42,22 @@
 							$row = mysql_fetch_array($sql);
 							$accounttype = $row["accounttype"];
 							
-							
-							if($session  && $accounttype == 'admin')
+							if($session && $accounttype == 'admin')
 							{
 								echo "
-									<li><a href='" . base_url() . "profile'><i class='glyphicon glyphicon-user'></i> Dashboard</a></li>			    			
-		               				<li><a href='" . base_url() . "admin/summary'><span class='glyphicon glyphicon-book'></span> Summary  </a></li>
-		               				<li><a href='" . base_url() . "admin/vehicle'><span class='glyphicon glyphicon-plane'></span> Vehicles Inventory</a></li>
-		               				<li><a href='" . base_url() . "admin/package'><span class='glyphicon glyphicon-usd'></span> Package & Charges</a></li>
-		               				";
-							}else if($session  && $accounttype == 'user')
+									<li><a href='" . base_url() . "profile'><i class='glyphicon glyphicon-user'></i> Dashboard</a></li>
+		               				<li><a href='" . base_url() . "admin'><span class='glyphicon glyphicon-tower'></span> Admin  </a></li>
+									";
+							}
+							else if ($session && $accounttype == 'user')
 							{
 								echo "
-									<li><a href='" . base_url() . "profile'><i class='glyphicon glyphicon-user'></i> Dashboard</a></li>			    			
+									<li><a href='" . base_url() . "profile'><i class='glyphicon glyphicon-user'></i> Dashboard</a></li>
 									";
 							}
 						?>
 						
-						<li><a href="#"><i class="glyphicon glyphicon-picture"></i> Vehicles Gallery</a></li>
+						<li><a href="#"><i class="glyphicon glyphicon-picture"></i> Gallery</a></li>
 					
 					</ul>
 			    	<ul class="nav navbar-nav navbar-right">

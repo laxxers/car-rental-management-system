@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-xs-12 col-md-3">
 		<ul class="nav nav-pills nav-stacked" id="settingsPills">
-		  	<li class="active"><a href="#account" data-toggle="tab">Account</a></li>
+		  	<li><a href="#account" data-toggle="tab">Account</a></li>
 		  	<li><a href="#profile" data-toggle="tab">Profile</a></li>
 		  	<li><a href="#verification" data-toggle="tab">Verification</a></li>
 		</ul>
@@ -42,7 +42,7 @@
 	</div>
 	<div class="col-xs-12 col-md-9">
 		<div class="tab-content">
-		  	<div class="tab-pane active" id="account">
+		  	<div class="tab-pane " id="account">
 		  		<?php 
 					$status = $this->session->userdata('loggedIn');
 					$id = $this->session->userdata('id');
