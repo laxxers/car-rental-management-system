@@ -9,8 +9,10 @@
     <title>Admin Panel</title>
     <link href="<?php echo base_url(); ?>public/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/css/admin_custom.css" rel="stylesheet">
-
+	
 </head>
+
+
 
 <body>
 
@@ -84,18 +86,18 @@
                         </div>
 
                         <div class="table-responsive">
-						    	<?php 
-								
-                                    $tmpl = array ( 'table_open'  => '<table class="table table-bordered table-hover table-striped">' );
-                                    $this->table->set_template($tmpl);
+							<?php 
+							
+								$tmpl = array ( 'table_open'  => '<table class="table table-bordered table-hover table-striped">' );
+								$this->table->set_template($tmpl);
 
-    								$this->table->set_heading('#', 'First Name', 'Last Name', 'Username','Email Address','Account Type','Verified');
-    								
-    								$query = $this->db->query("SELECT id,first_name,last_name,username,email_address,accounttype,verified FROM users LIMIT 5");
-
-    								echo $this->table->generate($query);
+								$this->table->set_heading('#', 'First Name', 'Last Name', 'Username','Email Address','Account Type','Verified');
 								
-								?>
+								$query = $this->db->query("SELECT id,first_name,last_name,username,email_address,accounttype,verified FROM users LIMIT 5");
+
+								echo $this->table->generate($query);
+							
+							?>
 						</div>
                     </div>
 
