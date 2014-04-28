@@ -87,6 +87,17 @@
 				?>
 		  	</div>
 
+		  		<?php
+		  			//Set default display picture
+			        $id = $this->session->userdata("id");
+			        $path = base_url() . "public/upload/profile/" . $id . "/pic1.jpg";
+			        if(!file_exists($path)) {
+			            $display = base_url() . "public/upload/profile/default.jpg";
+			        } else {
+			            $display = $path;
+			        }
+			    ?>
+
 		  	<div class="tab-pane" id="profile">
 		  		<h3>Profile</h3>
 				<p class="help-block">This information appears on your public profile.</p>
@@ -94,7 +105,7 @@
 		  		
 				<?php 
 					$id = $this->session->userdata('id');
-					echo "<img src='" . base_url() . "pic/" . $id ."/pic1.jpg' class='img-thumbnail' alt ='Profile Picture' width='250'/>";
+					echo "<img src='" . $display . "' class='img-thumbnail' alt ='Profile Picture' width='250'/>";
 					echo '<br>';
 					echo form_open_multipart('profile/do_upload');
 					echo '<br>';

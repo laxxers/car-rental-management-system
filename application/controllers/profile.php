@@ -18,7 +18,7 @@ class Profile extends CI_Controller {
 	function do_upload()
 	{
 		$id = $this->session->userdata('id');
-		$pathToUpload = './pic/' . $id;
+		$pathToUpload = './public/upload/profile/' . $id;
 		
 		$config['file_name'] = 'pic1.jpg';
 		$config['upload_path'] = $pathToUpload;

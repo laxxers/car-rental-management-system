@@ -31,14 +31,23 @@
 				<a href="<?php echo base_url(); ?>" class="btn btn-success navbar-btn navbar-right" style="margin-left: 20px;"><span class="glyphicon glyphicon-home"></span> Back to Home</a>		 
             </div>
             <!-- /.navbar-header -->
-            	
+            <?php
+                //Set default display picture
+                $id = $this->session->userdata("id");
+                $path = base_url() . "public/upload/profile/" . $id . "/pic1.jpg";
+                if(!file_exists($path)) {
+                    $display = base_url() . "public/upload/profile/default.jpg";
+                } else {
+                    $display = $path;
+                }
+            ?>
             <div class="navbar-default navbar-static-side" role="navigation">
 
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
                     	<li>
                     		<center>
-                    			<img src="<?php echo base_url();?>pic/1/pic1.jpg" class="img-thumbnail" alt ="Profile Picture" width="200" style="margin: 20px;"/>
+                    			<img src="<?php echo $display ?>" class="img-thumbnail" alt ="Profile Picture" width="200" style="margin: 20px;"/>
 	                    		<h3><strong>Nicole Charley</strong></h3>
 	                    		<h4><i>'admin'</i><h4>
 	                    			<br>

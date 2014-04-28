@@ -29,11 +29,21 @@
 		}
 	} 
 ?>
-
+	
+	<?php
+		//Set default display picture
+        $id = $this->session->userdata("id");
+        $path = base_url() . "public/upload/profile/" . $id . "/pic1.jpg";
+        if(!file_exists($path)) {
+            $display = base_url() . "public/upload/profile/default.jpg";
+        } else {
+            $display = $path;
+        }
+    ?>
 
 	<div class="row">
 		<div class="col-xs-12 col-md-3">
-			<img src="<?php echo base_url();?>pic/<?php echo "$id"; ?>/pic1.jpg" class="img-thumbnail" alt ="Upload Picture" width="250"/>
+			<img src="<?php echo $display ?>" class="img-thumbnail" alt ="Upload Picture" width="250"/>
 				<h3><strong><?php echo $first_name . " " . $last_name ?></strong></h3>
 				<h4><i><?php echo "'" . $username . "'"; ?></i></h4>
 				<hr>
