@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Admin Panel</title>
-    <link href="public/css/bootstrap.min.css" rel="stylesheet">
-    <link href="public/css/admin_custom.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>public/css/admin_custom.css" rel="stylesheet">
 
 </head>
 
@@ -26,7 +26,7 @@
                 </button>
                 
                 
-				<a href="#" class="btn btn-success navbar-btn navbar-right" style="margin-left: 25px;"><span class="glyphicon glyphicon-home"></span> Back to Home</a>		 
+				<a href="<?php echo base_url(); ?>" class="btn btn-success navbar-btn navbar-right" style="margin-left: 25px;"><span class="glyphicon glyphicon-home"></span> Back to Home</a>		 
             </div>
             <!-- /.navbar-header -->
             	
@@ -43,7 +43,7 @@
                     		</center>
                     	</li>
                         <li>
-                            <a href="index.html"> Dashboard</a>
+                            <a href="#"> Dashboard</a>
                         </li>
                         <li>
                             <a href="#"> User Management</a>
@@ -76,7 +76,8 @@
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs">
-                                        <span class="glyphicon glyphicon-edit"></span> View All   
+                                        <a href="<?php echo base_url();?>admin/user_info"><span class="glyphicon glyphicon-edit"></span> 
+										View All</a>
                                     </button>
                                 </div>
                             </div>
@@ -84,7 +85,18 @@
 
                         <div class="table-responsive">
                         	<table class="table table-bordered table-hover table-striped">
-						    	<thead>
+						    	<?php 
+								
+								
+								$this->table->set_heading('#', 'First Name', 'Last Name', 'Username','Email Address','Account Type','Verified','IC Number','License Number');
+								
+								$query = $this->db->query("SELECT id,first_name,last_name,username,email_address,accounttype,verified,ic_no,li_no FROM users LIMIT 5");
+
+								echo $this->table->generate($query);
+								
+								?>
+								
+								<!--<thead>
 									<tr>
 										<th>#</th>
 										<th>Username</th>
@@ -122,7 +134,7 @@
 										<td>rachel@example.com</td>
 										<td>2014-04-26</td>
 									</tr>                                              
-								</tbody>
+								</tbody>-->
 						  	</table>
 						</div>
                     </div>
