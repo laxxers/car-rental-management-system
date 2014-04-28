@@ -190,12 +190,27 @@
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
                                     Admin Users
-                                    <span class="pull-right text-muted small"><em>1</em>
+                                    <span class="pull-right text-muted small">
+									<em>
+										<?php
+											$q = $this->db->query("SELECT COUNT( accounttype ) as count  FROM users WHERE accounttype =  'admin'") ;
+											$tmp = $q->result();
+											echo $tmp[0]->count;
+										?>
+										123
+									</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     Registered Members
-                                    <span class="pull-right text-muted small"><em>21</em>
+                                    <span class="pull-right text-muted small">
+									<em>
+										<?php
+											$q = $this->db->query("SELECT COUNT( accounttype ) as count  FROM users WHERE accounttype =  'user'") ;
+											$tmp = $q->result();
+											echo $tmp[0]->count;
+										?>
+									</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
