@@ -84,58 +84,18 @@
                         </div>
 
                         <div class="table-responsive">
-                        	<table class="table table-bordered table-hover table-striped">
 						    	<?php 
 								
-								
-								$this->table->set_heading('#', 'First Name', 'Last Name', 'Username','Email Address','Account Type','Verified','IC Number','License Number');
-								
-								$query = $this->db->query("SELECT id,first_name,last_name,username,email_address,accounttype,verified,ic_no,li_no FROM users LIMIT 5");
+                                    $tmpl = array ( 'table_open'  => '<table class="table table-bordered table-hover table-striped">' );
+                                    $this->table->set_template($tmpl);
 
-								echo $this->table->generate($query);
+    								$this->table->set_heading('#', 'First Name', 'Last Name', 'Username','Email Address','Account Type','Verified');
+    								
+    								$query = $this->db->query("SELECT id,first_name,last_name,username,email_address,accounttype,verified FROM users LIMIT 5");
+
+    								echo $this->table->generate($query);
 								
 								?>
-								
-								<!--<thead>
-									<tr>
-										<th>#</th>
-										<th>Username</th>
-										<th>Name</th>
-										<th>Email</th>
-										<th>Joined date</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>1</td>
-										<td>admin</td>
-										<td>Nicole Minor</td>
-										<td>admin@example.com</td>
-										<td>2014-04-23</td>
-									</tr>                                              
-									<tr>
-										<td>2</td>
-										<td>user</td>
-										<td>Kirby Charley</td>
-										<td>user@example.com</td>
-										<td>2014-04-25</td>
-									</tr>                                              
-									<tr>
-										<td>3</td>
-										<td>moderator</td>
-										<td>Lina Laguna</td>
-										<td>lina@example.com</td>
-										<td>2014-04-24</td>
-									</tr>                                              
-									<tr>
-										<td>4</td>
-										<td>test</td>
-										<td>Rachel Moore</td>
-										<td>rachel@example.com</td>
-										<td>2014-04-26</td>
-									</tr>                                              
-								</tbody>-->
-						  	</table>
 						</div>
                     </div>
 
