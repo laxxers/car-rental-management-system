@@ -2,9 +2,9 @@
 
 class Admin extends CI_Controller {
 	public function index() {
-		//$this->load->view('header');
-		$this->load->view('view_admin'); //Create a new view_admin file in views
-		//this->load->view('footer');
+		$this->load->view('admin_header');
+		$this->load->view('view_admin_dashboard'); //Create a new view_admin file in views
+		$this->load->view('admin_footer');
 	}
 	
 	// function user_info10()
@@ -50,6 +50,8 @@ class Admin extends CI_Controller {
 		$data['sort_by'] = $sort_by;
 		$data['sort_order'] = $sort_order;
 
-		$this->load->view('view_user_info', $data);
+		$this->load->view('admin_header');
+		$this->load->view('view_admin_user_info', $data);
+		$this->load->view('admin_footer');
 	}
 }
