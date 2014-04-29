@@ -61,7 +61,7 @@
                             <a href="<?php echo base_url();?>admin/user"> User Management</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url();?>admin/vehicle"> Vehicle Inventory</a>
+                            <a href="<?php echo base_url();?>admin/list_vehicle"> Vehicle Inventory</a>
                         </li>
                         <li>
                             <a href="#"> Package & Charges</a>

@@ -12,7 +12,7 @@
                         <div class="pull-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-xs">
-                                    <a href="<?php echo base_url();?>admin/user_info"><span class="glyphicon glyphicon-edit"></span> 
+                                    <a href="<?php echo base_url();?>admin/user"><span class="glyphicon glyphicon-edit"></span> 
     								View All</a>
                                 </button>
                             </div>
@@ -21,7 +21,6 @@
 
                     <div class="table-responsive">
     					<?php 
-    					
     						$tmpl = array ( 'table_open'  => '<table class="table table-bordered table-hover table-striped">' );
     						$this->table->set_template($tmpl);
 
@@ -41,73 +40,24 @@
                         <div class="pull-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-xs">
-                                    <span class="glyphicon glyphicon-edit"></span> View All   
+                                    <a href="<?php echo base_url();?>admin/list_vehicle"><span class="glyphicon glyphicon-edit"></span> View All </a>  
                                 </button>
                             </div>
                         </div>
                     </div>
                          
     					<div class="table-responsive">
-    						<table class="table table-bordered table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>3326</td>
-                                        <td>10/21/2013</td>
-                                        <td>3:29 PM</td>
-                                        <td>$321.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3325</td>
-                                        <td>10/21/2013</td>
-                                        <td>3:20 PM</td>
-                                        <td>$234.34</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3324</td>
-                                        <td>10/21/2013</td>
-                                        <td>3:03 PM</td>
-                                        <td>$724.17</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3323</td>
-                                        <td>10/21/2013</td>
-                                        <td>3:00 PM</td>
-                                        <td>$23.71</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3322</td>
-                                        <td>10/21/2013</td>
-                                        <td>2:49 PM</td>
-                                        <td>$8345.23</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3321</td>
-                                        <td>10/21/2013</td>
-                                        <td>2:23 PM</td>
-                                        <td>$245.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3320</td>
-                                        <td>10/21/2013</td>
-                                        <td>2:15 PM</td>
-                                        <td>$5663.54</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3319</td>
-                                        <td>10/21/2013</td>
-                                        <td>2:13 PM</td>
-                                        <td>$943.45</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+    					<?php 
+    				 		$tmpl = array ( 'table_open'  => '<table class="table table-bordered table-hover table-striped">' );
+    						$this->table->set_template($tmpl);
+
+    						$this->table->set_heading('ID','Type','Name','Transmission','AC','Capacity','Luggage','Daily');
+    						
+    						$query = $this->db->query("SELECT id,type,name,transmission,ac,daily,capacity,luggage FROM vehicle LIMIT 5");
+
+    						echo $this->table->generate($query);
+    					
+    					?>
                         </div>
 
                 </div>

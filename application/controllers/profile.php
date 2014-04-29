@@ -90,7 +90,7 @@ class Profile extends CI_Controller {
 			
 			if($query = $this->model_user->verify_user())
 			{
-				$this->settings("Successfully submitted! Please allow some time for the admin to review.");
+				$this->settings("Verified Successfully");
 			}
 			else
 			{
