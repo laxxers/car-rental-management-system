@@ -27,8 +27,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?php echo base_url();?>admin">Admin Panel</a>
-                
-				<a href="<?php echo base_url(); ?>" class="btn btn-success navbar-btn navbar-right" style="margin-left: 20px;"><span class="glyphicon glyphicon-home"></span> Back to Home</a>		 
+                		 
             </div>
             <!-- /.navbar-header -->
             <?php
@@ -69,6 +68,7 @@
                             <a href="#"> Rental Schedule</a>
                         </li>
                     </ul>
+                    <center><a href="<?php echo base_url(); ?>" class="btn btn-success" style="margin-top:15px; "><span class="glyphicon glyphicon-home"></span> Back to Home</a></center>
                 </div>
             </div>
         </nav>
