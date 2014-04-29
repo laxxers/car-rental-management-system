@@ -57,7 +57,7 @@
 							}
 						?>
 						
-						<li><a href="#"><i class="glyphicon glyphicon-picture"></i> Gallery</a></li>
+						<li><a href="<?php echo base_url(); ?>gallery"><i class="glyphicon glyphicon-picture"></i> Gallery</a></li>
 					
 					</ul>
 			    	<ul class="nav navbar-nav navbar-right">
