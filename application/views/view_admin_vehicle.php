@@ -2,24 +2,35 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Vehicle Inventory</h1>
+            </div>
+        </div>
 
-                <div class="table-responsive">
-                	<table class="table table-bordered table-hover table-striped">
+        <div class="row">
+        	<div class="col-lg-12">
+			<a href="#" class="btn btn-default pull-right" role="button"><i class="fa fa-plus"></i> Add New</a>
+			</div>
+		</div>
+		<br/>
+		<div class="row">
+			<div class="col-lg-12">
+	            <div class="table-responsive">
+	            	<table class="table table-bordered table-hover table-striped">
 						<thead>
-							<center>                           <tr>
-                               <th>#</th>
-                               <th>Name</th>
-                               <th>Type</th>
-                               <th>Capacity</th>
-                               <th>Luggage</th>
-                               <th>A/C</th>
-                               <th>Availability</th>
-                               <th>Price (per day)</th>
-                               <th>Actions</th>
-                           </tr>
+							<center>                           
+							<tr>
+	                           <th>#</th>
+	                           <th>Name</th>
+	                           <th>Type</th>
+	                           <th>Capacity</th>
+	                           <th>Luggage</th>
+	                           <th>A/C</th>
+	                           <th>Availability</th>
+	                           <th>Price (per day)</th>
+	                           <th>Actions</th>
+	                       </tr>
 
-                      	</thead>
-                       	<tbody>
+	                  	</thead>
+	                   	<tbody>
 							<tr>
 	                           <td>1</td>
 	                           <td>Perodua ViVa</td>
@@ -36,10 +47,9 @@
 				    				</center>
 				    			</td>
 	                       	</tr>
-
-                       </tbody>
-                   </table>
-                </div>
-            </div>
-        </div>
+	                   </tbody>
+	               </table>
+	            </div>
+	        </div>
+	    </div>
 </div>
