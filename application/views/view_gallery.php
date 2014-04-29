@@ -9,11 +9,12 @@
 			<?php foreach($rows as $row){ ?>
             <div class="col-lg-3 col-md-6">
                 <div class="thumbnail">
-                    <img src="<?php echo base_url(); ?>public/car/<?php echo $row->name;?>.jpg" alt="">
+                    <img src="<?php echo base_url(); ?>public/car/<?php echo $row->id;?>.jpg" alt="">
 					
                     <div class="caption">
                         <h3><?php echo $row->name; ?><small> - <?php echo $row->type; ?></small></h3>
                         <p>
+							<center>
                         	<ul class="list-unstyled">
 						  		<li><small><span class="glyphicon glyphicon-road"></span> Unlimited Mileage</small></li>
 						  		<li><small><span class="glyphicon glyphicon-user"></span> <?php  echo $row->no_passenger; ?> Adults</small></li>
@@ -30,22 +31,24 @@
 								<li><small><span class="glyphicon glyphicon-usd"></span> 
 								Price: <br>
 								<?php 
-									echo '/hour - ' . $row->hourly . '<br>';
-									echo '/week - ' . $row->weekly . '<br>';
-									echo '/day - ' . $row->daily . '<br>';
-									echo '/month - ' . $row->monthly . '<br>';
+									echo '/hour - RM ' . $row->hourly . '<br>';
+									echo '/week - RM' . $row->weekly . '<br>';
+									echo '/day - RM' . $row->daily . '<br>';
+									echo '/month - RM' . $row->monthly . '<br>';
 								
 								?>
 								 
 								</small></li>
 							</ul>
+							</center>
 						</p>
                         <p>
                         	<center>
-                        	<div class="btn-group">
-							  	<button type="button" class="btn btn-default">More Info</button>
-							  	<button type="button" class="btn btn-success">Select</button>
-							</div>
+								<div class="btn-group btn-group-justified">
+									<div class="btn-group">
+										<button type="button" class="btn btn-success">Book</button>
+									</div>
+								</div>
 							</center>
                         </p>
                     </div>
@@ -53,5 +56,4 @@
                 </div>
             </div>
 			<?php } ?>
-			
         </div>
