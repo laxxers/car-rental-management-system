@@ -48,13 +48,13 @@
 				<h4><i><?php echo "'" . $username . "'"; ?></i></h4>
 				<hr>
 				<ul class="list-group">
-			  		<li class="list-group-item"><span class="glyphicon glyphicon-envelope"></span><?php echo " " . $email_address ?>  <br></li>
-			  		<li class="list-group-item"><span class="glyphicon glyphicon-time"></span><?php echo " Joined on  " . $signupdate ?></li>
+			  		<li class="list-group-item"><i class="fa fa-envelope-o"></i><?php echo " " . $email_address ?>  <br></li>
+			  		<li class="list-group-item"><i class="fa fa-clock-o"></i><?php echo " Joined on  " . $signupdate ?></li>
 			 		<?php 
 			 			if($verified == '1' && $ic_no != null &&  $li_no != null ) {
-			 				echo "<li class='list-group-item' style='color: green;'><span class='glyphicon glyphicon-ok'></span><strong> Verified</strong></li>";
+			 				echo "<li class='list-group-item' style='color: green;'><i class='fa fa-check'></i><strong> Verified</strong></li>";
 			 			} else {
-			 				echo "<li class='list-group-item' style='color: red;'><span class='glyphicon glyphicon-remove'></span><a href='" . base_url() . "profile/settings' style='text-decoration: none; color: red;'><strong> Not verified</strong></a></li>";
+			 				echo "<li class='list-group-item' style='color: red;'><i class='fa fa-times'></i><a href='" . base_url() . "profile/settings' style='text-decoration: none; color: red;'><strong> Not verified</strong></a></li>";
 			 			}
 			 		?>
 				</ul>

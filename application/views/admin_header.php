@@ -9,6 +9,8 @@
     <title>Admin Panel</title>
     <link href="<?php echo base_url(); ?>public/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/css/admin_custom.css" rel="stylesheet">
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	
 </head>
 
@@ -56,10 +58,10 @@
                             <a href="<?php echo base_url();?>admin"> Dashboard</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url();?>admin/user_info"> User Management</a>
+                            <a href="<?php echo base_url();?>admin/user"> User Management</a>
                         </li>
                         <li>
-                            <a href="#"> Vehicle Inventory</a>
+                            <a href="<?php echo base_url();?>admin/vehicle"> Vehicle Inventory</a>
                         </li>
                         <li>
                             <a href="#"> Package & Charges</a>
@@ -68,7 +70,7 @@
                             <a href="#"> Rental Schedule</a>
                         </li>
                     </ul>
-                    <center><a href="<?php echo base_url(); ?>" class="btn btn-success" style="margin-top:15px; "><span class="glyphicon glyphicon-home"></span> Back to Home</a></center>
+                    <center><a href="<?php echo base_url(); ?>" class="btn btn-success" style="margin-top:15px; "><i class="fa fa-home"></i> Back to Home</a></center>
                 </div>
             </div>
         </nav>

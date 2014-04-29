@@ -13,6 +13,8 @@
 	    <!-- Bootstrap core CSS -->
 	    <link href="<?php echo base_url(); ?>public/css/bootstrap.min.css" rel="stylesheet">
 	    <link href="<?php echo base_url(); ?>public/css/custom.css" rel="stylesheet">
+	    <!-- Font Awesome -->
+	    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   	</head>
 
 	  <body>
@@ -33,7 +35,7 @@
 			    <div class="collapse navbar-collapse">
 			    	<ul class="nav navbar-nav">
 						
-						<li><a href="<?php echo base_url();?>"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+						<li><a href="<?php echo base_url();?>"><i class="fa fa-home fa-lg"></i> Home</a></li>
 						
 						<?php 
 							$session = $this->session->userdata("loggedIn");
@@ -45,19 +47,19 @@
 							if($session && $accounttype == 'admin')
 							{
 								echo "
-									<li><a href='" . base_url() . "profile'><i class='glyphicon glyphicon-user'></i> Dashboard</a></li>
-		               				<li><a href='" . base_url() . "admin'><span class='glyphicon glyphicon-tower'></span> Admin  </a></li>
+									<li><a href='" . base_url() . "profile'><i class='fa fa-user fa-lg'></i> Dashboard</a></li>
+		               				<li><a href='" . base_url() . "admin'><i class='fa fa-cogs fa-lg'></i> Admin  </a></li>
 									";
 							}
 							else if ($session && $accounttype == 'user')
 							{
 								echo "
-									<li><a href='" . base_url() . "profile'><i class='glyphicon glyphicon-user'></i> Dashboard</a></li>
+									<li><a href='" . base_url() . "profile'><i class='fa fa-user fa-lg'></i> Dashboard</a></li>
 									";
 							}
 						?>
 						
-						<li><a href="<?php echo base_url(); ?>gallery"><i class="glyphicon glyphicon-picture"></i> Gallery</a></li>
+						<li><a href="<?php echo base_url(); ?>gallery"><i class="fa fa-archive fa-lg"></i> Gallery</a></li>
 					
 					</ul>
 			    	<ul class="nav navbar-nav navbar-right">
@@ -69,11 +71,11 @@
 					    		<li class='dropdown'>
 					    			<a href='#'' class='dropdown-toggle' data-toggle='dropdown'>". $username ." <b class='caret'></b></a>
 					    			<ul class='dropdown-menu'>
-		               				<li><a href='" . base_url() . "'><span class='glyphicon glyphicon-home'></span> Home</a></li>
-		               				<li><a href='" . base_url() . "profile'><span class='glyphicon glyphicon-user'></span> Dashboard</a></li>
-		                			<li><a href='" . base_url() . "profile/settings'><span class='glyphicon glyphicon-cog'></span> Settings</a></li>
+		               				<li><a href='" . base_url() . "'><i class='fa fa-home'></i> Home</a></li>
+		               				<li><a href='" . base_url() . "profile'><i class='fa fa-user'></i> Dashboard</a></li>
+		                			<li><a href='" . base_url() . "profile/settings'><i class='fa fa-wrench'></i> Settings</a></li>
 		                			<li class='divider'></li>
-		                			<li><a href='" . base_url() . "home/logout'><span class='glyphicon glyphicon-off'></span> Logout</a></li>
+		                			<li><a href='" . base_url() . "home/logout'><i class='fa fa-power-off'></i> Logout</a></li>
 		              				</ul>
 					    		</li>";
 

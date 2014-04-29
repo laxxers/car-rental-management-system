@@ -13,7 +13,7 @@ class Admin extends CI_Controller {
 		
 	// }
 	
-	function user_info($sort_by = 'id', $sort_order = 'asc', $offset = 0) {
+	function user($sort_by = 'id', $sort_order = 'asc', $offset = 0) {
 		
 		$limit = 10;
 		$data['fields'] = array(
@@ -51,7 +51,13 @@ class Admin extends CI_Controller {
 		$data['sort_order'] = $sort_order;
 
 		$this->load->view('admin_header');
-		$this->load->view('view_admin_user_info', $data);
+		$this->load->view('view_admin_user', $data);
+		$this->load->view('admin_footer');
+	}
+
+	function vehicle() {
+		$this->load->view('admin_header');
+		$this->load->view('view_admin_vehicle');
 		$this->load->view('admin_footer');
 	}
 }

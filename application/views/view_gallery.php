@@ -14,13 +14,12 @@
                     <div class="caption">
                         <h3><?php echo $row->name; ?><small> - <?php echo $row->type; ?></small></h3>
                         <p>
-							<center>
                         	<ul class="list-unstyled">
-						  		<li><small><span class="glyphicon glyphicon-road"></span> Unlimited Mileage</small></li>
-						  		<li><small><span class="glyphicon glyphicon-user"></span> <?php  echo $row->no_passenger; ?> Adults</small></li>
-						  		<li><small><span class="glyphicon glyphicon-briefcase"></span> <?php  echo $row->capacity; ?>  bags</small></li>
-						  		<li><small><span class="glyphicon glyphicon-cog"></span> <?php echo $row->details; ?>  Transmission</small></li>
-						  		<li><small><span class="glyphicon glyphicon-tree-conifer"></span> 
+						  		<li><small><i class="fa fa-road"></i> Unlimited Mileage</small></li>
+						  		<li><small><i class="fa fa-user"></i> <?php echo  $row->capacity; ?> Adults</small></li>
+						  		<li><small><i class="fa fa-briefcase"></i> <?php echo  $row->luggage; ?> bags</small></li>
+						  		<li><small><i class="fa fa-cog"></i> <?php echo $row->transmission; ?> Transmission</small></li>
+						  		<li><small><i class="fa fa-leaf"></i> 
 								<?php 
 									if($row->ac == '1') 
 										echo 'Air Conditioning';
@@ -28,25 +27,23 @@
 										echo 'No Air Conditioning';
 								?>
 								</small></li>
-								<li><small><span class="glyphicon glyphicon-usd"></span> 
-								Price: <br>
+								<li><small><i class="fa fa-usd"></i> Price starting from
 								<?php 
-									echo '/hour - RM ' . $row->hourly . '<br>';
-									echo '/week - RM' . $row->weekly . '<br>';
-									echo '/day - RM' . $row->daily . '<br>';
-									echo '/month - RM' . $row->monthly . '<br>';
+									echo '<h3><center>RM' . $row->daily . '/day</center></h3><br>';
+									//echo '/week - RM' . $row->weekly . '<br>';
+									//echo '/day - RM' . $row->daily . '<br>';
+									//echo '/month - RM' . $row->monthly . '<br>';
 								
-								?>
-								 
+								?>							 
 								</small></li>
 							</ul>
-							</center>
+							
 						</p>
                         <p>
                         	<center>
 								<div class="btn-group btn-group-justified">
 									<div class="btn-group">
-										<button type="button" class="btn btn-success">Book</button>
+										<button type="button" class="btn btn-success">Select</button>
 									</div>
 								</div>
 							</center>
