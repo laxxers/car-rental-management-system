@@ -18,7 +18,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 		
-			<h4> Found ??? Vehicles</h4>
+			<h4> Found <?php echo $vehicle_no; ?> Vehicles</h4>
 			
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered  table-hover">
@@ -63,8 +63,12 @@
 								<?php echo $row->ac; ?>
 							</td>
 							<td >
-								<button type="button" class="btn btn-default">Edit</button>
-								<a href="<?php echo base_url();?>admin/delete/<?php echo $row->id;?>"> <button type="button" class="btn btn-default">X</button></a>
+								<a href="<?php echo base_url();?>admin/update_vehicle/<?php echo $row->id;?>">
+									<button type="button" class="btn btn-default">Edit</button>
+								</a>
+								<a href="<?php echo base_url();?>admin/delete_vehicle/<?php echo $row->id;?>"> 
+									<button type="button" class="btn btn-default">X</button>
+								</a>
 							</td>
 						</tr>
 						<?php } ?>		

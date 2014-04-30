@@ -27,7 +27,6 @@
 			<div class="col-lg-12">
 				<?php
 					echo form_open_multipart('admin/add_vehicle', array('id' => 'edit', 'class' => 'form-signin', 'role' => 'form'));
-					
 					// picture
 					$q = $this->db->query('SELECT id FROM vehicle');
 					$id = $q->last_row()->id;
@@ -43,7 +42,6 @@
 					echo form_input(array('name' => 'userfile', 'type' => 'file')); 
 					echo '<br>';
 					// picture
-					
 					echo form_label('Type', 'type');
 					$options = array(
 						'Compact'=>'Compact',
@@ -53,12 +51,10 @@
 						'Van'=>'Van'
 					);
 					echo form_dropdown('type', $options,'','class="form-control"');
-					
 					echo '<br>';
 					echo form_label('Name', 'name');
-					echo form_input(array('name' => 'name', 'class' => 'form-control', 'value' => set_value('name'), 'placeholder' => 'Name', 'required' => 'required', 'autofocus' => 'autofocus'));
+					echo form_input(array('name' => 'name', 'class' => 'form-control', 'value' => set_value('name'), 'placeholder' => 'Eg: Perodua Viva', 'required' => 'required', 'autofocus' => 'autofocus'));
 					echo '<br>';
-					
 					echo form_label('Transmission', 'transmission');
 					$options = array(
 						'Auto'=>'Auto',
@@ -66,17 +62,21 @@
 					);
 					echo form_dropdown('transmission', $options,'','class="form-control"');					
 					echo '<br>';
-					echo form_label('AC', 'ac');
-					echo form_input(array('name' => 'ac', 'class' => 'form-control', 'value' => set_value('ac'), 'placeholder' => 'AC', 'required' => 'required', 'autofocus' => 'autofocus'));
+					echo form_label('Air Conditioning', 'ac');
+					$options = array(
+						'1'=>'Yes',
+						'0'=>'No'
+					);
+					echo form_dropdown('ac', $options,'','class="form-control"');	
 					echo '<br>';
 					echo form_label('Capacity', 'capacity');
-					echo form_input(array('name' => 'capacity', 'class' => 'form-control', 'value' => set_value('capacity'), 'placeholder' => 'Capacity', 'required' => 'required', 'autofocus' => 'autofocus'));
+					echo form_input(array('name' => 'capacity', 'class' => 'form-control', 'value' => set_value('capacity'), 'placeholder' => 'Number of Passenger', 'required' => 'required', 'autofocus' => 'autofocus'));
 					echo '<br>';
 					echo form_label('Luggage', 'luggage');
-					echo form_input(array('name' => 'luggage', 'class' => 'form-control', 'value' => set_value('luggage'), 'placeholder' => 'Luggage', 'required' => 'required', 'autofocus' => 'autofocus'));
+					echo form_input(array('name' => 'luggage', 'class' => 'form-control', 'value' => set_value('luggage'), 'placeholder' => 'Number of Luggage', 'required' => 'required', 'autofocus' => 'autofocus'));
 					echo '<br>';
 					echo form_label('Daily', 'daily');
-					echo form_input(array('name' => 'daily', 'class' => 'form-control', 'value' => set_value('daily'), 'placeholder' => 'Daily', 'required' => 'required', 'autofocus' => 'autofocus'));
+					echo form_input(array('name' => 'daily', 'class' => 'form-control', 'value' => set_value('daily'), 'placeholder' => 'Daily Price', 'required' => 'required', 'autofocus' => 'autofocus'));
 					echo '<br>';
 					echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Add'));
 					echo form_close();

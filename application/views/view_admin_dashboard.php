@@ -40,7 +40,7 @@
                         <div class="pull-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-xs">
-                                    <a href="<?php echo base_url();?>admin/vehicle"><span class="glyphicon glyphicon-edit"></span> View All </a>  
+                                    <a href="<?php echo base_url();?>admin/getAll_vehicle"><span class="glyphicon glyphicon-edit"></span> View All </a>  
                                 </button>
                             </div>
                         </div>

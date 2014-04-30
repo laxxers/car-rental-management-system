@@ -3,7 +3,7 @@
 class Admin extends CI_Controller {
 	public function index() {
 		$this->load->view('admin_header');
-		$this->load->view('view_admin_dashboard'); //Create a new view_admin file in views
+		$this->load->view('view_admin_dashboard');
 		$this->load->view('admin_footer');
 	}
 	
@@ -56,7 +56,7 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_footer');
 	}
 	
-	function vehicle()
+	function getAll_vehicle()
 	{
 		$this->load->model('model_admin');
 		
@@ -65,12 +65,30 @@ class Admin extends CI_Controller {
 			$data['records'] = $query;
 		}
 		
+		if($count = $this->model_admin->count_vehicle())
+		{
+			$data['vehicle_no'] = $count['num_rows'];
+		}
+		
 		$this->load->view('admin_header');
 		$this->load->view('view_admin_vehicle', $data);
 		$this->load->view('admin_footer');
 	}
 	
-	function delete()
+	function update_vehicle()
+	{
+		// coming soon
+		// $data = array(
+			// '' => '',	
+		// );
+		
+		// $this->load->model('model_admin');
+		// $this->model_admin->update_record($data);
+		
+		echo 'Coming Soon';
+	}
+	
+	function delete_vehicle()
 	{
 		$this->load->model('model_admin');
 		$this->model_admin->delete_row();

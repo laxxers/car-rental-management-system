@@ -27,22 +27,28 @@ class Model_admin extends CI_Model {
 		return $ret;
 	}
 	
-	function vehicle_all($limit, $offset, $sort_by, $sort_order) {
-		
-		$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
-		$sort_columns = array('id','type','name','transmission','ac','capacity','luggage','daily');
-		
-		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'id';
-		
-		// results query
-		$q = $this->db->select('id,type,name,transmission,ac,daily,capacity,luggage')
-			->from('vehicle')
-			->limit($limit, $offset)
-			->order_by($sort_by, $sort_order);
-		
-		$ret['rows'] = $q->get()->result();
-		
-		// count query
+	function getALL()
+	{
+		$query = $this->db->get('vehicle');
+		return $query->result();
+	}
+	
+	function update_record($data) 
+	{
+		// coming soon
+		// $this->db->where('', );
+		// $this->db->update('', $data);
+	}
+	
+	function delete_row()
+	{
+		$this->db->where('id', $this->uri->segment(3));
+		$this->db->delete('vehicle');
+		redirect('admin/getAll_vehicle');
+	}
+	
+	function count_vehicle()
+	{
 		$q = $this->db->select('COUNT(*) as count', FALSE)
 			->from('vehicle');
 		
@@ -51,18 +57,6 @@ class Model_admin extends CI_Model {
 		$ret['num_rows'] = $tmp[0]->count;
 		
 		return $ret;
-	}
-	
-	function getALL()
-	{
-		$query = $this->db->get('vehicle');
-		return $query->result();
-	}
-	
-	function delete_row()
-	{
-		$this->db->where('id', $this->uri->segment(3));
-		$this->db->delete('vehicle');
 	}
 	
 	function add_vehicle()
