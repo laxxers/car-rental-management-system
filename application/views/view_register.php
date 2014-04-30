@@ -63,7 +63,6 @@
 			echo '<br>';
 			echo form_label('Password', 'password');
 			echo form_password(array('name' => 'password', 'class' => 'form-control', 'value' => set_value('password'), 'placeholder' => 'Password', 'required' => 'required'));
-			//Implement later: check if both passwords matched.
 			echo '<br>';
 			echo form_label(' Password Confirmation', 'password2');
 			echo form_password(array('name' => 'password2', 'class' => 'form-control', 'value' => set_value('password2'), 'placeholder' => 'Password Confirmation', 'required' => 'required'));

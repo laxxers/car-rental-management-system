@@ -7,6 +7,13 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_footer');
 	}
 	
+	function error_pic($msg = NULL) {
+		$data['msg'] = $msg;
+		$this->load->view('admin_header');
+		$this->load->view('view_add_vehicle', $data);
+		$this->load->view('footer');
+	}
+	
 	function user($sort_by = 'id', $sort_order = 'asc', $offset = 0) {
 		
 		$limit = 10;
@@ -110,17 +117,27 @@ class Admin extends CI_Controller {
 		{			
 			$this->load->model('model_admin');
 			
-			if($query = $this->model_admin->add_vehicle())
+			$q = $this->db->query('SELECT id FROM vehicle');
+			$id = $q->last_row()->id;
+			$pathToUpload = './public/car/';
+			$config['file_name'] = $id + 1 . '.jpg';
+			$config['upload_path'] = $pathToUpload;
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size']	= '5000';
+			$config['overwrite'] = True;
+			$this->load->library('upload', $config);
+	
+			if($this->model_admin->add_vehicle() && $this->upload->do_upload())
 			{
+				$data = array('upload_data' => $this->upload->data());
 				$this->load->view('admin_header');
 				$this->load->view('view_success');
 				$this->load->view('admin_footer');
 			}
 			else
 			{
-				$msg = "Error";
-				$this->index($msg);
-			}
+				$this->error_pic($this->upload->display_errors());
+			}			
 		}
 	}
 }

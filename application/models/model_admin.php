@@ -67,7 +67,7 @@ class Model_admin extends CI_Model {
 		
 
 		$add = $this->db->insert('vehicle', $new_vehicle);
-		return $add;
+		return $add ;
 	}
 	
 	

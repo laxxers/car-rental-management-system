@@ -5,7 +5,7 @@
             </div>
         </div>
 		
-		<?php 
+		<?php 			
 			if(validation_errors() != false) {
 				echo "
 					<div class='alert alert-danger alert-dismissable'>
@@ -26,15 +26,50 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<?php
-					echo form_open('admin/add_vehicle', array('id' => 'edit', 'class' => 'form-signin', 'role' => 'form'));
+					echo form_open_multipart('admin/add_vehicle', array('id' => 'edit', 'class' => 'form-signin', 'role' => 'form'));
+					
+					// picture
+					$q = $this->db->query('SELECT id FROM vehicle');
+					$id = $q->last_row()->id;
+					$path = base_url() . "public/car/" . $id+1 . ".jpg";
+					
+					if(!file_exists($path)) {
+						$display = base_url() . "public/car/default.jpg";
+					} else {
+						$display = $path;
+					}
+					echo "<img src='" . $display . "' class='img-thumbnail' alt ='Car Picture' width='250'/>";
+					echo '<br>';
+					echo form_input(array('name' => 'userfile', 'type' => 'file')); 
+					echo '<br>';
+					// picture
+					
+					////////////////////////
 					echo form_label('Type', 'type');
-					echo form_input(array('name' => 'type', 'class' => 'form-control', 'value' => set_value('type'), 'placeholder' => 'Type', 'required' => 'required', 'autofocus' => 'autofocus'));
+					$options = array(
+						'Compact'=>'Compact',
+						'Standard'=>'Standard',
+						'Luxury'=>'Luxury',
+						'MPV'=>'MPV',
+						'Van'=>'Van'
+					);
+					echo form_dropdown('type', $options);
+					////////////////////////
+					
 					echo '<br>';
 					echo form_label('Name', 'name');
 					echo form_input(array('name' => 'name', 'class' => 'form-control', 'value' => set_value('name'), 'placeholder' => 'Name', 'required' => 'required', 'autofocus' => 'autofocus'));
 					echo '<br>';
+					
+					////////////////////////
 					echo form_label('Transmission', 'transmission');
-					echo form_input(array('name' => 'transmission', 'class' => 'form-control', 'value' => set_value('transmission'), 'placeholder' => 'Transmission', 'required' => 'required', 'autofocus' => 'autofocus'));
+					$options = array(
+						'Auto'=>'Auto',
+						'Manual'=>'Manual'
+					);
+					echo form_dropdown('transmission', $options);
+					////////////////////////
+					
 					echo '<br>';
 					echo form_label('AC', 'ac');
 					echo form_input(array('name' => 'ac', 'class' => 'form-control', 'value' => set_value('ac'), 'placeholder' => 'AC', 'required' => 'required', 'autofocus' => 'autofocus'));
@@ -50,15 +85,6 @@
 					echo '<br>';
 					echo form_submit(array('name' => 'submit', 'class' => 'btn btn-primary', 'value' => 'Add'));
 					echo form_close();
-					
-				// 'id' => 'ID',
-				// 'type' => 'Type ',
-				// 'name' => 'Name',
-				// 'transmission' => 'Transmission',
-				// 'ac' => 'AC',
-				// 'capacity' => 'Capacity',
-				// 'luggage' => 'Luggage',
-				// 'daily' => 'Daily'
 				?>
 			</div>
         </div>

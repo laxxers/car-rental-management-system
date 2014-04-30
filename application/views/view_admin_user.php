@@ -13,7 +13,7 @@
 			<h1 class="page-header">User Management</h1>
 			
 			<h4> Found <?php echo $num_results; ?> Users</h4>
-			
+				
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered  table-hover">
 					<thead>

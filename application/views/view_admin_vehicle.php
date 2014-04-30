@@ -19,6 +19,7 @@
 		<div class="col-lg-12">
 			<h4> Found <?php echo $num_results; ?> Vehicles</h4>
 			
+			
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered  table-hover">
 					<thead>
@@ -52,6 +53,7 @@
 				Pages: <?php echo $pagination; ?>
 			</h3>
 			<?php }?>
+			
 		</div>
 	</div>
 </div>
