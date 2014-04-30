@@ -14,46 +14,65 @@
 			<a href="<?php echo base_url();?>admin/add_vehicle" class="btn btn-default pull-right" role="button"><i class="fa fa-plus"></i> Add New</a>
 		</div>		
 	</div>		
-			
+	
 	<div class="row">
 		<div class="col-lg-12">
-			<h4> Found <?php echo $num_results; ?> Vehicles</h4>
-			
+		
+			<h4> Found ??? Vehicles</h4>
 			
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered  table-hover">
 					<thead>
-						<?php foreach($fields as $field_name => $field_display){ ?>
-						<th <?php if ($sort_by == $field_name) echo "class=\"sort_$sort_order\"" ?>>
-							<?php 
-							echo anchor("admin/list_vehicle/$field_name/" .
-								(($sort_order == 'asc' && $sort_by == $field_name) ? 'desc' : 'asc') ,
-								$field_display); ?>
-						</th>
-						<?php } ?>
+						<th>ID</th>
+						<th>Type</th>
+						<th>Name</th>
+						<th>Transmission</th>
+						<th>Daily</th>
+						<th>Capacity</th>
+						<th>Luggage</th>
+						<th>AC</th>
+						<th>Edit</th>
 					</thead>
 					
 					<tbody>
-						<?php foreach($vehicles as $vehicle){ ?>
+						<?php foreach($records as $row){ ?>
 						<tr >
-							<?php foreach($fields as $field_name => $field_display){ ?>
+							
 							<td >
-								<?php echo $vehicle->$field_name; ?>
+								<?php echo $row->id; ?>
 							</td>
-							<?php } ?>
+							<td >
+								<?php echo $row->type; ?>
+							</td>
+							<td >
+								<?php echo $row->name; ?>
+							</td>
+							<td >
+								<?php echo $row->transmission; ?>
+							</td>
+							<td >
+								<?php echo $row->daily; ?>
+							</td>
+							<td >
+								<?php echo $row->capacity; ?>
+							</td>
+							<td >
+								<?php echo $row->luggage; ?>
+							</td>
+							<td >
+								<?php echo $row->ac; ?>
+							</td>
+							<td >
+								<button type="button" class="btn btn-default">Edit</button>
+								<a href="<?php echo base_url();?>admin/delete/<?php echo $row->id;?>"> <button type="button" class="btn btn-default">X</button></a>
+							</td>
 						</tr>
-						<?php } ?>			
+						<?php } ?>		
 					</tbody>
 					
 				</table>
-			</div>	
-			
-			<?php if (strlen($pagination)){?>
-			<h3>
-				Pages: <?php echo $pagination; ?>
-			</h3>
-			<?php }?>
-			
+			</div>
 		</div>
 	</div>
+	
 </div>

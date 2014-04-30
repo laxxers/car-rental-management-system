@@ -56,43 +56,25 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_footer');
 	}
 	
-	function list_vehicle($sort_by = 'id', $sort_order = 'asc', $offset = 0) {
-		
-		$limit = 10;
-		$data['fields'] = array(
-			'id' => 'ID',
-			'type' => 'Type ',
-			'name' => 'Name',
-			'transmission' => 'Transmission',
-			'ac' => 'AC',
-			'capacity' => 'Capacity',
-			'luggage' => 'Luggage',
-			'daily' => 'Daily'
-		);
-		
+	function vehicle()
+	{
 		$this->load->model('model_admin');
 		
-		$results = $this->model_admin->vehicle_all($limit, $offset, $sort_by, $sort_order);
+		if($query = $this->model_admin->getALL())
+		{
+			$data['records'] = $query;
+		}
 		
-		$data['vehicles'] = $results['rows'];
-		$data['num_results'] = $results['num_rows'];
-		
-		// pagination
-		$this->load->library('pagination');
-		$config = array();
-		$config['base_url'] = site_url("admin/list_vehicle/$sort_by/$sort_order");
-		$config['total_rows'] = $data['num_results'];
-		$config['per_page'] = $limit;
-		$config['uri_segment'] = 5;
-		$this->pagination->initialize($config);
-		$data['pagination'] = $this->pagination->create_links();
-		
-		$data['sort_by'] = $sort_by;
-		$data['sort_order'] = $sort_order;
-
 		$this->load->view('admin_header');
 		$this->load->view('view_admin_vehicle', $data);
 		$this->load->view('admin_footer');
+	}
+	
+	function delete()
+	{
+		$this->load->model('model_admin');
+		$this->model_admin->delete_row();
+		$this->index();
 	}
 	
 	function add_vehicle() 

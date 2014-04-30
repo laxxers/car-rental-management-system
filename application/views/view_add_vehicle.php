@@ -44,7 +44,6 @@
 					echo '<br>';
 					// picture
 					
-					////////////////////////
 					echo form_label('Type', 'type');
 					$options = array(
 						'Compact'=>'Compact',
@@ -54,22 +53,18 @@
 						'Van'=>'Van'
 					);
 					echo form_dropdown('type', $options,'','class="form-control"');
-					////////////////////////
 					
 					echo '<br>';
 					echo form_label('Name', 'name');
 					echo form_input(array('name' => 'name', 'class' => 'form-control', 'value' => set_value('name'), 'placeholder' => 'Name', 'required' => 'required', 'autofocus' => 'autofocus'));
 					echo '<br>';
 					
-					////////////////////////
 					echo form_label('Transmission', 'transmission');
 					$options = array(
 						'Auto'=>'Auto',
 						'Manual'=>'Manual'
 					);
-					echo form_dropdown('transmission', $options,'','class="form-control"');
-					////////////////////////
-					
+					echo form_dropdown('transmission', $options,'','class="form-control"');					
 					echo '<br>';
 					echo form_label('AC', 'ac');
 					echo form_input(array('name' => 'ac', 'class' => 'form-control', 'value' => set_value('ac'), 'placeholder' => 'AC', 'required' => 'required', 'autofocus' => 'autofocus'));

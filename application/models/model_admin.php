@@ -53,6 +53,18 @@ class Model_admin extends CI_Model {
 		return $ret;
 	}
 	
+	function getALL()
+	{
+		$query = $this->db->get('vehicle');
+		return $query->result();
+	}
+	
+	function delete_row()
+	{
+		$this->db->where('id', $this->uri->segment(3));
+		$this->db->delete('vehicle');
+	}
+	
 	function add_vehicle()
 	{	
 		$new_vehicle = array(
