@@ -53,7 +53,7 @@
 						'MPV'=>'MPV',
 						'Van'=>'Van'
 					);
-					echo form_dropdown('type', $options);
+					echo form_dropdown('type', $options,'','class="form-control"');
 					////////////////////////
 					
 					echo '<br>';
@@ -67,7 +67,7 @@
 						'Auto'=>'Auto',
 						'Manual'=>'Manual'
 					);
-					echo form_dropdown('transmission', $options);
+					echo form_dropdown('transmission', $options,'','class="form-control"');
 					////////////////////////
 					
 					echo '<br>';
