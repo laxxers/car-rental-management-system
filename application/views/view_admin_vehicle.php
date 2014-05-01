@@ -63,17 +63,35 @@
 								<?php echo $row->ac; ?>
 							</td>
 							<td >
-								<a href="<?php echo base_url();?>admin/update_vehicle/<?php echo $row->id;?>">
-									<button type="button" class="btn btn-default">Edit</button>
+								<a href="<?php echo base_url() . "admin/update_vehicle/" . $row->id ?>" class="btn btn-default" role="button">
+									<i class="fa fa-pencil-square-o"></i> Edit
 								</a>
-								<a href="<?php echo base_url();?>admin/delete_vehicle/<?php echo $row->id;?>"> 
-									<button type="button" class="btn btn-default">X</button>
-								</a>
+								<button class="btn btn-danger" data-toggle="modal" data-target=".md-delete"><i class="fa fa-trash-o"></i> </button>
 							</td>
 						</tr>
 						<?php } ?>		
 					</tbody>
-					
+
+					<div class="modal fade md-delete" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-exclamation-triangle"></i> Delete Confirmation</h4>
+								</div>
+								      <div class="modal-body">
+								        Are you sure you want to delete this item?
+								      </div>
+								      <div class="modal-footer">
+								        <a href="<?php echo base_url() . "admin/delete_vehicle/" .  $row->id ?>" class="btn btn-danger" role="button"> 
+										Delete
+										</a>
+								        <button type="button" class="btn btn-default" data-dismiss="modal">Dismiss</button>
+								      </div>
+							</div>
+						</div>
+					</div>
+
 				</table>
 			</div>
 		</div>

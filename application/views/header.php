@@ -13,6 +13,8 @@
 	    <!-- Bootstrap core CSS -->
 	    <link href="<?php echo base_url(); ?>public/css/bootstrap.min.css" rel="stylesheet">
 	    <link href="<?php echo base_url(); ?>public/css/custom.css" rel="stylesheet">
+	    <!-- Datapicker -->
+	    <link href="<?php echo base_url(); ?>public/css/datepicker.css" rel="stylesheet">
 	    <!-- Font Awesome -->
 	    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   	</head>

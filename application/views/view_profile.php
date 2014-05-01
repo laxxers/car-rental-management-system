@@ -60,12 +60,79 @@
 				</ul>
 		</div>
 		<div class="col-xs-12 col-md-9">
-			<ul class="nav nav-tabs">
-		 		<li class="active"><a href="#">Home</a></li>
-		  		<li><a href="#">Profile</a></li>
-		  		<li><a href="#">Messages</a></li>
-			</ul>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><i class="fa fa-search"></i> <strong>Search for a car rental</strong></h3>
+				</div>
+			
+			<div class="panel-body">
+				<form role="form-horizontal">
+					<div class="form-group">
+						<label for="location">Location</label>
+						<input type="text" class="form-control" placeholder="Location name or Address, E.g. Kuala Lumpur">
+					</div>
+					<div class="checkbox">
+						<label>
+						<input type="checkbox" value="">
+						Return at different location
+						</label>
+					</div>
+					<br/>
 
-			Rent-A-Car-Booking-Form
+				<div class="row">
+				  <div class="col-xs-3">
+				  	<label for"pickup">Pick-Up Date</label>
+				  	<div class="input-group">
+				  		<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+				  		<input type="text" class="form-control" data-provide="datepicker">
+				  	</div>
+				  </div>
+				  <div class="col-xs-3">
+				  	<label for"pickuptime">Time</label>
+				    <select class="form-control">
+					  	<option>8.00 a.m</option>
+					 	<option>12.00 p.m</option>
+					  	<option>4.00 p.m</option>
+					  	<option>8.00 p.m</option>
+					  	<option>12.00 a.m</option>
+					</select>
+				  </div>
+				  <div class="col-xs-3">
+				  	<label for"dropoff">Drop-Off Date</label>
+					<div class="input-group">
+				  		<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+				  		<input type="text" class="form-control" data-provide="datepicker">
+				  	</div>
+				  </div>
+				   <div class="col-xs-3">
+				   	<label for"dropofftime">Time</label>
+				    <select class="form-control">
+					  	<option>8.00 a.m</option>
+					 	<option>12.00 p.m</option>
+					  	<option>4.00 p.m</option>
+					  	<option>8.00 p.m</option>
+					  	<option>12.00 a.m</option>
+					</select>
+				  </div>
+				</div>
+					<br/>
+
+					<div class="row">
+						<div class="col-xs-4">
+						<label for="size">Car Size</label>
+						<select class="form-control">
+							<option>Compact</option>
+							<option>Standard</option>
+							<option>Luxury</option>
+						  	<option>Van</option>
+						  	<option>MPV</option>
+						</select>
+						</div>
+					</div>
+					<br/>
+					<button class="btn btn-success"><i class="fa fa-search"></i> Search Now</button>
+				</form>
+			</div>
+			</div>
 		</div>
 	</div>

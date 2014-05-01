@@ -10,7 +10,7 @@ class Admin extends CI_Controller {
 	function error_pic($msg = NULL) {
 		$data['msg'] = $msg;
 		$this->load->view('admin_header');
-		$this->load->view('view_add_vehicle', $data);
+		$this->load->view('view_admin_add_vehicle', $data);
 		$this->load->view('footer');
 	}
 	
@@ -84,8 +84,9 @@ class Admin extends CI_Controller {
 		
 		// $this->load->model('model_admin');
 		// $this->model_admin->update_record($data);
-		
-		echo 'Coming Soon';
+		$this->load->view('admin_header');
+		$this->load->view('view_admin_update_vehicle');
+		$this->load->view('admin_footer');
 	}
 	
 	function delete_vehicle()
@@ -110,7 +111,7 @@ class Admin extends CI_Controller {
 		{
 			$data['msg'] = NULL;
 			$this->load->view('admin_header');
-			$this->load->view('view_add_vehicle',$data);
+			$this->load->view('view_admin_add_vehicle',$data);
 			$this->load->view('admin_footer');
 		}
 		else
