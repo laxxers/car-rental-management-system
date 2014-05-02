@@ -1,29 +1,58 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
-	// function _remap()
-	// {
-		// $session = $this->session->userdata("loggedIn");
-		// $id = $this->session->userdata("id");
-		// $sql = mysql_query("SELECT accounttype FROM users WHERE id='$id'");
-		// $row = mysql_fetch_array($sql);
-		// $accounttype = $row["accounttype"];
+	function _remap($method)
+	{
+		$session = $this->session->userdata("loggedIn");
+		$id = $this->session->userdata("id");
+		$sql = mysql_query("SELECT accounttype FROM users WHERE id='$id'");
+		$row = mysql_fetch_array($sql);
+		$accounttype = $row["accounttype"];
 		
-		// if($session && $accounttype == 'admin')
-		// {
-			// $this->index();
+		if($session && $accounttype == 'admin')
+		{
+			switch( $method )
+			{
+				case 'index':
+					$this->index();
+					break;
+				case 'user':
+					$this->user();
+					break;
+				case 'error_pic':
+					$this->error_pic();
+					break;
+				case 'error_pic_edit':
+					$this->error_pic_edit();
+					break;
+				case 'user':	
+					$this->user();
+					break;
+				case 'getAll_vehicle':	
+					$this->getAll_vehicle();
+					break;
+				case 'add_vehicle':	
+					$this->add_vehicle();
+					break;
+				case 'update_vehicle':	
+					$this->update_vehicle();
+					break;
+				case 'delete_vehicle':	
+					$this->delete_vehicle();	
+					break;
+				default:
+					echo "Error";
+					break;
+			}
+		}
+		else if ($session && $accounttype == 'user')
+		{
+			echo 'No direct access allowed (Do not acces in this way)';
+		}
 		
-		// }
-		// else if ($session && $accounttype == 'user')
-		// {
-			// echo 'No direct access allowed (Do not acces in this way)';
-		// }
-		
-		
-	// }
+	}
 	
 	public function index() {
-		$this->load->library('admin_validate');
 		$this->load->view('admin_header');
 		$this->load->view('view_admin_dashboard');
 		$this->load->view('admin_footer');
