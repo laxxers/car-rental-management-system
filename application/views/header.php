@@ -50,7 +50,7 @@
 							{
 								echo "
 									<li><a href='" . base_url() . "profile'><i class='fa fa-user fa-lg'></i> Dashboard</a></li>
-		               				<li><a href='" . base_url() . "check_admin'><i class='fa fa-cogs fa-lg'></i> Admin  </a></li>
+		               				<li><a href='" . base_url() . "admin'><i class='fa fa-cogs fa-lg'></i> Admin  </a></li>
 									";
 							}
 							else if ($session && $accounttype == 'user')
