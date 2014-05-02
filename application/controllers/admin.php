@@ -1,6 +1,27 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
+	function _remap()
+	{
+		$session = $this->session->userdata("loggedIn");
+		$id = $this->session->userdata("id");
+		$sql = mysql_query("SELECT accounttype FROM users WHERE id='$id'");
+		$row = mysql_fetch_array($sql);
+		$accounttype = $row["accounttype"];
+		
+		if($session && $accounttype == 'admin')
+		{
+			$this->index();
+		
+		}
+		else if ($session && $accounttype == 'user')
+		{
+			echo 'No direct access allowed (Do not acces in this way)';
+		}
+		
+		
+	}
+	
 	public function index() {
 		$this->load->view('admin_header');
 		$this->load->view('view_admin_dashboard');
