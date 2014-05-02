@@ -28,15 +28,10 @@
 				<?php
 					echo form_open_multipart('admin/add_vehicle', array('id' => 'edit', 'class' => 'form-signin', 'role' => 'form'));
 					// picture
-					
-					// $q = $this->db->query('SELECT LAST_INSERT_ID() as id FROM vehicle');
-					// $id = $q->last_row()->id;					
-					// echo "id = " . $id. "<br>";
-					
-					$q = $this->db->query('SELECT id FROM vehicle');
-					$id = $q->last_row()->id;
-					// echo "id = " . $id. "<br>";
-					$path = base_url() . "public/car/" . $id+1 . ".jpg";
+					$next = $this->db->query("SHOW TABLE STATUS LIKE 'vehicle'");
+					$next = $next->row(0);
+					$id = $next->Auto_increment;
+					$path = base_url() . "public/car/" . $id . ".jpg";
 					
 					if(!file_exists($path)) {
 						$display = base_url() . "public/car/default.jpg";

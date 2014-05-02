@@ -131,14 +131,12 @@ class Admin extends CI_Controller {
 		}
 		else
 		{			
-			$this->load->model('model_admin');
-			
-			$q = $this->db->query('SELECT id FROM vehicle');
-			$id = $q->last_row()->id;
-			// $q = $this->db->query('SELECT LAST_INSERT_ID() as id FROM vehicle');
-			// $id = $q->last_row()->id;
+			$this->load->model('model_admin');			
+			$next = $this->db->query("SHOW TABLE STATUS LIKE 'vehicle'");
+			$next = $next->row(0);
+			$id = $next->Auto_increment;
 			$pathToUpload = './public/car/';
-			$config['file_name'] = $id + 1 . '.jpg';
+			$config['file_name'] = $id . '.jpg';
 			$config['upload_path'] = $pathToUpload;
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size']	= '5000';
