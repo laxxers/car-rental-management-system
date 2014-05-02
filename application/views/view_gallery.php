@@ -6,7 +6,7 @@
 		
 			
         <div class="row">
-			<?php foreach($rows as $row){ ?>
+			<?php foreach($rows as $row) { ?>
             <div class="col-lg-3 col-md-6">
                 <div class="thumbnail">
                     <img src="<?php echo base_url(); ?>public/car/<?php echo $row->id;?>.jpg" alt="">
