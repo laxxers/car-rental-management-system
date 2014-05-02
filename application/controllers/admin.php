@@ -77,22 +77,37 @@ class Admin extends CI_Controller {
 	
 	function update_vehicle()
 	{
-		// coming soon
-		// $data = array(
-			// '' => '',	
-		// );
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('type', 'Type', 'trim|required|alpha');
+		$this->form_validation->set_rules('name', 'Name', 'trim|required|alpha');
+		$this->form_validation->set_rules('transmission', 'Transmission', 'trim|required|alpha');
+		$this->form_validation->set_rules('ac', 'AC', 'trim|required|numeric');
+		$this->form_validation->set_rules('capacity', 'Capacity', 'trim|required|numeric');
+		$this->form_validation->set_rules('luggage', 'Luggage', 'trim|required|numeric');
+		$this->form_validation->set_rules('daily', 'Daily', 'trim|required|numeric');
 		
-		// $this->load->model('model_admin');
-		// $this->model_admin->update_record($data);
-		$this->load->view('admin_header');
-		$this->load->view('view_admin_update_vehicle');
-		$this->load->view('admin_footer');
+		if($this->form_validation->run() == FALSE)
+		{
+			$data['msg'] = NULL;
+			$this->load->view('admin_header');
+			$this->load->view('view_admin_update_vehicle',$data);
+			$this->load->view('admin_footer');
+		}
+		else
+		{			
+			$this->load->model('model_admin');
+				
+			if($this->model_admin->update_vehicle())
+			{
+				redirect('admin/getAll_vehicle');
+			}		
+		}
 	}
 	
 	function delete_vehicle()
 	{
 		$this->load->model('model_admin');
-		$this->model_admin->delete_row();
+		$this->model_admin->delete_vehicle();
 		$this->index();
 	}
 	
