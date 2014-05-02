@@ -14,6 +14,13 @@ class Admin extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
+	function error_pic_edit($msg = NULL) {
+		$data['msg'] = $msg;
+		$this->load->view('admin_header');
+		$this->load->view('view_admin_update_vehicle', $data);
+		$this->load->view('footer');
+	}	
+	
 	function user($sort_by = 'id', $sort_order = 'asc', $offset = 0) {
 		
 		$limit = 10;
@@ -75,42 +82,6 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_footer');
 	}
 	
-	function update_vehicle()
-	{
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('type', 'Type', 'trim|required|alpha');
-		$this->form_validation->set_rules('name', 'Name', 'trim|required|name_space');
-		$this->form_validation->set_rules('transmission', 'Transmission', 'trim|required|alpha');
-		$this->form_validation->set_rules('ac', 'AC', 'trim|required|numeric');
-		$this->form_validation->set_rules('capacity', 'Capacity', 'trim|required|numeric');
-		$this->form_validation->set_rules('luggage', 'Luggage', 'trim|required|numeric');
-		$this->form_validation->set_rules('daily', 'Daily', 'trim|required|numeric');
-		
-		if($this->form_validation->run() == FALSE)
-		{
-			$data['msg'] = NULL;
-			$this->load->view('admin_header');
-			$this->load->view('view_admin_update_vehicle',$data);
-			$this->load->view('admin_footer');
-		}
-		else
-		{			
-			$this->load->model('model_admin');
-				
-			if($this->model_admin->update_vehicle())
-			{
-				redirect('admin/getAll_vehicle');
-			}		
-		}
-	}
-	
-	function delete_vehicle()
-	{
-		$this->load->model('model_admin');
-		$this->model_admin->delete_vehicle();
-		$this->index();
-	}
-	
 	function add_vehicle() 
 	{
 		$this->load->library('form_validation');
@@ -152,8 +123,76 @@ class Admin extends CI_Controller {
 			}
 			else
 			{
+				$this->error_pic_edit($this->upload->display_errors());
+			}			
+		}
+	}
+	
+	function update_vehicle()
+	{
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('type', 'Type', 'trim|required|alpha');
+		$this->form_validation->set_rules('name', 'Name', 'trim|required|name_space');
+		$this->form_validation->set_rules('transmission', 'Transmission', 'trim|required|alpha');
+		$this->form_validation->set_rules('ac', 'AC', 'trim|required|numeric');
+		$this->form_validation->set_rules('capacity', 'Capacity', 'trim|required|numeric');
+		$this->form_validation->set_rules('luggage', 'Luggage', 'trim|required|numeric');
+		$this->form_validation->set_rules('daily', 'Daily', 'trim|required|numeric');
+		
+		if($this->form_validation->run() == FALSE)
+		{
+			$data['msg'] = NULL;
+			$this->load->view('admin_header');
+			$this->load->view('view_admin_update_vehicle',$data);
+			$this->load->view('admin_footer');
+		}
+		else
+		{			
+			$this->load->model('model_admin');			
+			// $next = $this->db->query("SHOW TABLE STATUS LIKE 'vehicle'");
+			// $next = $next->row(0);
+			// $id = $next->Auto_increment;
+			
+			// $q = $this->db->query('SELECT id FROM vehicle');
+			// $id = $q->last_row()->id;
+			
+			$id = $this->uri->segment(3);
+			
+			$pathToUpload = './public/car/';
+			$config['file_name'] = $id . '.jpg';
+			$config['upload_path'] = $pathToUpload;
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size']	= '5000';
+			$config['overwrite'] = True;
+			$this->load->library('upload', $config);
+			
+			if( $this->upload->do_upload() && $this->model_admin->update_vehicle() )
+			{
+				$data = array('upload_data' => $this->upload->data());
+				redirect('admin/getAll_vehicle');
+			}
+			else if($this->model_admin->update_vehicle())
+			{
+				redirect('admin/getAll_vehicle');
+			}
+			else if($this->upload->do_upload())
+			{
+				$data = array('upload_data' => $this->upload->data());
+				redirect('admin/getAll_vehicle');
+			}
+			else
+			{
 				$this->error_pic($this->upload->display_errors());
 			}			
 		}
 	}
+	
+	function delete_vehicle()
+	{
+		$this->load->model('model_admin');
+		$this->model_admin->delete_vehicle();
+		$this->index();
+	}
+	
+	
 }

@@ -38,20 +38,30 @@ while($row = mysql_fetch_array($sql))
 							<strong>" . validation_errors() . "</strong>
 						</div>";
 					}
-				
-					echo form_open("admin/update_vehicle/$id_update", array('id' => 'edit', 'class' => 'form-signin', 'role' => 'form'));
+					
+					if($msg != NULL) {
+						echo "
+						<div class='alert alert-danger alert-dismissable'>
+							<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+							<strong>" . $msg . "</strong>
+						</div>";
+					}
+					
+					echo form_open_multipart("admin/update_vehicle/$id_update", array('id' => 'edit', 'class' => 'form-signin', 'role' => 'form'));
 					// picture
+					// $q = $this->db->query('SELECT id FROM vehicle');
+					// $id = $q->last_row()->id;
 					// $path = base_url() . "public/car/" . $id_update . ".jpg";
 					
 					// if(!file_exists($path)) {
-						// $display = base_url() . "public/car/$id_update.jpg";
+						$display = base_url() . "public/car/$id_update.jpg";
 					// } else {
 						// $display = $path;
 					// }
-					// echo "<img src='" . $display . "' class='img-thumbnail' alt ='Car Picture' width='250'/>";
-					// echo '<br>';
-					// echo form_input(array('name' => 'userfile', 'type' => 'file')); 
-					// echo '<br>';
+					echo "<img src='" . $display . "' class='img-thumbnail' alt ='Car Picture' width='250'/>";
+					echo '<br>';
+					echo form_input(array('name' => 'userfile', 'type' => 'file')); 
+					echo '<br>';
 					// picture
 					echo form_label('Type', 'type');
 					$options = array(
