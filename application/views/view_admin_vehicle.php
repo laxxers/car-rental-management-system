@@ -63,7 +63,7 @@
 								<?php echo $row->ac; ?>
 							</td>
 							<td >
-								<a href="<?php echo base_url() . "admin/update_vehicle/" . $row->id ?>" class="btn btn-default" role="button">
+								<a href="<?php echo base_url() . "admin/update_vehicle/". $row->id ?>" class="btn btn-default" role="button">
 									<i class="fa fa-pencil-square-o"></i> Edit
 								</a>
 								<button class="btn btn-danger" data-toggle="modal" data-target=".md-delete"><i class="fa fa-trash-o"></i> </button>

@@ -33,14 +33,31 @@ class Model_admin extends CI_Model {
 		return $query->result();
 	}
 	
-	function update_record($data) 
+	function update_vehicle() 
 	{
-		// coming soon
-		// $this->db->where('', );
-		// $this->db->update('', $data);
+		$id_update = $this->uri->segment(3);
+		
+		$type = $this->input->post('type');
+		$name = $this->input->post('name');
+		$transmission = $this->input->post('transmission');
+		$ac = $this->input->post('ac');
+		$capacity = $this->input->post('capacity');
+		$luggage = $this->input->post('luggage');
+		$daily = $this->input->post('daily');
+		
+		$sql_update =  $this->db->query("UPDATE vehicle 
+										SET type = '$type',
+										name = '$name',
+										transmission = '$transmission',
+										ac = '$ac',
+										capacity = '$capacity',
+										luggage = '$luggage',
+										daily = '$daily'
+										WHERE id = $id_update ");
+		return $sql_update;
 	}
 	
-	function delete_row()
+	function delete_vehicle()
 	{
 		$this->db->where('id', $this->uri->segment(3));
 		$this->db->delete('vehicle');
