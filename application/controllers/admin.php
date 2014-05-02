@@ -79,7 +79,7 @@ class Admin extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('type', 'Type', 'trim|required|alpha');
-		$this->form_validation->set_rules('name', 'Name', 'trim|required|alpha');
+		$this->form_validation->set_rules('name', 'Name', 'trim|required|name_space');
 		$this->form_validation->set_rules('transmission', 'Transmission', 'trim|required|alpha');
 		$this->form_validation->set_rules('ac', 'AC', 'trim|required|numeric');
 		$this->form_validation->set_rules('capacity', 'Capacity', 'trim|required|numeric');
@@ -115,7 +115,7 @@ class Admin extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('type', 'Type', 'trim|required|alpha');
-		$this->form_validation->set_rules('name', 'Name', 'trim|required|alpha');
+		$this->form_validation->set_rules('name', 'Name', 'trim|required|name_space');
 		$this->form_validation->set_rules('transmission', 'Transmission', 'trim|required|alpha');
 		$this->form_validation->set_rules('ac', 'AC', 'trim|required|numeric');
 		$this->form_validation->set_rules('capacity', 'Capacity', 'trim|required|numeric');
@@ -135,6 +135,8 @@ class Admin extends CI_Controller {
 			
 			$q = $this->db->query('SELECT id FROM vehicle');
 			$id = $q->last_row()->id;
+			// $q = $this->db->query('SELECT LAST_INSERT_ID() as id FROM vehicle');
+			// $id = $q->last_row()->id;
 			$pathToUpload = './public/car/';
 			$config['file_name'] = $id + 1 . '.jpg';
 			$config['upload_path'] = $pathToUpload;

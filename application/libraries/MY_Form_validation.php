@@ -64,4 +64,18 @@ class MY_Form_validation extends CI_Form_validation{
 		}
 	}
 	
+	function name_space($value){
+	
+		$this->CI->form_validation->set_message('name_space',
+			'The Name field may only contain alphabetical and space characters.');
+			
+		if(preg_match('/^[a-zA-Z\s]+$/',$value)){
+			return true	;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 }

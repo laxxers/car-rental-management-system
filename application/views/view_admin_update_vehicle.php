@@ -41,12 +41,10 @@ while($row = mysql_fetch_array($sql))
 				
 					echo form_open("admin/update_vehicle/$id_update", array('id' => 'edit', 'class' => 'form-signin', 'role' => 'form'));
 					// picture
-					// $q = $this->db->query('SELECT id FROM vehicle');
-					// $id = $q->last_row()->id;
-					// $path = base_url() . "public/car/" . $id+1 . ".jpg";
+					// $path = base_url() . "public/car/" . $id_update . ".jpg";
 					
 					// if(!file_exists($path)) {
-						// $display = base_url() . "public/car/default.jpg";
+						// $display = base_url() . "public/car/$id_update.jpg";
 					// } else {
 						// $display = $path;
 					// }

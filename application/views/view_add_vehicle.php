@@ -27,6 +27,7 @@
 			<div class="col-lg-12">
 				<?php
 					echo form_open_multipart('admin/add_vehicle', array('id' => 'edit', 'class' => 'form-signin', 'role' => 'form'));
+					
 					// picture
 					$q = $this->db->query('SELECT id FROM vehicle');
 					$id = $q->last_row()->id;
