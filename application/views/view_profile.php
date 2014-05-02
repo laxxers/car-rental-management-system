@@ -69,7 +69,7 @@
 				<?php
 					echo form_open('/gallery', array('id' => 'search', 'class' => 'form', 'method' => 'post' , 'role' => 'form'));
 					echo form_label('Location', 'location');
-					echo form_input(array('name' => 'location', 'class' => 'form-control', 'value' => set_value('location'), 'placeholder' => 'Location name or Address, E.g. Kuala Lumpur', 'required' => 'required', 'autofocus' => 'autofocus'));
+					echo form_input(array('name' => 'location', 'class' => 'form-control', 'placeholder' => 'Location name or Address, E.g. Kuala Lumpur', 'required' => 'required', 'autofocus' => 'autofocus'));
 					echo form_checkbox(array('name' => 'return', 'value' => true));
 					echo form_label('&nbsp;Return at different location');
 					echo '<br>';
@@ -82,14 +82,14 @@
 				  		echo form_label('Pick-Up Date', 'pickup');
 				  		echo '<div class="input-group">';
 				  		echo '<span class="input-group-addon"><i class="fa fa-calendar"></i></span>';
-				  		echo form_input(array('class' => 'form-control', 'data-provide' => 'datepicker', 'required' => 'required'));
+				  		echo form_input(array('name' => 'pickup', 'class' => 'form-control', 'data-provide' => 'datepicker', 'required' => 'required'));
 				  		echo '</div>';
 				  	?>
 				  </div>
 				  <div class="col-xs-3">
 				  	<?php
 				  		echo form_label('Time', 'pickuptime');
-				  		echo form_dropdown('pickuptime', array('8.00 a.m' => '8.00 a.m', '12.00 p.m' => '12.00 p.m', '4.00 p.m' => '4.00 p.m', '8.00 p.m' => '8.00 p.m', '12.00 a.m' => '12.00 a.m'), '8.00 p.m', 'class="form-control"');
+				  		echo form_dropdown('pickuptime', array('8 a.m' => '8 a.m', '12 p.m' => '12 p.m', '4 p.m' => '4 p.m', '8 p.m' => '8 p.m', '12 a.m' => '12 a.m'), '8 a.m', 'class="form-control"');
 				  	?>
 				  </div>
 				  <div class="col-xs-3">
@@ -97,14 +97,14 @@
 				  		echo form_label('Drop-Off Date', 'dropoff');
 				  		echo '<div class="input-group">';
 				  		echo '<span class="input-group-addon"><i class="fa fa-calendar"></i></span>';
-				  		echo form_input(array('class' => 'form-control', 'data-provide' => 'datepicker', 'required' => 'required'));
+				  		echo form_input(array('name' => 'dropoff', 'class' => 'form-control', 'data-provide' => 'datepicker', 'required' => 'required'));
 				  		echo '</div>';
 				  	?>
 				  </div>
 				   <div class="col-xs-3">
 				  	<?php
 				  		echo form_label('Time', 'dropofftime');
-				  		echo form_dropdown('dropofftime', array('8.00 a.m' => '8.00 a.m', '12.00 p.m' => '12.00 p.m', '4.00 p.m' => '4.00 p.m', '8.00 p.m' => '8.00 p.m', '12.00 a.m' => '12.00 a.m'), '8.00 p.m', 'class="form-control"');
+				  		echo form_dropdown('dropofftime', array('8 a.m' => '8 a.m', '12 p.m' => '12 p.m', '4 p.m' => '4 p.m', '8 p.m' => '8 p.m', '12 a.m' => '12 a.m'), '8 a.m', 'class="form-control"');
 				  	?>
 				  </div>
 				</div>
