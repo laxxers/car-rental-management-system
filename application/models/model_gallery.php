@@ -21,4 +21,15 @@ class Model_gallery extends CI_Model {
 			return $data;
 		}
 	}
+	
+	function booking() {
+		$vehicle_id =  $this->uri->segment(3);
+		$query = $this->db->get_where('vehicle', array('id' => $vehicle_id));	
+		if($query->num_rows() > 0) {
+			foreach($query->result() as $row) {
+				$data[] = $row;
+			}
+			return $data;
+		}
+	}
 }

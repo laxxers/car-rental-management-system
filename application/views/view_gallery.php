@@ -103,7 +103,9 @@
                         	<center>
 								<div class="btn-group btn-group-justified">
 									<div class="btn-group">
-										<button type="button" class="btn btn-success">Select</button>
+										<a href="<?php echo base_url();?>gallery/booking/<?php echo $row->id;?>" class="btn btn-success">
+										Select
+										</a>
 									</div>
 								</div>
 							</center>

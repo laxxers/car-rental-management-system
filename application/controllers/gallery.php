@@ -25,4 +25,13 @@ class Gallery extends CI_Controller {
 		$this->load->view('view_gallery', $data);
 		$this->load->view('footer');
 	}
+	
+	function booking() {
+		$this->load->model('model_gallery');
+		$data['rows'] = $this->model_gallery->booking();
+		
+		$this->load->view('header');
+		$this->load->view('view_booking', $data);
+		$this->load->view('footer');
+	}
 }
