@@ -78,4 +78,18 @@ class MY_Form_validation extends CI_Form_validation{
 		}
 	}
 	
+	function phone($value){
+	
+		$this->CI->form_validation->set_message('phone',
+			'The %s should be in this format 123-1324567');
+			
+		if(preg_match('/^\d{3}\-\d{7}$/',$value)){
+			return true	;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 }

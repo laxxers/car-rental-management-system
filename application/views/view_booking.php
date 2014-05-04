@@ -119,7 +119,7 @@
 					echo '<div class="form-group">';
 						echo form_label('Pick-Up Date', 'pickup', array('class' => 'col-sm-4 control-label'));					
 					echo '<div class="col-sm-8" >';
-						echo form_input(array('name' => 'pickup', 'class' => 'form-control', 'data-provide' => 'datepicker', 'value' => set_value('pickup'), 'required' => 'required', 'readonly'=>'readonly'));
+						echo form_input(array('name' => 'pickup', 'class' => 'form-control', 'value' => set_value('pickup'), 'required' => 'required', 'readonly'=>'readonly'));
 					echo '</div></div>';	
 					
 					echo '<div class="form-group">';
@@ -131,7 +131,7 @@
 					echo '<div class="form-group">';
 						echo form_label('Drop-Off Date', 'dropoff', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';
-						echo form_input(array('name' => 'dropoff', 'class' => 'form-control', 'data-provide' => 'datepicker', 'value' => set_value('dropoff'), 'required' => 'required', 'readonly'=>'readonly'));
+						echo form_input(array('name' => 'dropoff', 'class' => 'form-control', 'value' => set_value('dropoff'), 'required' => 'required', 'readonly'=>'readonly'));
 					echo '</div></div>';
 						
 					echo '<div class="form-group">';

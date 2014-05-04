@@ -38,8 +38,9 @@ class Gallery extends CI_Controller {
 	function reserve()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('phone', 'Phone Number', 'trim|required|numeric');
+		$this->form_validation->set_rules('phone', 'Phone Number', 'trim|required|phone');
 		
+		if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		if($this->form_validation->run() == FALSE)
 		{
 			$this->booking();
@@ -61,6 +62,7 @@ class Gallery extends CI_Controller {
 				$this->load->view('view_booking');	
 				$this->load->view('footer');		
 			}
+		}
 		}
 	}
 }

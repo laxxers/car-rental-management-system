@@ -36,7 +36,12 @@ class Model_gallery extends CI_Model {
 	function reserve_vehicle()
 	{
 		$insert_reservation_data = array(
-			'phone' => $this->input->post('phone')			
+			'phone' => $this->input->post('phone'),
+			'first_name' => $this->input->post('first_name'),
+			'last_name' => $this->input->post('last_name'),
+			'email_address' => $this->input->post('email_address'),
+			'location' => $this->input->post('location')
+			
 		);
 		
 
