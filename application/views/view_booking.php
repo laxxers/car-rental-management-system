@@ -89,7 +89,7 @@
 					echo '<div class="form-group">';
 						echo form_label('Phone Number', 'phone', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';					
-						echo form_input(array('name' => 'phone', 'class' => 'form-control', 'value' => set_value('phone'), 'placeholder' => 'Phone Number', 'required' => 'required', 'autofocus' => 'autofocus'));
+						echo form_input(array('name' => 'phone', 'class' => 'form-control', 'value' => set_value('phone'), 'placeholder' => '123-1234567', 'required' => 'required', 'autofocus' => 'autofocus'));
 					echo '</div></div>';
 					
 					echo '<div class="form-group">';
@@ -113,7 +113,7 @@
 					echo '<div class="form-group">';
 						echo form_label('Location', 'location', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';
-						echo form_input(array('name' => 'location', 'class' => 'form-control', 'value' => set_value('location'), 'required' => 'required', 'autofocus' => 'autofocus', 'readonly'=>'readonly'));
+						echo form_input(array('name' => 'location', 'class' => 'form-control', 'value' => set_value('location'), 'placeholder' => 'Eg: KL, Melaka...', 'required' => 'required', 'autofocus' => 'autofocus'));
 					echo '</div></div>';	
 					
 					echo '<div class="form-group">';
