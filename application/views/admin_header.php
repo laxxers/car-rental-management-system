@@ -29,9 +29,10 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?php echo base_url();?>admin">Admin Panel</a>
-                		 
+                
             </div>
             <!-- /.navbar-header -->
+	
             <?php
                 //Set default display picture
                 $id = $this->session->userdata("id");
@@ -42,10 +43,14 @@
                     $display = $path;
                 }
             ?>
+			
             <div class="navbar-default navbar-static-side" role="navigation">
 
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
+						<li>
+							<a href="<?php echo base_url();?>"><i class="fa fa-home fa-lg"></i> Back To Home </a>
+						</li>
                     	<li>
                     		<center>
                     			<img src="<?php echo $display ?>" class="img-thumbnail" alt ="Profile Picture" width="200" style="margin: 20px;"/>
@@ -70,7 +75,9 @@
                             <a href="#"> Rental Schedule</a>
                         </li>
                     </ul>
-                    <center><a href="<?php echo base_url(); ?>" class="btn btn-success" style="margin-top:15px; "><i class="fa fa-home"></i> Back to Home</a></center>
-                </div>
+                    <!--
+					<center><a href="<?php //echo base_url(); ?>" class="btn btn-success" style="margin-top:15px; "><i class="fa fa-home"></i> Back to Home</a></center>
+					-->
+				</div>
             </div>
         </nav>

@@ -32,4 +32,15 @@ class Model_gallery extends CI_Model {
 			return $data;
 		}
 	}
+	
+	function reserve_vehicle()
+	{
+		$insert_reservation_data = array(
+			'phone' => $this->input->post('phone')			
+		);
+		
+
+		$insert = $this->db->insert('book', $insert_reservation_data);
+		return $insert;
+	}
 }

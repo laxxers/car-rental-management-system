@@ -68,12 +68,12 @@
 			<div class="panel-body">
 				<?php
 					echo form_open('/gallery', array('id' => 'search', 'class' => 'form', 'method' => 'post' , 'role' => 'form'));
-					echo form_label('Location', 'location');
-					echo form_input(array('name' => 'location', 'class' => 'form-control', 'placeholder' => 'Location name or Address, E.g. Kuala Lumpur', 'required' => 'required', 'autofocus' => 'autofocus'));
-					echo form_checkbox(array('name' => 'return', 'value' => true));
-					echo form_label('&nbsp;Return at different location');
-					echo '<br>';
-					echo '<br>';
+					// echo form_label('Location', 'location');
+					// echo form_input(array('name' => 'location', 'class' => 'form-control', 'placeholder' => 'Location name or Address, E.g. Kuala Lumpur', 'required' => 'required', 'autofocus' => 'autofocus'));
+					// echo form_checkbox(array('name' => 'return', 'value' => true));
+					// echo form_label('&nbsp;Return at different location');
+					// echo '<br>';
+					// echo '<br>';
 				?>
 
 				<div class="row">

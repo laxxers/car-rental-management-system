@@ -50,19 +50,21 @@
 							{
 								echo "
 									<li><a href='" . base_url() . "profile'><i class='fa fa-user fa-lg'></i> Dashboard</a></li>
-		               				<li><a href='" . base_url() . "admin'><i class='fa fa-cogs fa-lg'></i> Admin  </a></li>
+		               				<li><a href='" . base_url() . "gallery'><i class='fa fa-archive fa-lg'></i> Gallery</a></li>
+									<li><a href='" . base_url() . "admin'><i class='fa fa-cogs fa-lg'></i> Admin  </a></li>
 									";
 							}
 							else if ($session && $accounttype == 'user')
 							{
 								echo "
 									<li><a href='" . base_url() . "profile'><i class='fa fa-user fa-lg'></i> Dashboard</a></li>
+									<li><a href='" . base_url() . "gallery'><i class='fa fa-archive fa-lg'></i> Gallery</a></li>
 									";
 							}
 						?>
-						
-						<li><a href="<?php echo base_url(); ?>gallery"><i class="fa fa-archive fa-lg"></i> Gallery</a></li>
-					
+						<!--
+						<li><a href="<?php //echo base_url(); ?>gallery"><i class="fa fa-archive fa-lg"></i> Gallery</a></li>
+						-->
 					</ul>
 			    	<ul class="nav navbar-nav navbar-right">
 			    		<?php 
