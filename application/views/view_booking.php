@@ -128,7 +128,7 @@
 					echo '<div class="form-group">';
 						echo form_label('Time', 'pickuptime', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';
-						echo form_dropdown('pickuptime', array('8 a.m' => '8 a.m', '12 p.m' => '12 p.m', '4 p.m' => '4 p.m', '8 p.m' => '8 p.m', '12 a.m' => '12 a.m'), set_value('pickuptime'), 'class="form-control" disabled="disabled" ');
+						echo form_input(array('name' => 'pickuptime', 'class' => 'form-control', 'value' => set_value('pickuptime'), 'required' => 'required', 'readonly'=>'readonly'));
 					echo '</div></div>';
 						
 					echo '<div class="form-group">';
@@ -140,7 +140,7 @@
 					echo '<div class="form-group">';
 						echo form_label('Time', 'dropofftime', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';
-						echo form_dropdown('dropofftime', array('8 a.m' => '8 a.m', '12 p.m' => '12 p.m', '4 p.m' => '4 p.m', '8 p.m' => '8 p.m', '12 a.m' => '12 a.m'), set_value('dropofftime'), 'class="form-control" disabled="disabled"');
+						echo form_input(array('name' => 'dropofftime', 'class' => 'form-control', 'value' => set_value('dropofftime'), 'required' => 'required', 'readonly'=>'readonly'));
 					echo '</div></div>';
 					
 					echo form_submit('submit', 'Reserve Now', 'class="btn btn-success pull-right"');

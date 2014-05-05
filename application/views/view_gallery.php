@@ -40,6 +40,15 @@
 						<?php
 							echo form_label('Time', 'pickuptime');
 							echo form_dropdown('pickuptime', array('8 a.m' => '8 a.m', '12 p.m' => '12 p.m', '4 p.m' => '4 p.m', '8 p.m' => '8 p.m', '12 a.m' => '12 a.m'), set_value('pickuptime'), 'class="form-control"');
+						
+							// $options = array(
+	// '8 a.m' => '8 a.m',
+	// '12 p.m' => '12 p.m',
+	// '4 p.m' => '4 p.m',
+	// '8 p.m' => '8 p.m',
+	// '12 a.m' => '12 a.m'
+// );
+// echo form_dropdown('pickuptime', $options, '8 a.m', 'class="form-control"');
 						?>
 						</div>
 					</div>
