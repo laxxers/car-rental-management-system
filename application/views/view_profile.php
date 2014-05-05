@@ -82,7 +82,7 @@
 				  		echo form_label('Pick-Up Date', 'pickup');
 				  		echo '<div class="input-group">';
 				  		echo '<span class="input-group-addon"><i class="fa fa-calendar"></i></span>';
-				  		echo form_input(array('name' => 'pickup', 'class' => 'form-control', 'data-provide' => 'datepicker', 'required' => 'required'));
+				  		echo form_input(array('name' => 'pickup', 'class' => 'form-control', 'data-provide' => 'datepicker', 'placeholder' => 'MM/DD/YYYY', 'required' => 'required'));
 				  		echo '</div>';
 				  	?>
 				  </div>
@@ -97,7 +97,7 @@
 				  		echo form_label('Drop-Off Date', 'dropoff');
 				  		echo '<div class="input-group">';
 				  		echo '<span class="input-group-addon"><i class="fa fa-calendar"></i></span>';
-				  		echo form_input(array('name' => 'dropoff', 'class' => 'form-control', 'data-provide' => 'datepicker', 'required' => 'required'));
+				  		echo form_input(array('name' => 'dropoff', 'class' => 'form-control', 'data-provide' => 'datepicker', 'placeholder' => 'MM/DD/YYYY', 'required' => 'required'));
 				  		echo '</div>';
 				  	?>
 				  </div>

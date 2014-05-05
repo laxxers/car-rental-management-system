@@ -9,7 +9,8 @@ class Gallery extends CI_Controller {
 		} else {
 			$this->load->model('model_gallery');
 			$data['rows'] = $this->model_gallery->getAll();
-		
+			$data['toggle'] = false;
+			$data['msg'] = NULL;
 			$this->load->view('header');
 			$this->load->view('view_gallery', $data);
 			$this->load->view('footer');
@@ -20,19 +21,41 @@ class Gallery extends CI_Controller {
 	function search() {
 		$this->load->model('model_gallery');
 		$data['rows'] = $this->model_gallery->search();
+		
+		$startDate = strtotime($this->input->post('pickup'));
+		$endDate = strtotime($this->input->post('dropoff'));
+		
+		$data['days'] =  ($endDate - $startDate) / 86400;
+		$data['msg'] = NULL;
 
-		$this->load->view('header');
-		$this->load->view('view_search_gallery', $data);
-		$this->load->view('footer');
+		if($data['days'] < 0 ) {
+			$data['msg'] = "Please choose a valid Pick-Up Date or Drop-Off Date.";
+			$this->load->view('header');
+			$this->load->view('view_gallery', $data);
+			$this->load->view('footer');
+		} else {
+			$data['toggle'] = true;
+			$this->load->view('header');
+			$this->load->view('view_gallery', $data);
+			$this->load->view('footer');
+		}
 	}
 	
 	function booking() {
 		$this->load->model('model_gallery');
 		$data['rows'] = $this->model_gallery->booking();
+
+		$startDate = strtotime($this->input->post('pickup'));
+		$endDate = strtotime($this->input->post('dropoff'));
 		
+		$data['days'] =  ($endDate - $startDate) / 86400;
+
 		$this->load->view('header');
 		$this->load->view('view_booking', $data);
 		$this->load->view('footer');
+
+
+
 	}
 	
 	function reserve()

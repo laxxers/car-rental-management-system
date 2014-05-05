@@ -100,15 +100,16 @@
 							
 						</p>
                         <p>
-                        	<center>
-								<div class="btn-group btn-group-justified">
-									<div class="btn-group">
-										<a href="<?php echo base_url();?>gallery/booking/<?php echo $row->id;?>" class="btn btn-success">
-										Select
-										</a>
+	                        	<center>
+									<div class="btn-group btn-group-justified">
+										<div class="btn-group">
+											<a href="<?php echo base_url();?>gallery/booking/<?php echo $row->id;?>" class="btn btn-success">
+											Select
+											</a>
+										</div>
 									</div>
-								</div>
-							</center>
+								</center>
+
                         </p>
                     </div>
 					

@@ -29,13 +29,16 @@
 		}
 	} 
 ?>
-
 <div class="row">
-	
+	<div class="col-lg-12">
+		<h5><i class="fa fa-chevron-left"></i> <a href="<?php echo base_url() . 'gallery'?>" style="text-decoration:none;"> Back to gallery</a></h5>
+	</div>
+</div>
+<div class="row">
 	<?php foreach($rows as $row) {?>
 	<?php $selected_id = $row->id;?>
 	<div class="col-xs-12 col-md-3">
-		<div class="thumbnail" style="height: 700px;">
+		<div class="thumbnail" style="height: 650px;">
 			<img src="<?php echo base_url(); ?>public/car/<?php echo $row->id;?>.jpg" alt="">
 			
 			<div class="caption">
@@ -70,8 +73,8 @@
 	<?php } ?>
 	
 	<div class="col-xs-12 col-md-5" >
-		<div class="panel panel-info" style="height: 700px;">
-			<div class="panel-heading"><i class="fa fa-book"></i>Reservation Details</div>
+		<div class="panel panel-info" style="height: 650px;">
+			<div class="panel-heading"><i class="fa fa-book"></i> Reservation Details</div>
 			
 			<div class="panel-body">
 				<?php
@@ -89,31 +92,31 @@
 					echo '<div class="form-group">';
 						echo form_label('Phone Number', 'phone', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';					
-						echo form_input(array('name' => 'phone', 'class' => 'form-control', 'value' => set_value('phone'), 'placeholder' => '123-1234567', 'required' => 'required', 'autofocus' => 'autofocus'));
+						echo form_input(array('name' => 'phone', 'class' => 'form-control', 'value' => set_value('phone'), 'placeholder' => '012-3456789', 'required' => 'required', 'autofocus' => 'autofocus'));
 					echo '</div></div>';
 					
 					echo '<div class="form-group">';
 						echo form_label('First Name', 'first_name', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';
-						echo form_input(array('name' => 'first_name', 'class' => 'form-control', 'value' => $first_name, 'required' => 'required', 'autofocus' => 'autofocus', 'readonly'=>'readonly'));
+						echo form_input(array('name' => 'first_name', 'class' => 'form-control', 'value' => $first_name, 'required' => 'required', 'readonly'=>'readonly'));
 					echo '</div></div>';
 
 					echo '<div class="form-group">';
 						echo form_label('Last Name', 'last_name', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';
-						echo form_input(array('name' => 'last_name', 'class' => 'form-control', 'value' => $last_name, 'required' => 'required', 'autofocus' => 'autofocus', 'readonly'=>'readonly'));
+						echo form_input(array('name' => 'last_name', 'class' => 'form-control', 'value' => $last_name, 'required' => 'required', 'readonly'=>'readonly'));
 					echo '</div></div>';
 					
 					echo '<div class="form-group">';
 						echo form_label('Email Address', 'email_address', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';	
-						echo form_input(array('name' => 'email_address', 'class' => 'form-control', 'value' => $email_address, 'required' => 'required', 'autofocus' => 'autofocus', 'readonly'=>'readonly'));
+						echo form_input(array('name' => 'email_address', 'class' => 'form-control', 'value' => $email_address, 'required' => 'required', 'readonly'=>'readonly'));
 					echo '</div></div>';
 					
 					echo '<div class="form-group">';
 						echo form_label('Location', 'location', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';
-						echo form_input(array('name' => 'location', 'class' => 'form-control', 'value' => set_value('location'), 'placeholder' => 'Eg: KL, Melaka...', 'required' => 'required', 'autofocus' => 'autofocus'));
+						echo form_input(array('name' => 'location', 'class' => 'form-control', 'value' => set_value('location'), 'placeholder' => 'Eg: Location or Address, eg. Kuala Lumpur', 'required' => 'required'));
 					echo '</div></div>';	
 					
 					echo '<div class="form-group">';
@@ -148,42 +151,56 @@
 	</div>
 	
 	<div class="col-xs-12 col-md-4">
-		<div class="panel panel-info" style="height: 700px;">
+		<div class="panel panel-info" style="height: 650px;">
 			<div class="panel-heading"><i class="fa fa-usd"></i> Estimated Charges </div>
 			
-				<div class="panel-body">
-					<p><strong>Total Days :</strong> 1 day</p>
-				
+				<div class="panel-body">				
 					<div class="table-responsive">
-						<table class="table table-striped">
+						<table class="table table-striped">							
 							<thead>
-								<th>Estimated Taxes & Fees</th>
+								<th><h4>Estimated Taxes & Fees</h4></th>
 								<th> &nbsp </th>
 							</thead>
 							
 							<tbody>
 								<tr >
+									<?php 
+										$rental = number_format((float)($days * $row->daily), 2, '.', ''); 
+										if($days == 1) {
+											$day = 'day';
+										} else {
+											$day = 'days';
+										}
+									?>
+									<td ><?php echo '<strong>Car Rental (' . $days . ' ' . $day . ' @ $' . $row->daily . '/day)</strong>' ?></td>
+									<td ><?php echo '$ ' . $rental; ?></td>
+								</tr>
+
+								<tr >
+									<?php $facility = number_format((float)($rental * 0.05), 2, '.', ''); ?>
 									<td ><?php echo 'Facility Charge'; ?></td>
-									<td ><?php echo '$ 100'; ?></td>
+									<td ><?php echo '$ ' . $facility; ?></td>
 								</tr>
 								<tr >
+									<?php $process = number_format((float)($rental * 0.02), 2, '.', ''); ?>
 									<td ><?php echo 'Processing Fee'; ?></td>
-									<td ><?php echo '$ 100'; ?></td>
+									<td ><?php echo '$ ' . $process; ?></td>
 								</tr>
 								<tr >
+									<?php $gov = number_format((float)($rental * 0.06), 2, '.', '');; ?>
 									<td ><?php echo 'Gov Tax (6%)'; ?></td>
-									<td ><?php echo '$ 100'; ?></td>
+									<td ><?php echo '$ ' . $gov; ?></td>
 								</tr>
 								
 							</tbody>
 							
 							<tfoot>
-								<td><strong><?php echo 'Total'; ?></strong></td>
-								<td><strong><?php echo '$ 100'; ?></strong></td>
+								<td><strong><h4><?php echo 'Total Price (RM)'; ?></strong></h4></td>
+								<td><strong><h4><?php echo '$ ' . number_format((float)($rental + $facility + $process + $gov), 2, '.', ''); ?></strong></h4></td>
 							</tfoot>
 						</table>
 					</div>
-					
+					<hr>
 					<p><strong>Prices are in Ringgit Malaysia (RM)</strong></p>
 				</div>
 		</div>
