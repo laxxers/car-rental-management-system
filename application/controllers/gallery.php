@@ -28,7 +28,7 @@ class Gallery extends CI_Controller {
 		$data['days'] =  ($endDate - $startDate) / 86400;
 		$data['msg'] = NULL;
 
-		if($data['days'] < 0 ) {
+		if($data['days'] <= 0 ) {
 			$data['msg'] = "Please choose a valid Pick-Up Date or Drop-Off Date.";
 			$this->load->view('header');
 			$this->load->view('view_gallery', $data);
@@ -63,29 +63,30 @@ class Gallery extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('phone', 'Phone Number', 'trim|required|phone');
 		
-		if($_SERVER['REQUEST_METHOD'] === 'POST'){
-		if($this->form_validation->run() == FALSE)
+		if($_SERVER['REQUEST_METHOD'] === 'POST')
 		{
-			$this->booking();
-		}
-		else
-		{			
-			$this->load->model('model_gallery');
-			
-			if($query = $this->model_gallery->reserve_vehicle())
+			if($this->form_validation->run() == FALSE)
 			{
-				$this->load->view('header');
-				echo "success";
-				$this->load->view('footer');
-				
+				$this->booking();
 			}
 			else
-			{
-				$this->load->view('header');
-				$this->load->view('view_booking');	
-				$this->load->view('footer');		
+			{			
+				$this->load->model('model_gallery');
+				
+				if($query = $this->model_gallery->reserve_vehicle())
+				{
+					$this->load->view('header');
+					$this->load->view('view_success');
+					$this->load->view('footer');
+					
+				}
+				else
+				{
+					$this->load->view('header');
+					$this->load->view('view_booking');	
+					$this->load->view('footer');		
+				}
 			}
-		}
 		}
 	}
 }
