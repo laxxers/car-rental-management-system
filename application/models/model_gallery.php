@@ -43,7 +43,8 @@ class Model_gallery extends CI_Model {
 		$sql_check_availability = mysql_query(
 			"SELECT * 
 			FROM reservation 
-			WHERE (pickup <= '$pickup' AND dropoff <= '$dropoff')
+			WHERE pickup <= '$pickup' 
+			AND dropoff >= '$dropoff'
 			AND vehicle_id = '$vehicle_id' 
 			LIMIT 1"
 		);
