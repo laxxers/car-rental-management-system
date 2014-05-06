@@ -31,7 +31,7 @@
 ?>
 <div class="row">
 	<div class="col-lg-12">
-		<h5><i class="fa fa-chevron-left"></i> <a href="<?php echo base_url() . 'gallery'?>" style="text-decoration:none;"> Back to gallery</a></h5>
+		<h5><i class="fa fa-chevron-left"></i> <a href="<?php echo base_url() . 'gallery'?>" style="text-decoration:none;"> Back to Gallery</a></h5>
 	</div>
 </div>
 <div class="row">

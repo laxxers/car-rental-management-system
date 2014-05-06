@@ -82,8 +82,17 @@ class Gallery extends CI_Controller {
 				}
 				else
 				{
+					$data['vehicle_id'] =  $this->uri->segment(3);
+					$data['pickup'] = strftime("%d %b %Y", strtotime($this->input->post('pickup')));
+					// $data['pickup'] = $this->input->post('pickup');
+					// $data['pickup'] = date('Y-m-d', strtotime($this->input->post('pickup')));
+					
+					$data['dropoff'] = strftime("%d %b %Y", strtotime($this->input->post('dropoff')));
+					// $data['dropoff'] = $this->input->post('dropoff');
+					// $data['dropoff'] = date('Y-m-d', strtotime($this->input->post('dropoff')));
+					
 					$this->load->view('header');
-					$this->load->view('view_booking');	
+					$this->load->view('view_book_crash',$data);		
 					$this->load->view('footer');		
 				}
 			}

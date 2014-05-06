@@ -35,22 +35,39 @@ class Model_gallery extends CI_Model {
 	
 	function reserve_vehicle()
 	{	
+		
+		$pickup = date('Y-m-d', strtotime($this->input->post('pickup')));
+		$dropoff = date('Y-m-d', strtotime($this->input->post('dropoff')));
 		$vehicle_id =  $this->uri->segment(3);
 		
-		$insert_reservation_data = array(
-			'vehicle_id' => $vehicle_id,
-			'phone' => $this->input->post('phone'),
-			'user_id' => $this->input->post('user_id'),
-			'location' => $this->input->post('location'),
-			'pickup' => date('Y-m-d', strtotime($this->input->post('pickup'))),
-			'pickuptime' => $this->input->post('pickuptime'),
-			'dropoff' => date('Y-m-d', strtotime($this->input->post('dropoff'))),
-			'dropofftime' => $this->input->post('dropofftime')
-			
+		$sql_check_availability = mysql_query(
+			"SELECT * 
+			FROM reservation 
+			WHERE (pickup <= '$pickup' AND dropoff <= '$dropoff')
+			AND vehicle_id = '$vehicle_id' 
+			LIMIT 1"
 		);
 		
-
-		$insert = $this->db->insert('reservation', $insert_reservation_data);
-		return $insert;
+		$res_check = mysql_num_rows($sql_check_availability);
+		
+		if ($res_check > 0 ){ 
+			return false;
+		}
+		else 
+		{
+			$insert_reservation_data = array(
+				'vehicle_id' => $vehicle_id,
+				'phone' => $this->input->post('phone'),
+				'user_id' => $this->input->post('user_id'),
+				'location' => $this->input->post('location'),
+				'pickup' => $pickup,
+				'pickuptime' => $this->input->post('pickuptime'),
+				'dropoff' => $dropoff,
+				'dropofftime' => $this->input->post('dropofftime')
+				
+			);
+			$insert = $this->db->insert('reservation', $insert_reservation_data);
+			return $insert;
+		}
 	}
 }
