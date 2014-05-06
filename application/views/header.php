@@ -41,8 +41,8 @@
 						
 						<?php 
 							$session = $this->session->userdata("loggedIn");
-							$id = $this->session->userdata("id");
-							$sql = mysql_query("SELECT accounttype FROM users WHERE id='$id'");
+							$user_id = $this->session->userdata("user_id");
+							$sql = mysql_query("SELECT accounttype FROM users WHERE user_id='$user_id'");
 							$row = mysql_fetch_array($sql);
 							$accounttype = $row["accounttype"];
 							

@@ -4,8 +4,8 @@ class Admin extends CI_Controller {
 	function _remap($method)
 	{
 		$session = $this->session->userdata("loggedIn");
-		$id = $this->session->userdata("id");
-		$sql = mysql_query("SELECT accounttype FROM users WHERE id='$id'");
+		$user_id = $this->session->userdata("user_id");
+		$sql = mysql_query("SELECT accounttype FROM users WHERE user_id='$user_id'");
 		$row = mysql_fetch_array($sql);
 		$accounttype = $row["accounttype"];
 		
@@ -72,11 +72,11 @@ class Admin extends CI_Controller {
 		$this->load->view('footer');
 	}	
 	
-	function user($sort_by = 'id', $sort_order = 'asc', $offset = 0) {
+	function user($sort_by = 'user_id', $sort_order = 'asc', $offset = 0) {
 		
 		$limit = 10;
 		$data['fields'] = array(
-			'id' => 'ID',
+			'user_id' => 'ID',
 			'first_name' => 'First Name',
 			'last_name' => 'Last Name',
 			'gender' => 'Gender',
@@ -156,9 +156,9 @@ class Admin extends CI_Controller {
 			$this->load->model('model_admin');			
 			$next = $this->db->query("SHOW TABLE STATUS LIKE 'vehicle'");
 			$next = $next->row(0);
-			$id = $next->Auto_increment;
+			$user_id = $next->Auto_increment;
 			$pathToUpload = './public/car/';
-			$config['file_name'] = $id . '.jpg';
+			$config['file_name'] = $user_id . '.jpg';
 			$config['upload_path'] = $pathToUpload;
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size']	= '5000';
@@ -207,10 +207,10 @@ class Admin extends CI_Controller {
 			// $q = $this->db->query('SELECT id FROM vehicle');
 			// $id = $q->last_row()->id;
 			
-			$id = $this->uri->segment(3);
+			$user_id = $this->uri->segment(3);
 			
 			$pathToUpload = './public/car/';
-			$config['file_name'] = $id . '.jpg';
+			$config['file_name'] = $user_id . '.jpg';
 			$config['upload_path'] = $pathToUpload;
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size']	= '5000';

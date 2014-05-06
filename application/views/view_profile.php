@@ -1,6 +1,6 @@
 <?php 
 	$status = $this->session->userdata('loggedIn');
-	$id = $this->session->userdata('id');
+	$user_id = $this->session->userdata('user_id');
 	$username = $this->session->userdata('username');
 	
 	// echo '<pre>';
@@ -8,7 +8,7 @@
 	// echo '</pre>';
 
 	if($status) {
-		$sql = mysql_query("SELECT * FROM users WHERE id='$id' LIMIT 1");
+		$sql = mysql_query("SELECT * FROM users WHERE user_id='$user_id' LIMIT 1");
 		$count = mysql_num_rows($sql);
 		if ($count > 1) {
 			echo "There is no user with that id here.";
@@ -32,8 +32,8 @@
 	
 	<?php
 		//Set default display picture
-        $id = $this->session->userdata("id");
-        $path = base_url() . "public/upload/profile/" . $id . "/pic1.jpg";
+        $user_id = $this->session->userdata("user_id");
+        $path = base_url() . "public/upload/profile/" . $user_id . "/pic1.jpg";
         if(!file_exists($path)) {
             $display = base_url() . "public/upload/profile/default.jpg";
         } else {

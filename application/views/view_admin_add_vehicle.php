@@ -30,8 +30,8 @@
 					// picture
 					$next = $this->db->query("SHOW TABLE STATUS LIKE 'vehicle'");
 					$next = $next->row(0);
-					$id = $next->Auto_increment;
-					$path = base_url() . "public/car/" . $id . ".jpg";
+					$vehicle_id = $next->Auto_increment;
+					$path = base_url() . "public/car/" . $vehicle_id . ".jpg";
 					
 					if(!file_exists($path)) {
 						$display = base_url() . "public/car/default.jpg";

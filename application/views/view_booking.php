@@ -1,6 +1,6 @@
 <?php 
 	$status = $this->session->userdata('loggedIn');
-	$id = $this->session->userdata('id');
+	$user_id = $this->session->userdata('user_id');
 	$username = $this->session->userdata('username');
 	
 	// echo '<pre>';
@@ -8,7 +8,7 @@
 	// echo '</pre>';
 
 	if($status) {
-		$sql = mysql_query("SELECT * FROM users WHERE id='$id' LIMIT 1");
+		$sql = mysql_query("SELECT * FROM users WHERE user_id='$user_id' LIMIT 1");
 		$count = mysql_num_rows($sql);
 		if ($count > 1) {
 			echo "There is no user with that id here.";
@@ -36,10 +36,10 @@
 </div>
 <div class="row">
 	<?php foreach($rows as $row) {?>
-	<?php $selected_id = $row->id;?>
+	<?php $selected_id = $row->vehicle_id;?>
 	<div class="col-xs-12 col-md-3">
 		<div class="thumbnail" style="height: 650px;">
-			<img src="<?php echo base_url(); ?>public/car/<?php echo $row->id;?>.jpg" alt="">
+			<img src="<?php echo base_url(); ?>public/car/<?php echo $row->vehicle_id;?>.jpg" alt="">
 			
 			<div class="caption">
 				<h3><?php echo $row->name; ?><small> - <?php echo $row->type; ?></small></h3>
@@ -88,6 +88,8 @@
 					}
 					
 					echo form_open('gallery/reserve/' . $selected_id, array('id' => 'reserve', 'class' => 'form-horizontal','method' => 'post' , 'role' => 'form'));
+					
+					echo form_input(array('name' => 'user_id', 'class' => 'hidden', 'value' => $user_id));
 					
 					echo '<div class="form-group">';
 						echo form_label('Phone Number', 'phone', array('class' => 'col-sm-4 control-label'));

@@ -26,7 +26,7 @@
 
     						$this->table->set_heading('#', 'First Name', 'Last Name', 'Username','Email Address','Account Type','Verified');
     						
-    						$query = $this->db->query("SELECT id,first_name,last_name,username,email_address,accounttype,verified FROM users LIMIT 5");
+    						$query = $this->db->query("SELECT user_id,first_name,last_name,username,email_address,accounttype,verified FROM users LIMIT 5");
 
     						echo $this->table->generate($query);
     					
@@ -53,7 +53,7 @@
 
     						$this->table->set_heading('ID','Type','Name','Transmission','AC','Capacity','Luggage','Daily');
     						
-    						$query = $this->db->query("SELECT id,type,name,transmission,ac,daily,capacity,luggage FROM vehicle LIMIT 5");
+    						$query = $this->db->query("SELECT vehicle_id,type,name,transmission,ac,daily,capacity,luggage FROM vehicle LIMIT 5");
 
     						echo $this->table->generate($query);
     					

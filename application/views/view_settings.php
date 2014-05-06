@@ -45,10 +45,10 @@
 		  	<div class="tab-pane " id="account">
 		  		<?php 
 					$status = $this->session->userdata('loggedIn');
-					$id = $this->session->userdata('id');
+					$user_id = $this->session->userdata('user_id');
 					$username = $this->session->userdata('username');						
 					if($status) {
-						$sql = mysql_query("SELECT * FROM users WHERE id='$id' LIMIT 1");
+						$sql = mysql_query("SELECT * FROM users WHERE user_id='$user_id' LIMIT 1");
 						$count = mysql_num_rows($sql);
 						if ($count > 1) {
 							echo "There is no user with that id here.";
@@ -89,8 +89,8 @@
 
 		  		<?php
 		  			//Set default display picture
-			        $id = $this->session->userdata("id");
-			        $path = base_url() . "public/upload/profile/" . $id . "/pic1.jpg";
+			        $user_id = $this->session->userdata("user_id");
+			        $path = base_url() . "public/upload/profile/" . $user_id . "/pic1.jpg";
 			        if(!file_exists($path)) {
 			            $display = base_url() . "public/upload/profile/default.jpg";
 			        } else {
@@ -104,7 +104,7 @@
 				<hr>
 		  		
 				<?php 
-					$id = $this->session->userdata('id');
+					$user_id = $this->session->userdata('user_id');
 					echo "<img src='" . $display . "' class='img-thumbnail' alt ='Profile Picture' width='250'/>";
 					echo '<br>';
 					echo form_open_multipart('profile/do_upload');

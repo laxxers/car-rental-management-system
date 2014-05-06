@@ -1,7 +1,7 @@
 <?php 
 $id_update = $this->uri->segment(3);
 
-$sql = mysql_query("SELECT * FROM vehicle WHERE id= $id_update");
+$sql = mysql_query("SELECT * FROM vehicle WHERE vehicle_id= $id_update");
 $count = mysql_num_rows($sql);
 
 if ($count > 1) {

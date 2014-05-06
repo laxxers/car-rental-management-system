@@ -4,12 +4,12 @@ class Model_admin extends CI_Model {
 	function selected($limit, $offset, $sort_by, $sort_order) {
 		
 		$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
-		$sort_columns = array('id','first_name','last_name','gender','username','email_address','signupdate','accounttype','verified','ic_no','li_no');
+		$sort_columns = array('user_id','first_name','last_name','gender','username','email_address','signupdate','accounttype','verified','ic_no','li_no');
 		
-		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'id';
+		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'user_id';
 		
 		// results query
-		$q = $this->db->select('id,first_name,last_name,gender,username,email_address,signupdate,accounttype,verified,ic_no,li_no')
+		$q = $this->db->select('user_id,first_name,last_name,gender,username,email_address,signupdate,accounttype,verified,ic_no,li_no')
 			->from('users')
 			->limit($limit, $offset)
 			->order_by($sort_by, $sort_order);
@@ -53,13 +53,13 @@ class Model_admin extends CI_Model {
 										capacity = '$capacity',
 										luggage = '$luggage',
 										daily = '$daily'
-										WHERE id = $id_update ");
+										WHERE vehicle_id = $id_update ");
 		return $sql_update;
 	}
 	
 	function delete_vehicle()
 	{
-		$this->db->where('id', $this->uri->segment(3));
+		$this->db->where('vehicle_id', $this->uri->segment(3));
 		$this->db->delete('vehicle');
 		redirect('admin/getAll_vehicle');
 	}

@@ -40,15 +40,6 @@
 						<?php
 							echo form_label('Time', 'pickuptime');
 							echo form_dropdown('pickuptime', array('8 a.m' => '8 a.m', '12 p.m' => '12 p.m', '4 p.m' => '4 p.m', '8 p.m' => '8 p.m', '12 a.m' => '12 a.m'), set_value('pickuptime'), 'class="form-control"');
-						
-							// $options = array(
-	// '8 a.m' => '8 a.m',
-	// '12 p.m' => '12 p.m',
-	// '4 p.m' => '4 p.m',
-	// '8 p.m' => '8 p.m',
-	// '12 a.m' => '12 a.m'
-// );
-// echo form_dropdown('pickuptime', $options, '8 a.m', 'class="form-control"');
 						?>
 						</div>
 					</div>
@@ -87,7 +78,7 @@
 			<?php foreach($rows as $row) { ?>
             <div class="col-xs-12 col-md-3">
                 <div class="thumbnail">
-                    <img src="<?php echo base_url(); ?>public/car/<?php echo $row->id;?>.jpg" alt="">
+                    <img src="<?php echo base_url(); ?>public/car/<?php echo $row->vehicle_id;?>.jpg" alt="">
 					
                     <div class="caption">
                         <h3><?php echo $row->name; ?><small> - <?php echo $row->type; ?></small></h3>
@@ -116,7 +107,7 @@
 								</small></li>
 
 								<?php
-									echo form_open(base_url() . 'gallery/booking/' . $row->id, array('id' => 'book', 'class' => 'form', 'method' => 'post' , 'role' => 'form'));
+									echo form_open(base_url() . 'gallery/booking/' . $row->vehicle_id, array('id' => 'book', 'class' => 'form', 'method' => 'post' , 'role' => 'form'));
 									echo form_input(array('name' => 'pickup', 'class' => 'hidden', 'value' => set_value('pickup')));
 									echo form_input(array('name' => 'pickuptime', 'class' => 'hidden', 'value' => set_value('pickuptime')));
 									echo form_input(array('name' => 'dropoff', 'class' => 'hidden', 'value' => set_value('dropoff')));

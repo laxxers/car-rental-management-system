@@ -24,7 +24,7 @@ class Model_gallery extends CI_Model {
 	
 	function booking() {
 		$vehicle_id =  $this->uri->segment(3);
-		$query = $this->db->get_where('vehicle', array('id' => $vehicle_id));	
+		$query = $this->db->get_where('vehicle', array('vehicle_id' => $vehicle_id));	
 		if($query->num_rows() > 0) {
 			foreach($query->result() as $row) {
 				$data[] = $row;
@@ -40,9 +40,7 @@ class Model_gallery extends CI_Model {
 		$insert_reservation_data = array(
 			'vehicle_id' => $vehicle_id,
 			'phone' => $this->input->post('phone'),
-			'first_name' => $this->input->post('first_name'),
-			'last_name' => $this->input->post('last_name'),
-			'email_address' => $this->input->post('email_address'),
+			'user_id' => $this->input->post('user_id'),
 			'location' => $this->input->post('location'),
 			'pickup' => date('Y-m-d', strtotime($this->input->post('pickup'))),
 			'pickuptime' => $this->input->post('pickuptime'),
