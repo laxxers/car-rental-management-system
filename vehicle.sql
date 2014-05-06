@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 29, 2014 at 04:30 PM
--- Server version: 5.6.12-log
--- PHP Version: 5.4.12
+-- Generation Time: May 06, 2014 at 10:47 AM
+-- Server version: 5.5.24-log
+-- PHP Version: 5.3.13
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -34,15 +34,15 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
   `capacity` int(11) NOT NULL,
   `luggage` int(11) NOT NULL,
   `ac` enum('1','0') NOT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  `vehicle_id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`vehicle_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 --
 -- Dumping data for table `vehicle`
 --
 
-INSERT INTO `vehicle` (`type`, `name`, `transmission`, `daily`, `capacity`, `luggage`, `ac`, `id`) VALUES
+INSERT INTO `vehicle` (`type`, `name`, `transmission`, `daily`, `capacity`, `luggage`, `ac`, `vehicle_id`) VALUES
 ('Compact', 'Perodua Viva', 'Auto', 150, 4, 2, '1', 1),
 ('Standard', 'Toyota Vios', 'Auto', 250, 5, 4, '1', 2),
 ('Luxury', 'Honda Accord', 'Auto', 550, 5, 5, '1', 3),

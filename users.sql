@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 25, 2014 at 09:40 AM
+-- Generation Time: May 06, 2014 at 10:47 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
   `gender` varchar(25) NOT NULL,
@@ -40,8 +40,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `verified` enum('0','1') NOT NULL DEFAULT '0',
   `ic_no` varchar(25) NOT NULL,
   `li_no` varchar(25) NOT NULL,
-  UNIQUE KEY `username` (`username`),
-  KEY `id` (`id`)
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 --
