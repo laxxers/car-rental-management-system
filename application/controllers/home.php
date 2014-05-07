@@ -3,9 +3,9 @@
 class Home extends CI_Controller {
 	public function index($msg = NULL) {
 		$data['msg'] = $msg;
-		$this->load->view('header');
+		//$this->load->view('header');
 		$this->load->view('view_home', $data);
-		$this->load->view('footer');
+		//$this->load->view('footer');
 	}
 
 	public function logout() {
