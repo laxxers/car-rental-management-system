@@ -3,7 +3,15 @@
 class Home extends CI_Controller {
 	public function index() {
 		// $this->load->view('header');
-		$this->load->view('view_home');
+		$session = $this->session->userdata("loggedIn");
+		if($session) {
+			$this->load->view('header');
+			$this->load->view('view_profile');
+			$this->load->view('footer');
+		} else {
+			$this->load->view('view_home');
+		}	
+		
 		// $this->load->view('footer');
 	}
 
