@@ -90,6 +90,7 @@
 					echo form_open('gallery/reserve/' . $selected_id, array('id' => 'reserve', 'class' => 'form-horizontal','method' => 'post' , 'role' => 'form'));
 					
 					echo form_input(array('name' => 'user_id', 'class' => 'hidden', 'value' => $user_id));
+					echo form_input(array('name' => 'status', 'class' => 'hidden', 'value' => 'pending'));
 					
 					echo '<div class="form-group">';
 						echo form_label('Phone Number', 'phone', array('class' => 'col-sm-4 control-label'));
