@@ -1,6 +1,21 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Login extends CI_Controller {
+	function _remap($method)
+	{
+		switch( $method )
+		{
+			case 'index':
+				$this->index();
+				break;
+			case 'session':
+				$this->session();
+				break;
+			default:
+				show_404();;
+				break;
+		}
+	}
 	
 	public function index($msg = NULL) {
 		$data['msg'] = $msg;

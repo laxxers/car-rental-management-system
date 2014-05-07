@@ -1,6 +1,31 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Profile extends CI_Controller {
+	function _remap($method)
+	{
+		switch( $method )
+		{
+			case 'index':
+				$this->index();
+				break;
+			case 'settings':
+				$this->settings();
+				break;
+			case 'do_upload':
+				$this->do_upload();
+				break;
+			case 'edit':
+				$this->edit();
+				break;
+			case 'verify':
+				$this->verify();
+				break;
+			default:
+				show_404();;
+				break;
+		}
+	}
+	
 	function index()
 	{	
 		$this->load->view('header');
@@ -49,7 +74,7 @@ class Profile extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required|alpha');
-		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|alpha');
+		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|name_space');
 		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email');
 		
 		if($this->form_validation->run() == FALSE)

@@ -1,6 +1,22 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Home extends CI_Controller {
+	function _remap($method)
+	{
+		switch( $method )
+		{
+			case 'index':
+				$this->index();
+				break;
+			case 'logout':
+				$this->logout();
+				break;
+			default:
+				show_404();;
+				break;
+		}
+	}
+	
 	public function index() {
 		// $this->load->view('header');
 		$session = $this->session->userdata("loggedIn");

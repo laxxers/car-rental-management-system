@@ -1,6 +1,22 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Register extends CI_Controller {
+	function _remap($method)
+	{
+		switch( $method )
+		{
+			case 'index':
+				$this->index();
+				break;
+			case 'create_user':
+				$this->create_user();
+				break;
+			default:
+				show_404();;
+				break;
+		}
+	}
+	
 	public function index($msg = NULL)
 	{
 		//$data['main_content'] = 'register';
@@ -14,7 +30,7 @@ class Register extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required|alpha');
-		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|alpha');
+		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|name_space');
 		$this->form_validation->set_rules('gender', 'Gender', 'trim|required');
 		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]');

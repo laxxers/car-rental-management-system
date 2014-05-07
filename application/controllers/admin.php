@@ -96,7 +96,7 @@ class Admin extends CI_Controller {
 			{
 				$this->$method();
 			}
-			else if (method_exists($this, 'schedule'))
+			else if (method_exists($this, 'user'))
 			{
 				call_user_func_array(array($this, 'user'), $params);
 			}

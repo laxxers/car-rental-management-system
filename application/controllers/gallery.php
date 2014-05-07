@@ -1,6 +1,28 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Gallery extends CI_Controller {
+	function _remap($method)
+	{
+		switch( $method )
+		{
+			case 'index':
+				$this->index();
+				break;
+			case 'search':
+				$this->search();
+				break;
+			case 'booking':
+				$this->booking();
+				break;
+			case 'reserve':
+				$this->reserve();
+				break;
+			default:
+				show_404();;
+				break;
+		}
+	}
+
 
 	public function index() {
 		
@@ -53,9 +75,6 @@ class Gallery extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('view_booking', $data);
 		$this->load->view('footer');
-
-
-
 	}
 	
 	function reserve()
