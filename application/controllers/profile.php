@@ -3,26 +3,35 @@
 class Profile extends CI_Controller {
 	function _remap($method)
 	{
-		switch( $method )
+		$session = $this->session->userdata("loggedIn");
+		
+		if($session )
 		{
-			case 'index':
-				$this->index();
-				break;
-			case 'settings':
-				$this->settings();
-				break;
-			case 'do_upload':
-				$this->do_upload();
-				break;
-			case 'edit':
-				$this->edit();
-				break;
-			case 'verify':
-				$this->verify();
-				break;
-			default:
-				show_404();;
-				break;
+			switch( $method )
+			{
+				case 'index':
+					$this->index();
+					break;
+				case 'settings':
+					$this->settings();
+					break;
+				case 'do_upload':
+					$this->do_upload();
+					break;
+				case 'edit':
+					$this->edit();
+					break;
+				case 'verify':
+					$this->verify();
+					break;
+				default:
+					show_404();;
+					break;
+			}
+		}
+		else
+		{
+			echo 'No direct access allowed (Do not acces in this way)';
 		}
 	}
 	

@@ -3,23 +3,32 @@
 class Gallery extends CI_Controller {
 	function _remap($method)
 	{
-		switch( $method )
+		$session = $this->session->userdata("loggedIn");
+		
+		if($session )
 		{
-			case 'index':
-				$this->index();
-				break;
-			case 'search':
-				$this->search();
-				break;
-			case 'booking':
-				$this->booking();
-				break;
-			case 'reserve':
-				$this->reserve();
-				break;
-			default:
-				show_404();;
-				break;
+			switch( $method )
+			{
+				case 'index':
+					$this->index();
+					break;
+				case 'search':
+					$this->search();
+					break;
+				case 'booking':
+					$this->booking();
+					break;
+				case 'reserve':
+					$this->reserve();
+					break;
+				default:
+					show_404();;
+					break;
+			}
+		}
+		else
+		{
+			echo 'No direct access allowed (Do not acces in this way)';
 		}
 	}
 
