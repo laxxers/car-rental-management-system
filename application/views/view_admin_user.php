@@ -23,6 +23,7 @@
 							echo anchor("admin/user/$field_name/" .
 								(($sort_order == 'asc' && $sort_by == $field_name) ? 'desc' : 'asc') ,
 								$field_display); ?>
+								
 						</th>
 						<?php } ?>
 					</thead>

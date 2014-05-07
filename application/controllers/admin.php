@@ -1,7 +1,55 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
-	function _remap($method)
+	// function _remap($method)
+	// {
+		// $session = $this->session->userdata("loggedIn");
+		// $user_id = $this->session->userdata("user_id");
+		// $sql = mysql_query("SELECT accounttype FROM users WHERE user_id='$user_id'");
+		// $row = mysql_fetch_array($sql);
+		// $accounttype = $row["accounttype"];
+		
+		// if($session && $accounttype == 'admin')
+		// {
+			// switch( $method )
+			// {
+				// case 'index':
+					// $this->index();
+					// break;
+				// case 'error_pic':
+					// $this->error_pic();
+					// break;
+				// case 'error_pic_edit':
+					// $this->error_pic_edit();
+					// break;
+				// case 'user':	
+					// $this->user();
+					// break;
+				// case 'getAll_vehicle':	
+					// $this->getAll_vehicle();
+					// break;
+				// case 'add_vehicle':	
+					// $this->add_vehicle();
+					// break;
+				// case 'update_vehicle':	
+					// $this->update_vehicle();
+					// break;
+				// case 'delete_vehicle':	
+					// $this->delete_vehicle();	
+					// break;
+				// default:
+					// echo "Error";
+					// break;
+			// }
+		// }
+		// else if ($session && $accounttype == 'user')
+		// {
+			// echo 'No direct access allowed (Do not acces in this way)';
+		// }
+		
+	// }
+	
+	public function _remap($method, $params = array())
 	{
 		$session = $this->session->userdata("loggedIn");
 		$user_id = $this->session->userdata("user_id");
@@ -11,38 +59,42 @@ class Admin extends CI_Controller {
 		
 		if($session && $accounttype == 'admin')
 		{
-			switch( $method )
+			if ($method == 'index')
 			{
-				case 'index':
-					$this->index();
-					break;
-				case 'user':
-					$this->user();
-					break;
-				case 'error_pic':
-					$this->error_pic();
-					break;
-				case 'error_pic_edit':
-					$this->error_pic_edit();
-					break;
-				case 'user':	
-					$this->user();
-					break;
-				case 'getAll_vehicle':	
-					$this->getAll_vehicle();
-					break;
-				case 'add_vehicle':	
-					$this->add_vehicle();
-					break;
-				case 'update_vehicle':	
-					$this->update_vehicle();
-					break;
-				case 'delete_vehicle':	
-					$this->delete_vehicle();	
-					break;
-				default:
-					echo "Error";
-					break;
+				$this->$method();
+			}
+			else if ($method == 'error_pic')
+			{
+				$this->$method();
+			}
+			else if ($method == 'error_pic_edit')
+			{
+				$this->$method();
+			}
+			
+			else if ($method == 'getAll_vehicle')
+			{
+				$this->$method();
+			}
+			else if ($method == 'add_vehicle')
+			{
+				$this->$method();
+			}
+			else if ($method == 'update_vehicle')
+			{
+				$this->$method();
+			}
+			else if ($method == 'delete_vehicle')
+			{
+				$this->$method();
+			}
+			else if (method_exists($this, 'user'))
+			{
+				call_user_func_array(array($this, 'user'), $params);
+			}
+			else
+			{
+				show_404();
 			}
 		}
 		else if ($session && $accounttype == 'user')
