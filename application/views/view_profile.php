@@ -18,7 +18,7 @@
 		{
 			$first_name = $row["first_name"];
 			$last_name = $row["last_name"];
-			$username = $row['username'];
+			$username = $row["username"];
 			$gender = $row["gender"];
 			$email_address = $row["email_address"];
 			$signupdate = strftime("%d %b %Y", strtotime($row['signupdate']));
@@ -33,17 +33,19 @@
 	<?php
 		//Set default display picture
         $user_id = $this->session->userdata("user_id");
-        $path = base_url() . "public/upload/profile/" . $user_id . "/pic1.jpg";
-        if(!file_exists($path)) {
-            $display = base_url() . "public/upload/profile/default.jpg";
+        $path = "public/upload/profile/" . $user_id . "/pic1.jpg";
+		
+		if(!file_exists($path)) 
+		{
+			$display = "public/upload/profile/default.jpg";
         } else {
-            $display = $path;
+			$display = $path;
         }
     ?>
 
 	<div class="row">
 		<div class="col-xs-12 col-md-3">
-			<img src="<?php echo $display ?>" class="img-thumbnail" alt ="Upload Picture" width="250"/>
+			<img src="<?php echo $display; ?>" class="img-thumbnail" alt ="Upload Picture" width="250"/>
 				<h3><strong><?php echo $first_name . " " . $last_name ?></strong></h3>
 				<h4><i><?php echo "'" . $username . "'"; ?></i></h4>
 				<hr>
