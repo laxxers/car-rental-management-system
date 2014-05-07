@@ -69,10 +69,10 @@
                             <a href="<?php echo base_url();?>admin/getAll_vehicle"> Vehicle Inventory</a>
                         </li>
                         <li>
-                            <a href="#"> Package & Charges</a>
+                            <a href="<?php echo base_url();?>admin/package"> Package & Charges</a>
                         </li>
                         <li>
-                            <a href="#"> Rental Schedule</a>
+                            <a href="<?php echo base_url();?>admin/schedule"> Rental Schedule</a>
                         </li>
                     </ul>
                     <!--

@@ -88,7 +88,15 @@ class Admin extends CI_Controller {
 			{
 				$this->$method();
 			}
-			else if (method_exists($this, 'user'))
+			else if ($method == 'package')
+			{
+				$this->$method();
+			}
+			else if ($method == 'schedule')
+			{
+				$this->$method();
+			}
+			else if (method_exists($this, 'schedule'))
 			{
 				call_user_func_array(array($this, 'user'), $params);
 			}
@@ -226,7 +234,7 @@ class Admin extends CI_Controller {
 			}
 			else
 			{
-				$this->error_pic_edit($this->upload->display_errors());
+				$this->error_pic($this->upload->display_errors());
 			}			
 		}
 	}
@@ -285,7 +293,7 @@ class Admin extends CI_Controller {
 			}
 			else
 			{
-				$this->error_pic($this->upload->display_errors());
+				$this->error_pic_edit($this->upload->display_errors());
 			}			
 		}
 	}
@@ -297,5 +305,18 @@ class Admin extends CI_Controller {
 		$this->index();
 	}
 	
+	function package()
+	{
+		$this->load->view('admin_header');
+		$this->load->view('view_package');
+		$this->load->view('admin_footer');
+	}
+	
+	function schedule()
+	{
+		$this->load->view('admin_header');
+		$this->load->view('view_schedule');
+		$this->load->view('admin_footer');
+	}
 	
 }
