@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 06, 2014 at 10:46 AM
+-- Generation Time: May 07, 2014 at 04:47 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `dropoff` date NOT NULL,
   `dropofftime` varchar(25) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `status` varchar(25) NOT NULL,
   PRIMARY KEY (`res_id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;

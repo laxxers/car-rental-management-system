@@ -58,6 +58,7 @@ class Model_gallery extends CI_Model {
 		{
 			$insert_reservation_data = array(
 				'vehicle_id' => $vehicle_id,
+				'status' => $this->input->post('status'),
 				'phone' => $this->input->post('phone'),
 				'user_id' => $this->input->post('user_id'),
 				'location' => $this->input->post('location'),
