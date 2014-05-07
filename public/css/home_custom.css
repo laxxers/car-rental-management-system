@@ -7,8 +7,7 @@ body {
 	position: relative;
 	padding: 40px 0;
 	color: #fff;
-	text-align: center;
-	text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+	
 	background: #020031; /* Old browsers */
 	background: -moz-linear-gradient(45deg,  #020031 0%, #6d3353 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#020031), color-stop(100%,#6d3353)); /* Chrome,Safari4+ */
@@ -21,7 +20,6 @@ body {
 	 -moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
 	      box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);	      
 }
-
 
 .business-header:after {
 	content: '';
@@ -45,12 +43,12 @@ body {
 
 }
 
+#home-signup {
+	z-index: 1;
+}
+
 .tagline {
 	color: #fff;
 	text-shadow: 0 0 10px #000;
-}
-
-footer {
-	margin: 50px 0;
 }
 
