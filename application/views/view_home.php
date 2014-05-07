@@ -76,9 +76,9 @@
                         <br>
                     </address>
                     <address>
-                        <abbr title="Phone">P:</abbr>(123) 456-7890
+                        <abbr><i class="fa fa-phone"></i> </abbr>(123) 456-7890
                         <br>
-                        <abbr title="Email">E:</abbr> <a href="mailto:#">first.last@example.com</a>
+                        <abbr><i class="fa fa-envelope"></i> </abbr> <a href="mailto:#">first.last@example.com</a>
                     </address>
                 </div>
             </div>
@@ -109,5 +109,6 @@
     <script src="js/bootstrap.js"></script>
 
 </body>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js"></script>
 </html>
