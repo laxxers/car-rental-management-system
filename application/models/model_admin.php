@@ -93,5 +93,9 @@ class Model_admin extends CI_Model {
 		return $add ;
 	}
 	
-	
+	function get_charges()
+	{
+		$query = $this->db->get('charge');
+		return $query->result();
+	}
 }

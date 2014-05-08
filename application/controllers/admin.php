@@ -307,8 +307,15 @@ class Admin extends CI_Controller {
 	
 	function package()
 	{
+		$this->load->model('model_admin');
+		
+		if($query = $this->model_admin->get_charges())
+		{
+			$data['charges'] = $query;
+		}
+		
 		$this->load->view('admin_header');
-		$this->load->view('view_package');
+		$this->load->view('view_admin_package', $data);
 		$this->load->view('admin_footer');
 	}
 	
@@ -318,5 +325,6 @@ class Admin extends CI_Controller {
 		$this->load->view('view_schedule');
 		$this->load->view('admin_footer');
 	}
+
 	
 }
