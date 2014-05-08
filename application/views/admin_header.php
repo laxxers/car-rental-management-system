@@ -9,7 +9,6 @@
     <title>Admin Panel</title>
     <link href="<?php echo base_url(); ?>public/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/css/admin_custom.css" rel="stylesheet">
-
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	
 </head>
