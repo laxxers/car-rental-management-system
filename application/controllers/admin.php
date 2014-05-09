@@ -92,6 +92,18 @@ class Admin extends CI_Controller {
 			{
 				$this->$method();
 			}
+			else if ($method == 'add_charge')
+			{
+				$this->$method();
+			}
+			else if ($method == 'update_charge')
+			{
+				$this->$method();
+			}
+			else if ($method == 'delete_charge')
+			{
+				$this->$method();
+			}
 			else if ($method == 'schedule')
 			{
 				$this->$method();
@@ -305,8 +317,8 @@ class Admin extends CI_Controller {
 		$this->index();
 	}
 	
-	function package()
-	{
+	function package($msg = NULL)
+	{	
 		$this->load->model('model_admin');
 		
 		if($query = $this->model_admin->get_charges())
@@ -319,6 +331,57 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_footer');
 	}
 	
+	function add_charge() 
+	{
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('name', 'Name', 'trim|required');
+		$this->form_validation->set_rules('cost', 'Cost', 'trim|required|numeric');
+
+
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->package();
+		} 
+		else
+		{
+			$this->load->model('model_admin');
+
+			if($this->model_admin->add_charges())
+			{
+				$this->package();
+			}
+		}
+	}	
+
+	function update_charge()
+	{
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('name', 'Name', 'trim|required|');
+		$this->form_validation->set_rules('cost', 'Cost', 'trim|required|numeric');
+
+		if($this->form_validation->run() == FALSE)
+		{		
+			$this->load->view('admin_header');
+			$this->load->view('view_admin_update_charge');
+			$this->load->view('admin_footer');
+		}
+		else
+		{
+			$this->load->model('model_admin');
+			if($this->model_admin->update_charges())
+			{
+				$this->package();
+			}
+		}
+	}
+
+	function delete_charge() 
+	{
+		$this->load->model('model_admin');
+		$this->model_admin->delete_charges();
+		$this->package();
+	}
+
 	function schedule()
 	{
 		$this->load->view('admin_header');

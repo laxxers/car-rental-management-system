@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 08, 2014 at 06:04 PM
+-- Generation Time: May 09, 2014 at 07:19 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -27,20 +27,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `charge` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `charge_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(25) NOT NULL,
-  `charge` int(25) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `cost` int(25) NOT NULL,
+  PRIMARY KEY (`charge_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `charge`
 --
 
-INSERT INTO `charge` (`id`, `name`, `charge`) VALUES
+INSERT INTO `charge` (`charge_id`, `name`, `cost`) VALUES
 (1, 'Facility Charge', 5),
 (2, 'Processing Fee', 2),
-(3, 'Gov Tax', 6);
+(3, 'Gov Tax (6%)', 6);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
