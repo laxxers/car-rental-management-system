@@ -3,12 +3,11 @@
 	"use strict";
 	
 	var options = {
-		events_source: js_base_url('public/calendar/events.json.php'),
+		events_source: js_base_url('public/calendar/events.php'),
 		view: 'month',
 		tmpl_path: js_base_url('public/calendar/tmpls/'),
 		tmpl_cache: false,
-		day: '2013-03-12',
-		// day: today_date(),
+		day: today_date(),
 		onAfterEventsLoad: function(events) {
 			if(!events) {
 				return;
