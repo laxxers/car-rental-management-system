@@ -44,14 +44,22 @@ class Model_gallery extends CI_Model {
 			"SELECT * 
 			FROM reservation 
 			WHERE (pickup <= '$pickup' AND dropoff >= '$dropoff')
-			OR (pickup between '$pickup' and '$dropoff'  AND dropoff <= '$dropoff')
-			AND vehicle_id = '$vehicle_id' 
+			AND (vehicle_id = '$vehicle_id')
 			LIMIT 1"
 		);
-		
 		$res_check = mysql_num_rows($sql_check_availability);
 		
-		if ($res_check > 0 ){ 
+		$sql_check_availability2 = mysql_query(
+			"SELECT * 
+			FROM reservation 
+			WHERE (pickup <= '$pickup' AND dropoff >= '$pickup'  AND dropoff <= '$dropoff')
+			AND (vehicle_id = '$vehicle_id')
+			LIMIT 1"
+		);
+		$res_check2 = mysql_num_rows($sql_check_availability2);
+		
+		
+		if ($res_check > 0 || $res_check2>0){ 
 			return false;
 		}
 		else 
