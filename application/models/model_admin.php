@@ -90,8 +90,46 @@ class Model_admin extends CI_Model {
 		
 
 		$add = $this->db->insert('vehicle', $new_vehicle);
-		return $add ;
+		return $add;
 	}
 	
+	function get_charges()
+	{
+		$query = $this->db->get('charge');
+		return $query->result();
+	}
+
+	function add_charges() 
+	{
+		$new_charge = array(
+			'name' => $this->input->post('name'),
+			'cost' => $this->input->post('cost')
+		);
+
+		$add = $this->db->insert('charge', $new_charge);
+		return $add;
+	}
+
+	function update_charges()
+	{
+		$id_update = $this->uri->segment(3);
+		
+		$name = $this->input->post('name');
+		$cost = $this->input->post('cost');
 	
+		
+		$sql_update =  $this->db->query("UPDATE charge 
+										SET name = '$name',
+										name = '$name',
+										cost = '$cost'
+										WHERE charge_id = $id_update ");
+		return $sql_update;
+	}
+
+	function delete_charges() 
+	{
+		$this->db->where('charge_id', $this->uri->segment(3));
+		$this->db->delete('charge');
+		redirect('admin/package');
+	}
 }

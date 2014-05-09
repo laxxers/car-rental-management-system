@@ -31,7 +31,7 @@
 						<th>Capacity</th>
 						<th>Luggage</th>
 						<th>AC</th>
-						<th>Edit</th>
+						<th>Actions</th>
 					</thead>
 					
 					<tbody>
@@ -66,13 +66,13 @@
 								<a href="<?php echo base_url() . "admin/update_vehicle/". $row->vehicle_id ?>" class="btn btn-default" role="button">
 									<i class="fa fa-pencil-square-o"></i> Edit
 								</a>
-								<button class="btn btn-danger" data-toggle="modal" data-target=".md-delete"><i class="fa fa-trash-o"></i> </button>
+								<button class="btn btn-danger" data-toggle="modal" data-target=<?php echo '".md-delete' . $row->vehicle_id . '"'; ?>><i class="fa fa-trash-o"></i> </button>
 							</td>
 						</tr>
-						<?php } ?>		
+							
 					</tbody>
 
-					<div class="modal fade md-delete" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+					<div class=<?php echo '"modal fade md-delete' . $row->vehicle_id . '"'; ?> tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -91,7 +91,7 @@
 							</div>
 						</div>
 					</div>
-
+					<?php } ?>	
 				</table>
 			</div>
 		</div>
