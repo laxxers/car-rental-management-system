@@ -17,7 +17,7 @@ while($row = mysqli_fetch_array($result))
 	$out[] = array(
 		
 		'id' =>  $row['res_id'],
-		'title' => $row['vehicle_id'],
+		'title' => "vehicle with id : " . $row['vehicle_id'],
 		// 'url'=> 'http://www.example.com/',
 		// 'class' => 'event-important',
 		'start' => $ms_phpdate1,
