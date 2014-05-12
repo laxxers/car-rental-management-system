@@ -12,7 +12,7 @@
 			<h3>Vehicle is not available during:<h3>
 			
 			<?php 
-				$zipped = array_map(null, $dropoff, $dropoff);
+				$zipped = array_map(null, $pickup, $dropoff);
 
 				foreach($zipped as $tuple) {
 					echo "<li><strong>" . strftime("%d %b %Y", strtotime($tuple[0]))  . "</strong> to "; 
