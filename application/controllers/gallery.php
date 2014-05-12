@@ -110,9 +110,14 @@ class Gallery extends CI_Controller {
 				}
 				else
 				{
-					$data['vehicle_id'] =  $this->uri->segment(3);
-					$data['pickup'] = strftime("%d %b %Y", strtotime($this->input->post('pickup')));
-					$data['dropoff'] = strftime("%d %b %Y", strtotime($this->input->post('dropoff')));
+					$vehicle_id =  $this->uri->segment(3);
+					$sql = mysql_query("SELECT * FROM reservation WHERE vehicle_id= $vehicle_id");
+
+					while($row = mysql_fetch_array($sql))
+					{
+						$data['pickup'][] = $row["pickup"];
+						$data['dropoff'][] = $row["dropoff"];
+					}
 					
 					$this->load->view('header');
 					$this->load->view('view_book_crash',$data);		
