@@ -167,8 +167,30 @@
 							
 							<tbody>
 								<tr >
-									<?php 
-										$rental = number_format((float)($days * $row->daily), 2, '.', ''); 
+									<?php 										
+										if ($days >= 7 && $days < 14)
+										{
+											$disc = 0.95;
+										}
+										else if ($days >= 14 && $days < 21)
+										{
+											$disc = 0.90;
+										}
+										else if ($days >= 21 && $days < 28)
+										{
+											$disc = 0.85;
+										}
+										else if ($days >= 28)
+										{
+											$disc = 0.80;
+										}
+										else
+										{
+											$disc = 1;
+										}
+										$rental_disc = $days * $row->daily * $disc;
+										
+										$rental = number_format((float)($rental_disc), 2, '.', ''); 
 										if($days == 1) {
 											$day = 'day';
 										} else {
@@ -180,17 +202,32 @@
 								</tr>
 
 								<tr >
-									<?php $facility = number_format((float)($rental * 0.05), 2, '.', ''); ?>
+									<?php
+										$sql = mysql_query("SELECT cost FROM charge WHERE charge_id= 1");
+										$row = mysql_fetch_array($sql);
+										$fc = $row["cost"] /100;
+										$facility = number_format((float)($rental * $fc), 2, '.', ''); 
+									?>
 									<td ><?php echo 'Facility Charge'; ?></td>
 									<td ><?php echo '$ ' . $facility; ?></td>
 								</tr>
 								<tr >
-									<?php $process = number_format((float)($rental * 0.02), 2, '.', ''); ?>
+									<?php
+										$sql = mysql_query("SELECT cost FROM charge WHERE charge_id= 2");
+										$row = mysql_fetch_array($sql);
+										$pf = $row["cost"] /100;
+										$process = number_format((float)($rental * $pf), 2, '.', ''); 
+									?>
 									<td ><?php echo 'Processing Fee'; ?></td>
 									<td ><?php echo '$ ' . $process; ?></td>
 								</tr>
 								<tr >
-									<?php $gov = number_format((float)($rental * 0.06), 2, '.', '');; ?>
+									<?php 
+										$sql = mysql_query("SELECT cost FROM charge WHERE charge_id= 3");
+										$row = mysql_fetch_array($sql);
+										$gt = $row["cost"] /100;
+										$gov = number_format((float)($rental * $gt), 2, '.', ''); 
+									?>
 									<td ><?php echo 'Gov Tax (6%)'; ?></td>
 									<td ><?php echo '$ ' . $gov; ?></td>
 								</tr>
