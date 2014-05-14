@@ -61,14 +61,19 @@ class Admin extends CI_Controller {
 			{
 				$this->$method();
 			}
+			else if (method_exists($this, 'schedule_details'))
+			{
+				return call_user_func_array(array($this, 'schedule_details'), $params);
+			}
 			else if (method_exists($this, 'user'))
 			{
-				call_user_func_array(array($this, 'user'), $params);
+				return call_user_func_array(array($this, 'user'), $params);
 			}
 			else
 			{
 				show_404();
 			}
+			
 		}
 		else if ($session && $accounttype == 'user')
 		{
@@ -339,6 +344,16 @@ class Admin extends CI_Controller {
 	{
 		$this->load->view('admin_header');
 		$this->load->view('view_schedule');
+		$this->load->view('admin_footer');
+	}
+	
+	function schedule_details()
+	{
+		$this->load->model('model_admin');
+		$data['rows'] = $this->model_admin->schedule_details();
+		
+		$this->load->view('admin_header');
+		$this->load->view('view_schedule_details', $data);
 		$this->load->view('admin_footer');
 	}
 

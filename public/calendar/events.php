@@ -26,8 +26,7 @@ while($row = mysqli_fetch_array($result))
 		
 		'id' =>  $row['res_id'],
 		'title' => "vehicle with id : " . $row['vehicle_id'],
-		// 'url'=> 'http://www.example.com/',
-		// 'class' => $color[$count],
+		'url'=> 'schedule_details/' . $row['pickup'] . "/". $row['dropoff'],
 		'class' => $color[$count],
 		'start' => $ms_phpdate1,
 		'end' => $ms_phpdate2

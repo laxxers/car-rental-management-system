@@ -132,4 +132,16 @@ class Model_admin extends CI_Model {
 		$this->db->delete('charge');
 		redirect('admin/package');
 	}
+	
+	function schedule_details(){
+		$pickup =  $this->uri->segment(3);
+		$dropoff =  $this->uri->segment(4);
+		$query = $this->db->query("SELECT * FROM reservation WHERE (pickup = '$pickup' AND dropoff = '$dropoff')");
+		if($query->num_rows() > 0) {
+			foreach($query->result() as $row) {
+				$data[] = $row;
+			}
+			return $data;
+		}	
+	}
 }
