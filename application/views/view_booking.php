@@ -197,7 +197,7 @@
 											$day = 'days';
 										}
 									?>
-									<td ><?php echo '<strong>Car Rental (' . $days . ' ' . $day . ' @ $' . $row->daily . '/day)</strong>' ?></td>
+									<td ><?php echo '<strong>Car Rental (' . $days . ' ' . $day . ' @ $' . $row->daily . '/day)</strong>' . '(Discount: ' . (100 - ($disc * 100)) . '%)' ?></td>
 									<td ><?php echo '$ ' . $rental; ?></td>
 								</tr>
 
