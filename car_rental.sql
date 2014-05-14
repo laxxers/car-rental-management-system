@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 06, 2014 at 10:37 AM
+-- Generation Time: May 14, 2014 at 03:59 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -23,19 +23,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `charge`
+--
+
+CREATE TABLE IF NOT EXISTS `charge` (
+  `charge_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(25) NOT NULL,
+  `cost` int(25) NOT NULL,
+  PRIMARY KEY (`charge_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `charge`
+--
+
+INSERT INTO `charge` (`charge_id`, `name`, `cost`) VALUES
+(1, 'Facility Charge', 5),
+(2, 'Processing Fee', 2),
+(3, 'Gov Tax (6%)', 6);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `reservation`
 --
 
 CREATE TABLE IF NOT EXISTS `reservation` (
   `res_id` int(11) NOT NULL AUTO_INCREMENT,
   `vehicle_id` int(11) NOT NULL,
-  `phone` int(11) NOT NULL,
+  `phone` varchar(25) NOT NULL,
   `location` varchar(25) NOT NULL,
   `pickup` date NOT NULL,
   `pickuptime` varchar(25) NOT NULL,
   `dropoff` date NOT NULL,
   `dropofftime` varchar(25) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `status` varchar(25) NOT NULL,
   PRIMARY KEY (`res_id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
@@ -43,7 +66,6 @@ CREATE TABLE IF NOT EXISTS `reservation` (
 --
 -- Dumping data for table `reservation`
 --
-
 
 -- --------------------------------------------------------
 
@@ -72,6 +94,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 -- Dumping data for table `users`
 --
+
+INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `gender`, `username`, `password`, `password2`, `email_address`, `signupdate`, `accounttype`, `verified`, `ic_no`, `li_no`) VALUES
+(1, 'Hau', 'Chung Enn', 'male', 'admin', '87e382e5c88a9718afb3c296127d959f', '87e382e5c88a9718afb3c296127d959f', '111@hotmail.com', '2014-04-25 11:02:44', 'admin', '1', '123456-12-1234', '123456');
 
 -- --------------------------------------------------------
 
