@@ -31,7 +31,38 @@
                 
             </div>
             <!-- /.navbar-header -->
-	
+        	<?php 
+                $status = $this->session->userdata('loggedIn');
+                $user_id = $this->session->userdata('user_id');
+                $username = $this->session->userdata('username');
+                
+                // echo '<pre>';
+                // print_r($this->session->all_userdata());
+                // echo '</pre>';
+
+                if($status) {
+                    $sql = mysql_query("SELECT * FROM users WHERE user_id='$user_id' LIMIT 1");
+                    $count = mysql_num_rows($sql);
+                    if ($count > 1) {
+                        echo "There is no user with that id here.";
+                        exit(); 
+                    }
+                    while($row = mysql_fetch_array($sql))
+                    {
+                        $first_name = $row["first_name"];
+                        $last_name = $row["last_name"];
+                        $username = $row["username"];
+                        $gender = $row["gender"];
+                        $email_address = $row["email_address"];
+                        $signupdate = strftime("%d %b %Y", strtotime($row['signupdate']));
+                        $ic_no = $row["ic_no"];
+                        $li_no = $row["li_no"];
+                        $accounttype = $row["accounttype"];
+                        $verified = $row["verified"];
+                    }
+                } 
+            ?>
+            
             <?php
                 //Set default display picture
                 $user_id = $this->session->userdata("user_id");
@@ -53,8 +84,8 @@
                     	<li>
                     		<center>
                     			<img src="<?php echo $display ?>" class="img-thumbnail" alt ="Profile Picture" width="200" style="margin: 20px;"/>
-	                    		<h3><strong>Nicole Charley</strong></h3>
-	                    		<h4><i>'admin'</i><h4>
+	                    		<h3><strong><?php echo $first_name . " " . $last_name; ?></strong></h3>
+	                    		<h4><i><?php echo "'" . $accounttype . "'"; ?></i><h4>
 	                    			<br>
                     		</center>
                     	</li>
