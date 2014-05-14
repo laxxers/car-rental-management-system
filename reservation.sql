@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `reservation` (
   `res_id` int(11) NOT NULL AUTO_INCREMENT,
   `vehicle_id` int(11) NOT NULL,
-  `phone` varchar(25) NOT NULL,
+  `phone` int(11) NOT NULL,
   `location` varchar(25) NOT NULL,
   `pickup` date NOT NULL,
   `pickuptime` varchar(25) NOT NULL,

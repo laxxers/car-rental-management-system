@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
-	
+
 	public function _remap($method, $params = array())
 	{
 		$session = $this->session->userdata("loggedIn");
@@ -12,62 +12,9 @@ class Admin extends CI_Controller {
 		
 		if($session && $accounttype == 'admin')
 		{
-			if ($method == 'index')
+			if (method_exists($this, $method))
 			{
-				$this->$method();
-			}
-			else if ($method == 'error_pic')
-			{
-				$this->$method();
-			}
-			else if ($method == 'error_pic_edit')
-			{
-				$this->$method();
-			}
-			
-			else if ($method == 'getAll_vehicle')
-			{
-				$this->$method();
-			}
-			else if ($method == 'add_vehicle')
-			{
-				$this->$method();
-			}
-			else if ($method == 'update_vehicle')
-			{
-				$this->$method();
-			}
-			else if ($method == 'delete_vehicle')
-			{
-				$this->$method();
-			}
-			else if ($method == 'package')
-			{
-				$this->$method();
-			}
-			else if ($method == 'add_charge')
-			{
-				$this->$method();
-			}
-			else if ($method == 'update_charge')
-			{
-				$this->$method();
-			}
-			else if ($method == 'delete_charge')
-			{
-				$this->$method();
-			}
-			else if ($method == 'schedule')
-			{
-				$this->$method();
-			}
-			else if (method_exists($this, 'schedule_details'))
-			{
-				return call_user_func_array(array($this, 'schedule_details'), $params);
-			}
-			else if (method_exists($this, 'user'))
-			{
-				return call_user_func_array(array($this, 'user'), $params);
+				call_user_func_array(array($this, $method), $params);
 			}
 			else
 			{
