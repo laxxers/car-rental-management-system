@@ -53,7 +53,7 @@
 
     						$this->table->set_heading('ID','Type','Name','Transmission','AC','Capacity','Luggage','Daily');
     						
-    						$query = $this->db->query("SELECT vehicle_id,type,name,transmission,ac,daily,capacity,luggage FROM vehicle LIMIT 5");
+    						$query = $this->db->query("SELECT vehicle_id,type,name,transmission,ac,capacity,luggage,daily FROM vehicle LIMIT 5");
 
     						echo $this->table->generate($query);
     					
@@ -98,12 +98,26 @@
                             </a>
                             <a href="#" class="list-group-item">
                                 Available Vehicles
-                                <span class="pull-right text-muted small"><em>23</em>
+                                <span class="pull-right text-muted small">
+                                    <em>
+                                    <?php
+                                        $q = $this->db->query("SELECT COUNT( vehicle_id ) as count  FROM vehicle") ;
+                                        $tmp = $q->result();
+                                        echo $tmp[0]->count;
+                                    ?>
+                                    </em>
                                 </span>
                             </a>
                             <a href="#" class="list-group-item">
                                 Rented Vehicles
-                                <span class="pull-right text-muted small"><em>45</em>
+                                <span class="pull-right text-muted small">
+                                    <em>
+                                    <?php
+                                        $q = $this->db->query("SELECT COUNT( res_id ) as count  FROM reservation") ;
+                                        $tmp = $q->result();
+                                        echo $tmp[0]->count;
+                                    ?>
+                                </em>
                                 </span>
                             </a>
                         </div>
