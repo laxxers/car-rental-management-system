@@ -290,7 +290,7 @@ class Admin extends CI_Controller {
 	function schedule()
 	{
 		$this->load->view('admin_header');
-		$this->load->view('view_schedule');
+		$this->load->view('view_admin_schedule');
 		$this->load->view('admin_footer');
 	}
 	
@@ -300,7 +300,7 @@ class Admin extends CI_Controller {
 		$data['rows'] = $this->model_admin->schedule_details();
 		
 		$this->load->view('admin_header');
-		$this->load->view('view_schedule_details', $data);
+		$this->load->view('view_admin_schedule_details', $data);
 		$this->load->view('admin_footer');
 	}
 
