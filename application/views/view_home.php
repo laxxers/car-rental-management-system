@@ -63,14 +63,14 @@
             <div class="row">
                 <div class="col-lg-8" id="home-signup">
                     <h2>What We Do</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel pellentesque quam. Ut dictum eu risus nec volutpat. Sed vitae dui lacus. Duis sed bibendum lorem. Morbi tempor elementum justo in tristique. Fusce sit amet lacus sed lacus tincidunt interdum. Curabitur tincidunt dolor nulla, a scelerisque orci tempor a. Duis eu quam bibendum, elementum turpis sit amet, blandit nibh. Sed et rhoncus tellus, sit amet dignissim mauris. Nunc suscipit tortor sed lobortis facilisis. Pellentesque risus metus, iaculis vitae justo nec, imperdiet aliquam libero. Duis tincidunt orci in feugiat scelerisque</p>
+                    <p>Description</p>
                     <p><a class="btn btn-default btn-large" href="<?php echo base_url(); ?>register">Register an account &raquo;</a>
                     </p>
                 </div>
                 <div class="col-lg-4">
                     <h2>Contact Us</h2>
                     <address>
-                        <strong>Twitter, Inc.</strong>
+                        <strong>Company, Inc.</strong>
                         <br>795 Folsom Ave, Suite 600
                         <br>San Francisco, CA 94107
                         <br>
