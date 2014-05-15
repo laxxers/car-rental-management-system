@@ -125,25 +125,25 @@
 					echo '<div class="form-group">';
 						echo form_label('Pick-Up Date', 'pickup', array('class' => 'col-sm-4 control-label'));					
 					echo '<div class="col-sm-8" >';
-						echo form_input(array('name' => 'pickup', 'class' => 'form-control', 'value' => set_value('pickup'), 'required' => 'required', 'readonly'=>'readonly'));
+						echo form_input(array('name' => 'pickup', 'class' => 'form-control', 'value' => $pickup, 'required' => 'required', 'readonly'=>'readonly'));
 					echo '</div></div>';	
 					
 					echo '<div class="form-group">';
 						echo form_label('Time', 'pickuptime', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';
-						echo form_input(array('name' => 'pickuptime', 'class' => 'form-control', 'value' => set_value('pickuptime'), 'required' => 'required', 'readonly'=>'readonly'));
+						echo form_input(array('name' => 'pickuptime', 'class' => 'form-control', 'value' => $pickuptime, 'required' => 'required', 'readonly'=>'readonly'));
 					echo '</div></div>';
 						
 					echo '<div class="form-group">';
 						echo form_label('Drop-Off Date', 'dropoff', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';
-						echo form_input(array('name' => 'dropoff', 'class' => 'form-control', 'value' => set_value('dropoff'), 'required' => 'required', 'readonly'=>'readonly'));
+						echo form_input(array('name' => 'dropoff', 'class' => 'form-control', 'value' => $dropoff, 'required' => 'required', 'readonly'=>'readonly'));
 					echo '</div></div>';
 						
 					echo '<div class="form-group">';
 						echo form_label('Time', 'dropofftime', array('class' => 'col-sm-4 control-label'));
 					echo '<div class="col-sm-8" >';
-						echo form_input(array('name' => 'dropofftime', 'class' => 'form-control', 'value' => set_value('dropofftime'), 'required' => 'required', 'readonly'=>'readonly'));
+						echo form_input(array('name' => 'dropofftime', 'class' => 'form-control', 'value' => $dropofftime, 'required' => 'required', 'readonly'=>'readonly'));
 					echo '</div></div>';
 					
 					echo form_submit('submit', 'Reserve Now', 'class="btn btn-success pull-right"');

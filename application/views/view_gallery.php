@@ -19,7 +19,7 @@
 					<div class="panel-heading"><i class="fa fa-search"></i> Search Filter</div>
 					<div class="panel-body">
 					<?php
-						echo form_open('/gallery', array('id' => 'search', 'class' => 'form', 'method' => 'post' , 'role' => 'form'));
+						echo form_open('/gallery/search', array('id' => 'search', 'class' => 'form', 'method' => 'post' , 'role' => 'form'));
 						//echo form_label('Location', 'location');
 						//echo form_input(array('name' => 'location', 'class' => 'form-control', 'value' => set_value('location'), 'placeholder' => 'Location name or Address, E.g. Kuala Lumpur', 'required' => 'required', 'autofocus' => 'autofocus'));
 						//echo form_checkbox(array('name' => 'return', 'value' => true));

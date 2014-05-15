@@ -80,7 +80,12 @@ class Gallery extends CI_Controller {
 		$endDate = strtotime($this->input->post('dropoff'));
 		
 		$data['days'] =  ($endDate - $startDate) / 86400;
-
+		
+		$data['pickup'] = $this->input->post('pickup');
+		$data['pickuptime'] = $this->input->post('pickuptime');
+		$data['dropoff'] = $this->input->post('dropoff');
+		$data['dropofftime'] = $this->input->post('dropofftime');
+		
 		$this->load->view('header');
 		$this->load->view('view_booking', $data);
 		$this->load->view('footer');
@@ -91,38 +96,35 @@ class Gallery extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('phone', 'Phone Number', 'trim|required|phone');
 		
-		if($_SERVER['REQUEST_METHOD'] === 'POST')
+		if($this->form_validation->run() == FALSE)
 		{
-			if($this->form_validation->run() == FALSE)
+			$this->booking();
+		}
+		else
+		{			
+			$this->load->model('model_gallery');
+			
+			if($query = $this->model_gallery->reserve_vehicle())
 			{
-				$this->booking();
+				$this->load->view('header');
+				$this->load->view('view_success');
+				$this->load->view('footer');
+				
 			}
 			else
-			{			
-				$this->load->model('model_gallery');
-				
-				if($query = $this->model_gallery->reserve_vehicle())
-				{
-					$this->load->view('header');
-					$this->load->view('view_success');
-					$this->load->view('footer');
-					
-				}
-				else
-				{
-					$vehicle_id =  $this->uri->segment(3);
-					$sql = mysql_query("SELECT * FROM reservation WHERE vehicle_id= $vehicle_id");
+			{
+				$vehicle_id =  $this->uri->segment(3);
+				$sql = mysql_query("SELECT * FROM reservation WHERE vehicle_id= $vehicle_id");
 
-					while($row = mysql_fetch_array($sql))
-					{
-						$data['pickup'][] = $row["pickup"];
-						$data['dropoff'][] = $row["dropoff"];
-					}
-					
-					$this->load->view('header');
-					$this->load->view('view_book_crash',$data);		
-					$this->load->view('footer');		
+				while($row = mysql_fetch_array($sql))
+				{
+					$data['pickup'][] = $row["pickup"];
+					$data['dropoff'][] = $row["dropoff"];
 				}
+				
+				$this->load->view('header');
+				$this->load->view('view_book_crash',$data);		
+				$this->load->view('footer');		
 			}
 		}
 	}
