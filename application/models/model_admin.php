@@ -136,7 +136,8 @@ class Model_admin extends CI_Model {
 	function schedule_details(){
 		$pickup =  $this->uri->segment(3);
 		$dropoff =  $this->uri->segment(4);
-		$query = $this->db->query("SELECT * FROM reservation WHERE (pickup = '$pickup' AND dropoff = '$dropoff')");
+		$vehicle_id =  $this->uri->segment(5);
+		$query = $this->db->query("SELECT * FROM reservation WHERE (vehicle_id = '$vehicle_id' AND pickup = '$pickup' AND dropoff = '$dropoff')");
 		if($query->num_rows() > 0) {
 			foreach($query->result() as $row) {
 				$data[] = $row;
