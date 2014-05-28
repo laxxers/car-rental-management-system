@@ -86,15 +86,16 @@
 					echo form_close();
 				?>
 		  	</div>
-
-		  		<?php
-		  			//Set default display picture
+				<?php
+					//Set default display picture
 			        $user_id = $this->session->userdata("user_id");
-			        $path = base_url() . "public/upload/profile/" . $user_id . "/pic1.jpg";
-			        if(!file_exists($path)) {
-			            $display = base_url() . "public/upload/profile/default.jpg";
+			        $path = "http://localhost/public/upload/profile/1/pic1.jpg";
+					
+					if(!file_exists($path)) 
+					{
+						$display = "../public/upload/profile/default.jpg";
 			        } else {
-			            $display = $path;
+						$display = $path;
 			        }
 			    ?>
 
@@ -104,7 +105,6 @@
 				<hr>
 		  		
 				<?php 
-					$user_id = $this->session->userdata('user_id');
 					echo "<img src='" . $display . "' class='img-thumbnail' alt ='Profile Picture' width='250'/>";
 					echo '<br>';
 					echo form_open_multipart('profile/do_upload');

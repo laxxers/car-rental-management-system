@@ -66,9 +66,9 @@
             <?php
                 //Set default display picture
                 $user_id = $this->session->userdata("user_id");
-                $path = base_url() . "public/upload/profile/" . $user_id . "/pic1.jpg";
+                $path = "public/upload/profile/" . $user_id . "/pic1.jpg";
                 if(!file_exists($path)) {
-                    $display = base_url() . "public/upload/profile/default.jpg";
+                    $display = "public/upload/profile/default.jpg";
                 } else {
                     $display = $path;
                 }
