@@ -66,12 +66,13 @@
             <?php
                 //Set default display picture
                 $user_id = $this->session->userdata("user_id");
-                $path = "public/upload/profile/" . $user_id . "/pic1.jpg";
-                if(!file_exists($path)) {
-                    $display = "public/upload/profile/default.jpg";
-                } else {
-                    $display = $path;
-                }
+				
+				if(file_exists('../Share2/public/upload/profile/' . $user_id . '/pic1.jpg')) 
+				{
+					$display = 'http://localhost/Share2/public/upload/profile/' . $user_id . '/pic1.jpg';
+				} else {
+					$display = 'http://localhost/Share2/public/upload/profile/default.jpg';
+				}
             ?>
 			
             <div class="navbar-default navbar-static-side" role="navigation">

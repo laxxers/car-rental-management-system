@@ -89,13 +89,12 @@
 				<?php
 					//Set default display picture
 			        $user_id = $this->session->userdata("user_id");
-			        $path = "http://localhost/public/upload/profile/1/pic1.jpg";
 					
-					if(!file_exists($path)) 
+					if(file_exists('public/upload/profile/' . $user_id . '/pic1.jpg')) 
 					{
-						$display = "../public/upload/profile/default.jpg";
+						$display = '../public/upload/profile/' . $user_id . '/pic1.jpg';
 			        } else {
-						$display = $path;
+						$display = '../public/upload/profile/default.jpg';
 			        }
 			    ?>
 
